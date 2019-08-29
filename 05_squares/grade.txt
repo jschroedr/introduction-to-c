@@ -1,4 +1,4 @@
-Grading at Thu Aug 29 00:52:38 UTC 2019
+Grading at Thu Aug 29 00:54:43 UTC 2019
 Trying to compile your code and link with squares_test.o
 Testing ./squares 1 0 0 1
 Your program produced the wrong output!
