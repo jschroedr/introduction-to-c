@@ -51,8 +51,8 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
   //compute the max of size1 and (y_offset + size2).  Call this h
   int h = size1 + (y_offset + size2);
   //count from 0 to h. Call the number you count with y
-  for(int y = 0; y <= h; y ++){
-    for(int x = 0; x <= w; x++) {
+  for(int y = 0; y < h; y ++){
+    for(int x = 0; x < w; x++) {
       int checkOneStar = starCheck(x, x_offset, y, y_offset, size2);
       int checkTwoStar = starCheck(y, y_offset, x, x_offset, size2);
       int checkOneHash = hashCheck(x, y, size1);
