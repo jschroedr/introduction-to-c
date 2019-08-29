@@ -44,12 +44,20 @@ int hashCheck(int x, int y, int size1){
     }
 }
 
+int getMax(int size1, int offset, int size2){
+  if(size1 > (offset + size2)) {
+    return size1;
+  } else {
+    return (offset + size2);
+  }
+}
+
 
 void squares(int size1, int x_offset, int y_offset, int size2) {
   //compute the max of size1 and (x_offset + size2).  Call this w
-  int w = size1 + (x_offset + size2);
+  int w = getMax(size1, x_offset, size2);
   //compute the max of size1 and (y_offset + size2).  Call this h
-  int h = size1 + (y_offset + size2);
+  int h = getMax(size1, y_offset, size2);
   //count from 0 to h. Call the number you count with y
   for(int y = 0; y < h; y ++){
     for(int x = 0; x < w; x++) {
