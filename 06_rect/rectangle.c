@@ -16,15 +16,75 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
+struct rectangle_t {
+  int x;
+  int y;
+  int width;
+  int height;
 
+};
+typedef struct rectangle_t rectangle;
 
 rectangle canonicalize(rectangle r) {
-  //WRITE THIS FUNCTION
+  if(r.width < 0){
+    r.x = r.x + r.width;
+    r.width = r.width - (r.width * 2);
+  }
+  if(r.height < 0){
+    r.y = r.y + r.height;
+    r.height = r.height - (r.height * 2);
+  }
   return r;
 }
+
+int checkForIntersection(rectangle r1, rectangle r2){
+  int check;
+  int hCheck = 0;
+  int vCheck = 0;
+
+  int minR = min((r1.x + r1.width), (r2.x + r2.width));
+  int maxL = max(r1.x, r2.x);
+  if((minR - maxL) <= 0){
+    hCheck = 1;  // FAIL
+  }
+  int minT = min((r1.y + r1.height), (r2.y + r2.height));
+  int maxB = max(r1.y, r2.y);
+  if((minT - maxB) <= 0){
+    vCheck = 1;
+  }
+
+  if(!hCheck && !vCheck){
+    check = 0;
+  } else if(!hCheck && vCheck){
+    check = 2;  // share horizontal edge
+  } else if(hCheck && !vCheck){
+    check = 3;  // share vertical edge
+  } else {
+    check = 1;  // no overlap
+  }
+  return check;
+}
+
 rectangle intersection(rectangle r1, rectangle r2) {
-  //WRITE THIS FUNCTION
-  return r1;
+  int interCheck = checkForIntersection(r1, r2);
+  rectangle inter;
+  inter.x = max(r1.x, r2.x);
+  inter.y = max(r1.y, r2.y);
+  if(interCheck == 0){
+    inter.width = min(r1.width, r2.width);
+    inter.height = min(r1.height, r2.height);
+  } else if(interCheck == 1){
+    inter.width = 0;  // no such rectangle
+    inter.height = 0;
+  } else if(interCheck == 2){
+    inter.width = min(r1.width, r2.width);
+    inter.height = 0;  // no v overlap
+  } else {
+    // interCheck == 3
+    inter.width = 0;
+    inter.height = min(r1.height, r2.height);
+  }
+  return inter;
 }
 
 //You should not need to modify any code below this line
