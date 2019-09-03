@@ -66,6 +66,9 @@ int checkForIntersection(rectangle r1, rectangle r2){
 }
 
 rectangle intersection(rectangle r1, rectangle r2) {
+  r1 = canonicalize(r1);
+  r2 = canonicalize(r2);
+
   int interCheck = checkForIntersection(r1, r2);
   rectangle inter;
   inter.x = max(r1.x, r2.x);
