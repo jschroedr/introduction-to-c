@@ -27,43 +27,57 @@ typedef struct rectangle_t rectangle;
 
 rectangle canonicalize(rectangle r) {
   if(r.width < 0){
-    r.x = r.x + r.width;
-    r.width = r.width - (r.width * 2);
+    r.x = r.x + r.width;  // add a negative
+    r.width = r.width - (r.width * 2);  // subtract a negative
   }
   if(r.height < 0){
-    r.y = r.y + r.height;
-    r.height = r.height - (r.height * 2);
+    r.y = r.y + r.height;  // add a negative
+    r.height = r.height - (r.height * 2);  // subtract a negative
   }
   return r;
 }
 
 int checkForIntersection(rectangle r1, rectangle r2){
-  int check;
-  int hCheck = 0;
-  int vCheck = 0;
-
   int minR = min((r1.x + r1.width), (r2.x + r2.width));
   int maxL = max(r1.x, r2.x);
-  if((minR - maxL) <= 0){
-    hCheck = 1;  // FAIL
+  if((minR - maxL) < 0){
+    // if the min r - max l is negative, there is no overlap, it does not matter
+    return 1;  // FAIL
+  } else if ((minR - maxL) == 0) {
+    return 2; // share a vertical border
   }
+  // if there is at least a shared edge, check for vertical overlap
   int minT = min((r1.y + r1.height), (r2.y + r2.height));
   int maxB = max(r1.y, r2.y);
-  if((minT - maxB) <= 0){
-    vCheck = 1;
+  if((minT - maxB) < 0){
+    // shared edge but no vertical overlap
+    return 1; // FAIL
+  } else if ((minT - maxB) == 0) {
+      return 3;  // share a horizontal border
+    }
+  return 0;
   }
 
-  if(!hCheck && !vCheck){
-    check = 0;
-  } else if(!hCheck && vCheck){
-    check = 2;  // share horizontal edge
-  } else if(hCheck && !vCheck){
-    check = 3;  // share vertical edge
-  } else {
-    check = 1;  // no overlap
-  }
-  return check;
+// take the minimum right edge minus the maximum left edge
+int getWidth(rectangle r1, rectangle r2) {
+  int r1RightEdge = r1.x + r1.width;
+  int r2RightEdge = r2.x + r2.width;
+  int minRightEdge = min(r1RightEdge, r2RightEdge);
+
+  int maxLeftEdge = max(r1.x, r2.x);
+  return minRightEdge - maxLeftEdge;
 }
+
+// take the minimum top edge minus the maximum bottom edge 
+int getHeight(rectangle r1, rectangle r2) {
+  int r1TopEdge = r1.y + r1.height;
+  int r2TopEdge = r2.y + r2.height;
+  int minTopEdge = min(r1TopEdge, r2TopEdge);
+
+  int maxBottomEdge = max(r1.y, r2.y);
+  return minTopEdge - maxBottomEdge;
+}
+
 
 rectangle intersection(rectangle r1, rectangle r2) {
   r1 = canonicalize(r1);
@@ -74,8 +88,8 @@ rectangle intersection(rectangle r1, rectangle r2) {
   inter.x = max(r1.x, r2.x);
   inter.y = max(r1.y, r2.y);
   if(interCheck == 0){
-    inter.width = min(r1.width, r2.width);
-    inter.height = min(r1.height, r2.height);
+    inter.width = getWidth(r1, r2);
+    inter.height = getHeight(r1, r2);
   } else if(interCheck == 1){
     inter.width = 0;  // no such rectangle
     inter.height = 0;
