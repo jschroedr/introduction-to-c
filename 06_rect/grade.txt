@@ -1,29 +1,13 @@
-Grading at Fri Sep  6 01:19:41 UTC 2019
+Grading at Fri Sep  6 01:23:42 UTC 2019
 Attempting to compile rectangle.c
 Tring to run rectangle
-Line_16_did_not_match
-Line_19_did_not_match
-Your file did not match the expected ouput
-Your output did not match what we expected. Here is what you printed
-r1 is (2,3) to (7,9)
-r2 is (-1,-2) to (4,5)
-r3 is (-2,-3) to (5,7)
-r4 is (-4,7) to (0,9)
-intersection(r1,r1): (2,3) to (7,9)
-intersection(r1,r2): (2,3) to (4,5)
-intersection(r1,r3): (2,3) to (5,7)
-intersection(r1,r4): <empty>
-intersection(r2,r1): (2,3) to (4,5)
-intersection(r2,r2): (-1,-2) to (4,5)
-intersection(r2,r3): (-1,-2) to (4,5)
-intersection(r2,r4): <empty>
-intersection(r3,r1): (2,3) to (5,7)
-intersection(r3,r2): (-1,-2) to (4,5)
-intersection(r3,r3): (-2,-3) to (5,7)
-intersection(r3,r4): (-2,7) to (-2,9)
-intersection(r4,r1): <empty>
-intersection(r4,r2): <empty>
-intersection(r4,r3): (-2,7) to (-2,9)
-intersection(r4,r4): (-4,7) to (0,9)
+Your file matched the expected output
+removing your main() and replacing it with out own to run more tests...
+#################################################
+testcase1:
+testcase1 passed
+#################################################
+testcase2:
+testcase2 passed
 
-Overall Grade: F
+Overall Grade: A
