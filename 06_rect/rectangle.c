@@ -44,7 +44,7 @@ int checkForIntersection(rectangle r1, rectangle r2){
     // if the min r - max l is negative, there is no overlap, it does not matter
     return 1;  // FAIL
   } else if ((minR - maxL) == 0) {
-    return 2; // share a vertical border
+    return 3; // share a vertical border
   }
   // if there is at least a shared edge, check for vertical overlap
   int minT = min((r1.y + r1.height), (r2.y + r2.height));
@@ -53,7 +53,7 @@ int checkForIntersection(rectangle r1, rectangle r2){
     // shared edge but no vertical overlap
     return 1; // FAIL
   } else if ((minT - maxB) == 0) {
-      return 3;  // share a horizontal border
+      return 2;  // share a horizontal border
     }
   return 0;
   }
@@ -94,12 +94,12 @@ rectangle intersection(rectangle r1, rectangle r2) {
     inter.width = 0;  // no such rectangle
     inter.height = 0;
   } else if(interCheck == 2){
-    inter.width = min(r1.width, r2.width);
+    inter.width = getWidth(r1, r2);
     inter.height = 0;  // no v overlap
   } else {
     // interCheck == 3
     inter.width = 0;
-    inter.height = min(r1.height, r2.height);
+    inter.height = getHeight(r1, r2);
   }
   return inter;
 }
