@@ -58,7 +58,7 @@
     think about how you can abstract that part out into a function,
     and re-use it, rather than re-writing it]  
 
- 4. Write a main function which computes the retirement assuming
+4. Write a main function which computes the retirement assuming
      Working:
      --------
       Months: 489

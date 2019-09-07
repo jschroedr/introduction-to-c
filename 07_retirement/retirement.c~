@@ -1,0 +1,54 @@
+// header files here
+#include <stdio.h>
+#include <stdlib.h>
+
+// _retire_info
+struct _retire_info {
+  int months;  // number of months it is applicable to
+  double contribution; // how many dollars are contributed/spent per month
+  double rate_of_return;  // rate of returns after inflation
+};
+
+typedef struct _retire_info retire_info;  // did I typedef that right?
+
+
+double calculateAccountBalance(double balance, double rate_of_return, double contribution) {
+  // calculate balance increase from returns
+  double increaseFromReturns;
+  increaseFromReturns = (balance * rate_of_return);
+  // add to current balance
+  balance = (balance + increaseFromReturns);
+  // add monthly contribution
+  balance = (balance + contribution);
+  return balance;
+}
+
+
+// main function
+// stageAge: in months
+// initial: initial savings
+// working: info about working
+// retired: info about retired
+double retirementFlow(int monthsWorking, double balance, double rateOfReturn, double contribution, int startAgeMonths){
+  int startAgeYears;
+  startAgeYears = (startAgeMonths / 12);
+  for(int i = 0; i < monthsWorking; i ++){
+    balance = calculateAccountBalance(balance, rateOfReturn, contribution);
+    printf("Age %3d month %2d you have $%.2lf\n", startAgeYears, startAgeMonths, balance);
+  }
+  return balance;
+}
+
+
+
+void retirement(int startAge, double initial, retire_info working, retire_info retired) {
+  double workingBalance = retirementFlow(working.months, initial, working.rate_of_return, working.contribution, startAge);
+  retirementFlow(retire_info.months, workingBalance, retire_info.rate_of_return, retire_info.contribution, startAge);
+  
+}
+
+
+void main() {
+  // create structs here
+
+}
