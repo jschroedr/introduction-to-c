@@ -9,7 +9,7 @@ struct _retire_info {
   double rate_of_return;  // rate of returns after inflation
 };
 
-typedef struct _retire_info retire_info;  // did I typedef that right?
+typedef struct _retire_info retire_info;
 
 
 double calculateAccountBalance(double balance, retire_info retirement) {
