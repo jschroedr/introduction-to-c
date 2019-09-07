@@ -27,7 +27,7 @@ double calculateAccountBalance(double balance, retire_info retirement) {
 double retirementFlow(int startAgeMonths, double balance, retire_info retirement) {
   int endMonths = (startAgeMonths + retirement.months);
   for (int i = startAgeMonths; i < endMonths; i ++) {
-    printf("Age %3d month %2d you have $%.2f\n", (i / 12), ((i % 12) + 1), balance);
+    printf("Age %3d month %2d you have $%.2f\n", (i / 12), (i % 12), balance);
     balance = calculateAccountBalance(balance, retirement);
 
   }
