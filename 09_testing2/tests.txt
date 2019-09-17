@@ -1,0 +1,17 @@
+aaaaA aaaaa
+a aaa aaaaa
+aaaa aaaaa
+aaaaa aaaa
+ss ss
+aaa aaa
+ a
+aaaaa aaaaa
+a,a
+aaaaaa aaaaaaa
+abcde abcde
+abcda abcda
+{}{}{ {}{}}
+x*xxx x**xx
+if(x) {exit;}
+123.43 123.43
+
