@@ -151,6 +151,7 @@ card_t card_from_letters(char value_let, char suit_let) {
       temp.suit = -1; // INVALID
       break;
     }
+  print_card(temp);
   assert_card_valid(temp);
   return temp;
 }
