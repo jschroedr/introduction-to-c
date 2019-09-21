@@ -110,29 +110,23 @@ card_t card_from_letters(char value_let, char suit_let) {
   // if the values passed in are invalid
   // use assert() or print an error message and exit(EXIT_FAILURE)
   card_t temp;
-  // turn value_let into a number
-  if (value_let <= 57) {  // value_let is a number
-    temp.value = value_let - 48;
-  } else {
-    switch (value_let)
-      {
-      case 74:
+  switch (value_let)
+    {
+    case 74:
 	temp.value = VALUE_JACK;
 	break;
-      case 81:
+    case 81:
 	temp.value = VALUE_QUEEN;
 	break;
-      case 75:
+    case 75:
 	temp.value = VALUE_KING;
 	break;
-      case 65:
+    case 65:
 	temp.value = VALUE_ACE;
 	break;
-      default:
-	temp.value = -1;  // INVALID
+    default:
+      temp.value = value_let - 48;
       }
-  }
-  assert(temp.value != -1);
   // get the int value from the letter for suit
   switch(suit_let)
     {
