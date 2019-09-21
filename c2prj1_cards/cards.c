@@ -132,16 +132,16 @@ card_t card_from_letters(char value_let, char suit_let) {
   switch(suit_let)
     {
     case 115:
-      temp.suit = 0;  // SPADES
+      temp.suit = SPADES;  // SPADES
       break;
     case 104:
-      temp.suit = 1; // HEARTS
+      temp.suit = HEARTS; // HEARTS
       break;
     case 100:
-      temp.suit = 2; // DIAMONDS
+      temp.suit = DIAMONDS; // DIAMONDS
       break;
     case 99:
-      temp.suit = 3; // CLUBS
+      temp.suit = CLUBS; // CLUBS
       break;
     default:
       temp.suit = -1; // INVALID
