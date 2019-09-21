@@ -127,6 +127,8 @@ card_t card_from_letters(char value_let, char suit_let) {
     default:
       temp.value = value_let - 48;
       }
+  assert(temp.value <= 14);
+  assert(temp.value >= 1);
   // get the int value from the letter for suit
   switch(suit_let)
     {
