@@ -1,22 +1,26 @@
-Grading at Sat Sep 21 17:13:12 UTC 2019
+Grading at Sat Sep 21 17:14:25 UTC 2019
 Compiling cards.c
 cards.c: In function ‘print_card’:
-cards.c:104:10: error: multi-character character constant [-Werror=multichar]
-   printf('%c', value); 
-          ^
 cards.c:104:10: error: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Werror=int-conversion]
-In file included from cards.c:1:0:
-/usr/include/stdio.h:362:12: note: expected ‘const char * restrict’ but argument is of type ‘int’
- extern int printf (const char *__restrict __format, ...);
-            ^
-cards.c:106:10: error: multi-character character constant [-Werror=multichar]
-   printf('%c', suit);
+   printf(value); 
           ^
-cards.c:106:10: error: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Werror=int-conversion]
 In file included from cards.c:1:0:
-/usr/include/stdio.h:362:12: note: expected ‘const char * restrict’ but argument is of type ‘int’
+/usr/include/stdio.h:362:12: note: expected ‘const char * restrict’ but argument is of type ‘char’
  extern int printf (const char *__restrict __format, ...);
             ^
+cards.c:104:3: error: format not a string literal and no format arguments [-Werror=format-security]
+   printf(value); 
+   ^
+cards.c:106:10: error: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Werror=int-conversion]
+   printf(suit);
+          ^
+In file included from cards.c:1:0:
+/usr/include/stdio.h:362:12: note: expected ‘const char * restrict’ but argument is of type ‘char’
+ extern int printf (const char *__restrict __format, ...);
+            ^
+cards.c:106:3: error: format not a string literal and no format arguments [-Werror=format-security]
+   printf(suit);
+   ^
 cc1: all warnings being treated as errors
 Could not compile your card.c!
 
