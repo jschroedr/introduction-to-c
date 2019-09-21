@@ -100,10 +100,10 @@ void print_card(card_t c) {
   // print the value first, then the suit
   // As = Ace of Spades
   // NOTE: do note print any spaces or newlines after the card's text
-  char value = value_letter(c);
-  printf(value); 
-  char suit = suit_letter(c);
-  printf(suit);
+  int value = value_letter(c);
+  printf("%c", value); 
+  int suit = suit_letter(c);
+  printf("%c", suit);
 }
 
 card_t card_from_letters(char value_let, char suit_let) {
