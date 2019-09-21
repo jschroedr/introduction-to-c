@@ -132,6 +132,7 @@ card_t card_from_letters(char value_let, char suit_let) {
 	temp.value = -1;  // INVALID
       }
   }
+  assert(temp.value != -1);
   // get the int value from the letter for suit
   switch(suit_let)
     {
@@ -151,7 +152,6 @@ card_t card_from_letters(char value_let, char suit_let) {
       temp.suit = -1; // INVALID
       break;
     }
-  print_card(temp);
   assert_card_valid(temp);
   return temp;
 }
