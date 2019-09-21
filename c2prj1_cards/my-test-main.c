@@ -69,10 +69,13 @@ int main(void) {
   card_t testCardFromL = card_from_letters(testValue, testSuit);
   print_card(testCardFromL);
   */
-  unsigned myNum;
-  myNum = 51;
-  card_t testCardFromN = card_from_num(myNum);
-  printf("\n%d", testCardFromN.value);
-  printf("\n%d\n\n", testCardFromN.suit);
-  print_card(testCardFromN);
+  
+  card_t cfl1 = card_from_letters('0', 'c');
+  card_t cfl2 = card_from_letters('0', 'd');
+  card_t cfl3 = card_from_letters('0', 'h');
+  card_t cfl4 = card_from_letters('0', 's');
+  print_card(cfl1);
+  print_card(cfl2);
+  print_card(cfl3);
+  print_card(cfl4);
 }
