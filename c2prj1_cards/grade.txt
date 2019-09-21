@@ -1,10 +1,23 @@
-Grading at Sat Sep 21 17:09:48 UTC 2019
+Grading at Sat Sep 21 17:13:12 UTC 2019
 Compiling cards.c
-Testing card_from_letters
-For card_from_letters('0','c'), I expected 0c but got 0c
-For card_from_letters('0','d'), I expected 0d but got 0d
-For card_from_letters('0','h'), I expected 0h but got 0h
-For card_from_letters('0','s'), I expected 0s but got 0s
-Failed
+cards.c: In function ‘print_card’:
+cards.c:104:10: error: multi-character character constant [-Werror=multichar]
+   printf('%c', value); 
+          ^
+cards.c:104:10: error: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Werror=int-conversion]
+In file included from cards.c:1:0:
+/usr/include/stdio.h:362:12: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ extern int printf (const char *__restrict __format, ...);
+            ^
+cards.c:106:10: error: multi-character character constant [-Werror=multichar]
+   printf('%c', suit);
+          ^
+cards.c:106:10: error: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Werror=int-conversion]
+In file included from cards.c:1:0:
+/usr/include/stdio.h:362:12: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ extern int printf (const char *__restrict __format, ...);
+            ^
+cc1: all warnings being treated as errors
+Could not compile your card.c!
 
 Overall Grade: FAILED
