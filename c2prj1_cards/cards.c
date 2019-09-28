@@ -7,7 +7,7 @@
 void assert_card_valid(card_t c) {
   // assert() to check that the card passd in has valid values
   // between 2 and VALUE_ACE (inclusive)
-  assert((c.value >= 2) || (c.value == 0));  // allow for 10
+  assert(c.value >= 2);  // allow for 10
   assert(c.value <= VALUE_ACE);
   // suit should be between SPADES and CLUBS
   assert(c.suit >= SPADES);
