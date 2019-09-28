@@ -146,6 +146,7 @@ card_t card_from_letters(char value_let, char suit_let) {
       temp.suit = -1; // INVALID
       break;
     }
+  printf("%d", temp.value);
   assert(temp.suit != -1);
   assert_card_valid(temp);
   return temp;
