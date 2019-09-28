@@ -113,7 +113,7 @@ card_t card_from_letters(char value_let, char suit_let) {
   switch (value_let)
     {
     case 48:
-      temp.value = 48;
+      temp.value = 10;
       break;
     case 74:
 	temp.value = VALUE_JACK;
