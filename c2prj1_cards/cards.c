@@ -112,6 +112,9 @@ card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
   switch (value_let)
     {
+    case 48:
+      temp.value = 48;
+      break;
     case 74:
 	temp.value = VALUE_JACK;
 	break;
@@ -146,7 +149,6 @@ card_t card_from_letters(char value_let, char suit_let) {
       temp.suit = -1; // INVALID
       break;
     }
-  printf("%d", temp.value);
   assert(temp.suit != -1);
   assert_card_valid(temp);
   return temp;
