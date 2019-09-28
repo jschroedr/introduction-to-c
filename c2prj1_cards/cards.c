@@ -7,7 +7,7 @@
 void assert_card_valid(card_t c) {
   // assert() to check that the card passd in has valid values
   // between 2 and VALUE_ACE (inclusive)
-  assert((c.value >= 2) || (c.value == 0));  // allow for 10
+  assert(c.value >= 2);  // allow for 10
   assert(c.value <= VALUE_ACE);
   // suit should be between SPADES and CLUBS
   assert(c.suit >= SPADES);
@@ -102,7 +102,7 @@ void print_card(card_t c) {
   // NOTE: do note print any spaces or newlines after the card's text
   int value = value_letter(c);
   int suit = suit_letter(c);
-  printf("%c%c",  suit, value);
+  printf("%c%c",  value, suit);
 }
 
 card_t card_from_letters(char value_let, char suit_let) {
