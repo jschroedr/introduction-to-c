@@ -1,10 +1,6 @@
-Grading at Sat Sep 21 17:32:17 UTC 2019
+Grading at Sat Sep 28 13:41:28 UTC 2019
 Compiling cards.c
 Testing card_from_letters
-For card_from_letters('0','c'), I expected 0c but got 0c
-For card_from_letters('0','d'), I expected 0d but got 0d
-For card_from_letters('0','h'), I expected 0h but got 0h
-For card_from_letters('0','s'), I expected 0s but got 0s
 Failed
 
 Overall Grade: FAILED
