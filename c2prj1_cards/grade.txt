@@ -1,10 +1,6 @@
-Grading at Sat Sep 28 13:46:27 UTC 2019
+Grading at Sat Sep 28 13:47:59 UTC 2019
 Compiling cards.c
 Testing card_from_letters
-0For card_from_letters('0','c'), I expected 0c but got 0c
-0For card_from_letters('0','d'), I expected 0d but got 0d
-0For card_from_letters('0','h'), I expected 0h but got 0h
-0For card_from_letters('0','s'), I expected 0s but got 0s
-2222333344445555666677778888999914141414111111111313131312121212Failed
+Failed
 
 Overall Grade: FAILED
