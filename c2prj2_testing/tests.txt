@@ -24,4 +24,4 @@ Kh Kd Ks Kh Qh 5h 3c; Kh Kd Ks Kh Jh 5h 3c
 Qh 5h 3c Kh Kd Ks Kh; Jh 5h 3c Kh Kd Ks Kh
 7h Kd Qd Jd 0d 9c 9d; Kd Qd Jd 0d 9d 9c 7h
 Kh Qh Jh 0h 9h 3c 2c; Kh Qh Jh 0h 3c 5h 9d
-Ah Ah Kh Kh Jh 8c 8h; Ah Ah 1h Qh Qh Kh Kc
+Ah Qh Kh Jh 0h 9c 8h; Ah Qh Kh Jh 0h 1h 8c
