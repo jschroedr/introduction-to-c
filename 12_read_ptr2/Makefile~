@@ -1,0 +1,2 @@
+Program: test.c
+	Gcc -Wall -Werror -fsanitize=address test.c -o test
