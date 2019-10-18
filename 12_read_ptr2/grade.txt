@@ -1,0 +1,11 @@
+Grading at Fri Oct 18 01:13:37 UTC 2019
+Attempting to compile test.c
+gcc -Wall -Werror test.c -o test
+compiled
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Your file did not match the expected ouput
+Your output did not match what we expected.
+
+Overall Grade: FAILED
