@@ -3,6 +3,7 @@
 #include <string.h>
 
 void reverse(char * str) {
+  if(str != NULL){
   // find the length of the provided string
   int fullLength = strlen(str);
   // create the char array for holding reverse values
@@ -16,6 +17,7 @@ void reverse(char * str) {
   reverseChars[fullLength] = '\0';
   strncpy(str, reverseChars, fullLength);
   // void return - input string is now modified
+  }
 }
 
 int main(void) {
