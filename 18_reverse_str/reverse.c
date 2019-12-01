@@ -3,7 +3,19 @@
 #include <string.h>
 
 void reverse(char * str) {
-  //WRITE ME!
+  // find the length of the provided string
+  int fullLength = strlen(str);
+  // create the char array for holding reverse values
+  char reverseChars[fullLength];
+  // create the reverse char array in the function stack for reference
+  int reverseIndex = fullLength - 1;
+  for(int i = 0; i < fullLength; i ++) {
+    reverseChars[i] = str[reverseIndex];
+    reverseIndex --;
+  }
+  reverseChars[fullLength] = '\0';
+  strncpy(str, reverseChars, fullLength);
+  // void return - input string is now modified
 }
 
 int main(void) {
