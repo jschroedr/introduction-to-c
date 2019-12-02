@@ -14,6 +14,24 @@ int getNthBit(uint32_t number, int bit) {
   return (number & (1<<bit)) != 0;
 }
 
+/**
+ * checkBitsRequired
+ * ======================================================
+ * Each num should have 32 places in bits. 
+ * 
+ * Given this information, ensure the proper number of 
+ * bits have been provisioned.
+ */
+int checkBitsRequired(int totalBits, int nNums, int nBits) {
+  int bitsRequired = (nNums * totalBits);
+  if(nBits >= bitsRequired) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+
 /*
  *
  * This function takes in two arrays: nums (of length nNums), and
@@ -36,7 +54,37 @@ int getNthBit(uint32_t number, int bit) {
  *   be bit 30 of nums[0], and so on.
  */
 void numToBits(uint32_t * nums, int nNums, int * bits, int nBits) {
+  // check that there is enough space in bits to hold all the bits of nums
+  // note that each number in nums will result in 32 bits in bits
+  int totalBits = 32;
+  int nBitsValid = checkBitsRequired(totalBits, nNums, nBits);
+  
+  // if this is not true, print a message with the format
+  if(nBitsValid != 1) {
+    printf("Invalid call to numToBits! nBits is %d, nNums is %d\n", nBits, nNums);
+  }
 
+  // put the individual bits of each number into the "bits" array.
+  // order them so that the first 32 bits represent nums[0], next 32 are nums[1] and so on...
+  // bitIndex: tracks which index number in bits we are working on loading
+  int bitIndex = 0;
+  // i tracks which num we are on, based on nNums
+  for(int i = 0; i < nNums; i ++) {
+    // bitCount: tracks which bit of the num (i) we are on, based on totalBits
+    for(int bitCount = (totalBits - 1); bitCount >= 0; bitCount --) {
+      // pull out the target num, and get its Nth bit based on bitCount
+      uint32_t targetNum = nums[i]; 
+      int bitValue = getNthBit(targetNum, bitCount);
+      // set the next value in bits (using bitIndex) to the returned bitValue
+      bits[bitIndex] = bitValue;
+      bitIndex ++;
+    }
+  }
+  
+  // Within each number, the most significant bit (bit 31) should ocme first
+  // and the least significant bit (bit 0) should come last.
+  // bits[0] should be bit 31 of nums[0], bits[1] should be bit 30 of nums[0], and so on
+  
 }
 
 void doTest(uint32_t * nums, int n) {
