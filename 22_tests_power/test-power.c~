@@ -1,0 +1,14 @@
+//includes
+
+void runCheck(unsigned x, unsigned y, unsigned expectedAns) {
+  if (power(x, y) != expectedAns) {
+    printf("%d %d != %d. Returned %d", x, y, expectedAns, result);
+    exit(EXIT_FAILURE);
+  }
+}
+
+int main() {
+
+  
+  exit(EXIT_SUCCESS);
+}
