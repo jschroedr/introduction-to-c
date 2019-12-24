@@ -1,0 +1,2 @@
+program: power.c
+	gcc -Wall -Werror power.c test-power.c -o power
