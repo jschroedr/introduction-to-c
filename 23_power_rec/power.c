@@ -8,7 +8,10 @@ unsigned power(unsigned x, unsigned y) {
     return 1;
   } else if (y == 1) {
     return x;
+  } else if (y == 0) {
+    return 1;
   }
+  
   return x * powerHelper(x, (y - 1));
 }
 
