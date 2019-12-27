@@ -1,0 +1,1059 @@
+Grading at Fri Dec 27 06:07:27 UTC 2019
+Compiling your code
+rm -f test poker cards.o my-test-main.o *~
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o deck.o deck.c
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o eval.o eval.c
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o cards.o cards.c
+gcc -o test-eval -ggdb3 deck.o deck-c4.o eval-c4.o eval.o test-eval.o cards.o input.o future.o
+Testcase 1: Trying hands with nothing
+Valgrind returned an error status
+==2952== Memcheck, a memory error detector
+==2952== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2952== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2952== Command: ./test-eval inp.1.txt
+==2952== Parent PID: 2951
+==2952== 
+==2952== Use of uninitialised value of size 8
+==2952==    at 0x400C02: print_hand (deck.c:19)
+==2952==    by 0x40289F: describe_hand (test-eval.c:74)
+==2952==    by 0x402A7F: main (test-eval.c:116)
+==2952== 
+==2952== Invalid read of size 8
+==2952==    at 0x400C02: print_hand (deck.c:19)
+==2952==    by 0x40289F: describe_hand (test-eval.c:74)
+==2952==    by 0x402A7F: main (test-eval.c:116)
+==2952==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==2952== 
+==2952== 
+==2952== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2952==  Access not within mapped region at address 0x0
+==2952==    at 0x400C02: print_hand (deck.c:19)
+==2952==    by 0x40289F: describe_hand (test-eval.c:74)
+==2952==    by 0x402A7F: main (test-eval.c:116)
+==2952==  If you believe this happened as a result of a stack
+==2952==  overflow in your program's main thread (unlikely but
+==2952==  possible), you can try to increase the size of the
+==2952==  main thread stack using the --main-stacksize= flag.
+==2952==  The main thread stack size used in this run was 8388608.
+==2952== 
+==2952== HEAP SUMMARY:
+==2952==     in use at exit: 864 bytes in 16 blocks
+==2952==   total heap usage: 202 allocs, 186 frees, 12,472 bytes allocated
+==2952== 
+==2952== LEAK SUMMARY:
+==2952==    definitely lost: 0 bytes in 0 blocks
+==2952==    indirectly lost: 0 bytes in 0 blocks
+==2952==      possibly lost: 0 bytes in 0 blocks
+==2952==    still reachable: 864 bytes in 16 blocks
+==2952==         suppressed: 0 bytes in 0 blocks
+==2952== Rerun with --leak-check=full to see details of leaked memory
+==2952== 
+==2952== For counts of detected and suppressed errors, rerun with: -v
+==2952== Use --track-origins=yes to see where uninitialised values come from
+==2952== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+Testcase 2: Trying hands with pairs
+Valgrind returned an error status
+==2957== Memcheck, a memory error detector
+==2957== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2957== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2957== Command: ./test-eval inp.2.txt
+==2957== Parent PID: 2956
+==2957== 
+==2957== Use of uninitialised value of size 8
+==2957==    at 0x400C02: print_hand (deck.c:19)
+==2957==    by 0x40289F: describe_hand (test-eval.c:74)
+==2957==    by 0x402A9F: main (test-eval.c:119)
+==2957== 
+==2957== Invalid read of size 8
+==2957==    at 0x400C02: print_hand (deck.c:19)
+==2957==    by 0x40289F: describe_hand (test-eval.c:74)
+==2957==    by 0x402A9F: main (test-eval.c:119)
+==2957==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==2957== 
+==2957== 
+==2957== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2957==  Access not within mapped region at address 0x0
+==2957==    at 0x400C02: print_hand (deck.c:19)
+==2957==    by 0x40289F: describe_hand (test-eval.c:74)
+==2957==    by 0x402A9F: main (test-eval.c:119)
+==2957==  If you believe this happened as a result of a stack
+==2957==  overflow in your program's main thread (unlikely but
+==2957==  possible), you can try to increase the size of the
+==2957==  main thread stack using the --main-stacksize= flag.
+==2957==  The main thread stack size used in this run was 8388608.
+==2957== 
+==2957== HEAP SUMMARY:
+==2957==     in use at exit: 880 bytes in 17 blocks
+==2957==   total heap usage: 32 allocs, 15 frees, 9,360 bytes allocated
+==2957== 
+==2957== LEAK SUMMARY:
+==2957==    definitely lost: 0 bytes in 0 blocks
+==2957==    indirectly lost: 0 bytes in 0 blocks
+==2957==      possibly lost: 0 bytes in 0 blocks
+==2957==    still reachable: 880 bytes in 17 blocks
+==2957==         suppressed: 0 bytes in 0 blocks
+==2957== Rerun with --leak-check=full to see details of leaked memory
+==2957== 
+==2957== For counts of detected and suppressed errors, rerun with: -v
+==2957== Use --track-origins=yes to see where uninitialised values come from
+==2957== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+Testcase 3: Trying hands with 2 pairs
+ Checking the output 
+Line_88_did_not_match
+Line_96_did_not_match
+Line_108_did_not_match
+Line_116_did_not_match
+Your file did not match the expected ouput
+ - Output did not match, testcase failed
+Hand 1:								Hand 1:
+--------							--------
+Ac As Kc Kh 4d 							Ac As Kc Kh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ac As Kc Kh 4d 			 - 5 cards used for hand: Ac As Kc Kh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah Kd Ks 3h 							Ad Ah Kd Ks 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ad Ah Kd Ks 3h 			 - 5 cards used for hand: Ad Ah Kd Ks 3h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ac As Kc Kh 4d 							Ac As Kc Kh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ac As Kc Kh 4d 			 - 5 cards used for hand: Ac As Kc Kh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah Qd Qs 3h 							Ad Ah Qd Qs 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ad Ah Qd Qs 3h 			 - 5 cards used for hand: Ad Ah Qd Qs 3h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kc Ks Qc Qh 4d 							Kc Ks Qc Qh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value K)	 - The most of a kind is 2 of a kind (at index 0 / value K)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Kc Ks Qc Qh 4d 			 - 5 cards used for hand: Kc Ks Qc Qh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah Jd Js 3h 							Ad Ah Jd Js 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value J)				 - Secondary pair at index 2 (value J)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ad Ah Jd Js 3h 			 - 5 cards used for hand: Ad Ah Jd Js 3h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kc Ks Qc Qh 4d 							Kc Ks Qc Qh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value K)	 - The most of a kind is 2 of a kind (at index 0 / value K)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Kc Ks Qc Qh 4d 			 - 5 cards used for hand: Kc Ks Qc Qh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah Qd Qs 3h 							Ad Ah Qd Qs 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ad Ah Qd Qs 3h 			 - 5 cards used for hand: Ad Ah Qd Qs 3h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Js 7c 7h 4s 3d 3h 						Js 7c 7h 4s 3d 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 1 / value 7)	 - The most of a kind is 2 of a kind (at index 1 / value 7)
+ - Secondary pair at index 4 (value 3)				 - Secondary pair at index 4 (value 3)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: 7c 7h 3d 3h Js 		      |	 - 5 cards used for hand: 7c 3d 3d 3h Js 
+Hand 2:								Hand 2:
+--------							--------
+Qs 7d 7s 5c 2d 2h 						Qs 7d 7s 5c 2d 2h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 1 / value 7)	 - The most of a kind is 2 of a kind (at index 1 / value 7)
+ - Secondary pair at index 4 (value 2)				 - Secondary pair at index 4 (value 2)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: 7d 7s 2d 2h Qs 		      |	 - 5 cards used for hand: 7d 2d 2d 2h Qs 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Js 7c 7h 4s 3d 3h 						Js 7c 7h 4s 3d 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 1 / value 7)	 - The most of a kind is 2 of a kind (at index 1 / value 7)
+ - Secondary pair at index 4 (value 3)				 - Secondary pair at index 4 (value 3)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: 7c 7h 3d 3h Js 		      |	 - 5 cards used for hand: 7c 3d 3d 3h Js 
+Hand 2:								Hand 2:
+--------							--------
+Qs 8d 8s 5c 2d 2h 						Qs 8d 8s 5c 2d 2h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 1 / value 8)	 - The most of a kind is 2 of a kind (at index 1 / value 8)
+ - Secondary pair at index 4 (value 2)				 - Secondary pair at index 4 (value 2)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: 8d 8s 2d 2h Qs 		      |	 - 5 cards used for hand: 8d 2d 2d 2h Qs 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Jc Js 9d 5c 5s 4h 						Jc Js 9d 5c 5s 4h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 9d 			 - 5 cards used for hand: Jc Js 5c 5s 9d 
+Hand 2:								Hand 2:
+--------							--------
+Jc Js 9d 4c 4s 3h 						Jc Js 9d 4c 4s 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 4)				 - Secondary pair at index 3 (value 4)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 4c 4s 9d 			 - 5 cards used for hand: Jc Js 4c 4s 9d 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Jc Js 9d 5c 5s 4h 						Jc Js 9d 5c 5s 4h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 9d 			 - 5 cards used for hand: Jc Js 5c 5s 9d 
+Hand 2:								Hand 2:
+--------							--------
+Qc Qs 9d 5c 5s 3h 						Qc Qs 9d 5c 5s 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value Q)	 - The most of a kind is 2 of a kind (at index 0 / value Q)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Qc Qs 5c 5s 9d 			 - 5 cards used for hand: Qc Qs 5c 5s 9d 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Jc Js 9d 5c 5s 4h 						Jc Js 9d 5c 5s 4h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 9d 			 - 5 cards used for hand: Jc Js 5c 5s 9d 
+Hand 2:								Hand 2:
+--------							--------
+Jc Js 8d 5c 5s 3h 						Jc Js 8d 5c 5s 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 8d 			 - 5 cards used for hand: Jc Js 5c 5s 8d 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ac As Kc Kh 4d 							Ac As Kc Kh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ac As Kc Kh 4d 			 - 5 cards used for hand: Ac As Kc Kh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Jc Js 8d 5c 5s 							Jc Js 8d 5c 5s 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR				 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 8d 			 - 5 cards used for hand: Jc Js 5c 5s 8d 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Testcase 4: Trying hands with 3 of a kind
+Valgrind returned an error status
+==2975== Memcheck, a memory error detector
+==2975== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2975== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2975== Command: ./test-eval inp.4.txt
+==2975== Parent PID: 2974
+==2975== 
+==2975== Use of uninitialised value of size 8
+==2975==    at 0x400C02: print_hand (deck.c:19)
+==2975==    by 0x40289F: describe_hand (test-eval.c:74)
+==2975==    by 0x402A7F: main (test-eval.c:116)
+==2975== 
+==2975== Invalid read of size 8
+==2975==    at 0x400C02: print_hand (deck.c:19)
+==2975==    by 0x40289F: describe_hand (test-eval.c:74)
+==2975==    by 0x402A7F: main (test-eval.c:116)
+==2975==  Address 0x400001102 is not stack'd, malloc'd or (recently) free'd
+==2975== 
+==2975== 
+==2975== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2975==  Access not within mapped region at address 0x400001102
+==2975==    at 0x400C02: print_hand (deck.c:19)
+==2975==    by 0x40289F: describe_hand (test-eval.c:74)
+==2975==    by 0x402A7F: main (test-eval.c:116)
+==2975==  If you believe this happened as a result of a stack
+==2975==  overflow in your program's main thread (unlikely but
+==2975==  possible), you can try to increase the size of the
+==2975==  main thread stack using the --main-stacksize= flag.
+==2975==  The main thread stack size used in this run was 8388608.
+==2975== 
+==2975== HEAP SUMMARY:
+==2975==     in use at exit: 896 bytes in 18 blocks
+==2975==   total heap usage: 264 allocs, 246 frees, 13,664 bytes allocated
+==2975== 
+==2975== LEAK SUMMARY:
+==2975==    definitely lost: 0 bytes in 0 blocks
+==2975==    indirectly lost: 0 bytes in 0 blocks
+==2975==      possibly lost: 0 bytes in 0 blocks
+==2975==    still reachable: 896 bytes in 18 blocks
+==2975==         suppressed: 0 bytes in 0 blocks
+==2975== Rerun with --leak-check=full to see details of leaked memory
+==2975== 
+==2975== For counts of detected and suppressed errors, rerun with: -v
+==2975== Use --track-origins=yes to see where uninitialised values come from
+==2975== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+Testcase 5: Trying hands with straights
+Valgrind returned an error status
+==2980== Memcheck, a memory error detector
+==2980== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2980== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2980== Command: ./test-eval inp.5.txt
+==2980== Parent PID: 2979
+==2980== 
+==2980== Use of uninitialised value of size 8
+==2980==    at 0x400C02: print_hand (deck.c:19)
+==2980==    by 0x40289F: describe_hand (test-eval.c:74)
+==2980==    by 0x402A9F: main (test-eval.c:119)
+==2980== 
+==2980== Invalid read of size 8
+==2980==    at 0x400C02: print_hand (deck.c:19)
+==2980==    by 0x40289F: describe_hand (test-eval.c:74)
+==2980==    by 0x402A9F: main (test-eval.c:119)
+==2980==  Address 0x380512a0 is in the Text segment of /usr/lib/valgrind/memcheck-amd64-linux
+==2980==    at 0x380512A0: ??? (in /usr/lib/valgrind/memcheck-amd64-linux)
+==2980== 
+==2980== 
+==2980== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2980==  Access not within mapped region at address 0x0
+==2980==    at 0x400C02: print_hand (deck.c:19)
+==2980==    by 0x40289F: describe_hand (test-eval.c:74)
+==2980==    by 0x402A9F: main (test-eval.c:119)
+==2980==  If you believe this happened as a result of a stack
+==2980==  overflow in your program's main thread (unlikely but
+==2980==  possible), you can try to increase the size of the
+==2980==  main thread stack using the --main-stacksize= flag.
+==2980==  The main thread stack size used in this run was 8388608.
+==2980== 
+==2980== HEAP SUMMARY:
+==2980==     in use at exit: 960 bytes in 22 blocks
+==2980==   total heap usage: 142 allocs, 120 frees, 11,376 bytes allocated
+==2980== 
+==2980== LEAK SUMMARY:
+==2980==    definitely lost: 0 bytes in 0 blocks
+==2980==    indirectly lost: 0 bytes in 0 blocks
+==2980==      possibly lost: 0 bytes in 0 blocks
+==2980==    still reachable: 960 bytes in 22 blocks
+==2980==         suppressed: 0 bytes in 0 blocks
+==2980== Rerun with --leak-check=full to see details of leaked memory
+==2980== 
+==2980== For counts of detected and suppressed errors, rerun with: -v
+==2980== Use --track-origins=yes to see where uninitialised values come from
+==2980== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+Testcase 6: Trying hands with flushes
+ Checking the output 
+Line_26_did_not_match
+Line_29_did_not_match
+Line_30_did_not_match
+Line_46_did_not_match
+Line_49_did_not_match
+Line_50_did_not_match
+Line_54_did_not_match
+Line_57_did_not_match
+Line_58_did_not_match
+Line_61_did_not_match
+Line_74_did_not_match
+Line_77_did_not_match
+Line_78_did_not_match
+Line_81_did_not_match
+Line_86_did_not_match
+Line_89_did_not_match
+Line_90_did_not_match
+Line_94_did_not_match
+Line_97_did_not_match
+Line_98_did_not_match
+Line_101_did_not_match
+Line_186_did_not_match
+Line_189_did_not_match
+Line_190_did_not_match
+Line_194_did_not_match
+Line_197_did_not_match
+Line_198_did_not_match
+Line_206_did_not_match
+Line_209_did_not_match
+Line_210_did_not_match
+Line_214_did_not_match
+Line_217_did_not_match
+Line_218_did_not_match
+Line_226_did_not_match
+Line_229_did_not_match
+Line_230_did_not_match
+Line_234_did_not_match
+Line_237_did_not_match
+Line_238_did_not_match
+Line_246_did_not_match
+Line_249_did_not_match
+Line_250_did_not_match
+Line_254_did_not_match
+Line_257_did_not_match
+Line_258_did_not_match
+Line_266_did_not_match
+Line_269_did_not_match
+Line_270_did_not_match
+Line_274_did_not_match
+Line_277_did_not_match
+Line_278_did_not_match
+Line_281_did_not_match
+Line_286_did_not_match
+Line_289_did_not_match
+Line_290_did_not_match
+Line_294_did_not_match
+Line_297_did_not_match
+Line_298_did_not_match
+Line_301_did_not_match
+Your file did not match the expected ouput
+ - Output did not match, testcase failed
+Hand 1:								Hand 1:
+--------							--------
+As Kc Qs Js 0s 2s 						As Kc Qs Js 0s 2s 
+ - Flush in suit s						 - Flush in suit s
+ - Straight at index 0						 - Straight at index 0
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: As Qs Js 0s 2s 			 - 5 cards used for hand: As Qs Js 0s 2s 
+Hand 2:								Hand 2:
+--------							--------
+As Ks Qc Js 0s 3s 						As Ks Qc Js 0s 3s 
+ - Flush in suit s						 - Flush in suit s
+ - Straight at index 0						 - Straight at index 0
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: As Ks Js 0s 3s 			 - 5 cards used for hand: As Ks Js 0s 3s 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kh Jh 9h 8s 4h 2h 						Kh Jh 9h 8s 4h 2h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value K)	 - The most of a kind is 1 of a kind (at index 0 / value K)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Kh Jh 9h 4h 2h 		      |	 - 5 cards used for hand: Jh 9h 8s 4h 2h 
+Hand 2:								Hand 2:
+--------							--------
+Qd 9d 7d 6c 5d 2d 						Qd 9d 7d 6c 5d 2d 
+ - Flush in suit d						 - Flush in suit d
+ - The most of a kind is 1 of a kind (at index 0 / value Q)	 - The most of a kind is 1 of a kind (at index 0 / value Q)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: Qd 9d 7d 5d 2d 			 - 5 cards used for hand: Qd 9d 7d 5d 2d 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kc Jc 9c 7h 4c 3c 2h 						Kc Jc 9c 7h 4c 3c 2h 
+ - Flush in suit c					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value K)	 - The most of a kind is 1 of a kind (at index 0 / value K)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Kc Jc 9c 4c 3c 		      |	 - 5 cards used for hand: Jc 9c 7h 4c 3c 
+Hand 2:								Hand 2:
+--------							--------
+Kc Jc 9c 7h 4c 3h 2c 						Kc Jc 9c 7h 4c 3h 2c 
+ - Flush in suit c					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value K)	 - The most of a kind is 1 of a kind (at index 0 / value K)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Kc Jc 9c 4c 2c 		      |	 - 5 cards used for hand: Jc 9c 7h 4c 3h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!						      |	Tie
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ac As Qc Qs 7s 6s 3s 						Ac As Qc Qs 7s 6s 3s 
+ - Flush in suit s						 - Flush in suit s
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: As Qs 7s 6s 3s 			 - 5 cards used for hand: As Qs 7s 6s 3s 
+Hand 2:								Hand 2:
+--------							--------
+Kc Kh Ks 9h 7h 3h 2h 						Kc Kh Ks 9h 7h 3h 2h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value K)	 - The most of a kind is 3 of a kind (at index 0 / value K)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: THREE_OF_A_KIND
+ - 5 cards used for hand: Kh 9h 7h 3h 2h 		      |	 - 5 cards used for hand: Kc Kh Ks 7h 3h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!						      |	Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ah Qh 0h 8h 6h 4h 2h 						Ah Qh 0h 8h 6h 4h 2h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 6h 		      |	 - 5 cards used for hand: Qh 0h 8h 6h 4h 
+Hand 2:								Hand 2:
+--------							--------
+Kh Qh 0h 8h 6h 4h 2h 						Kh Qh 0h 8h 6h 4h 2h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value K)	 - The most of a kind is 1 of a kind (at index 0 / value K)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Kh Qh 0h 8h 6h 		      |	 - 5 cards used for hand: Qh 0h 8h 6h 4h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!						      |	Tie
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ad Qd 0d 8d 6d 4d 						Ad Qd 0d 8d 6d 4d 
+ - Flush in suit d						 - Flush in suit d
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: Ad Qd 0d 8d 6d 			 - 5 cards used for hand: Ad Qd 0d 8d 6d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Kd 0d 8d 6d 4d 						Ad Kd 0d 8d 6d 4d 
+ - Flush in suit d						 - Flush in suit d
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: Ad Kd 0d 8d 6d 			 - 5 cards used for hand: Ad Kd 0d 8d 6d 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ad Qd 0d 8d 6d 4d 						Ad Qd 0d 8d 6d 4d 
+ - Flush in suit d						 - Flush in suit d
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: Ad Qd 0d 8d 6d 			 - 5 cards used for hand: Ad Qd 0d 8d 6d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Jd 0d 8d 6d 4d 						Ad Jd 0d 8d 6d 4d 
+ - Flush in suit d						 - Flush in suit d
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: Ad Jd 0d 8d 6d 			 - 5 cards used for hand: Ad Jd 0d 8d 6d 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+As Qs 0s 8s 6s 4s 						As Qs 0s 8s 6s 4s 
+ - Flush in suit s						 - Flush in suit s
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: As Qs 0s 8s 6s 			 - 5 cards used for hand: As Qs 0s 8s 6s 
+Hand 2:								Hand 2:
+--------							--------
+As Qs Js 8s 6s 4s 						As Qs Js 8s 6s 4s 
+ - Flush in suit s						 - Flush in suit s
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: As Qs Js 8s 6s 			 - 5 cards used for hand: As Qs Js 8s 6s 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+As Qs 0s 8s 6s 4s 						As Qs 0s 8s 6s 4s 
+ - Flush in suit s						 - Flush in suit s
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: As Qs 0s 8s 6s 			 - 5 cards used for hand: As Qs 0s 8s 6s 
+Hand 2:								Hand 2:
+--------							--------
+As Qs 9s 8s 6s 4s 						As Qs 9s 8s 6s 4s 
+ - Flush in suit s						 - Flush in suit s
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH				 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: As Qs 9s 8s 6s 			 - 5 cards used for hand: As Qs 9s 8s 6s 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ac Qc 0c 8c 6c 4c 						Ac Qc 0c 8c 6c 4c 
+ - Flush in suit c					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ac Qc 0c 8c 6c 		      |	 - 5 cards used for hand: Qc 0c 8c 6c 4c 
+Hand 2:								Hand 2:
+--------							--------
+Ac Qc 0c 9c 6c 4c 						Ac Qc 0c 9c 6c 4c 
+ - Flush in suit c					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ac Qc 0c 9c 6c 		      |	 - 5 cards used for hand: Qc 0c 9c 6c 4c 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ac Qc 0c 8c 6c 4c 						Ac Qc 0c 8c 6c 4c 
+ - Flush in suit c					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ac Qc 0c 8c 6c 		      |	 - 5 cards used for hand: Qc 0c 8c 6c 4c 
+Hand 2:								Hand 2:
+--------							--------
+Ac Qc 0c 7c 6c 4c 						Ac Qc 0c 7c 6c 4c 
+ - Flush in suit c					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ac Qc 0c 7c 6c 		      |	 - 5 cards used for hand: Qc 0c 7c 6c 4c 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ah Qh 0h 8h 6h 4h 						Ah Qh 0h 8h 6h 4h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 6h 		      |	 - 5 cards used for hand: Qh 0h 8h 6h 4h 
+Hand 2:								Hand 2:
+--------							--------
+Ah Qh 0h 8h 7h 4h 						Ah Qh 0h 8h 7h 4h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 7h 		      |	 - 5 cards used for hand: Qh 0h 8h 7h 4h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ah Qh 0h 8h 6h 4h 						Ah Qh 0h 8h 6h 4h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 6h 		      |	 - 5 cards used for hand: Qh 0h 8h 6h 4h 
+Hand 2:								Hand 2:
+--------							--------
+Ah Qh 0h 8h 5h 4h 						Ah Qh 0h 8h 5h 4h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 5h 		      |	 - 5 cards used for hand: Qh 0h 8h 5h 4h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ah Qh 0h 8h 6h 4h 						Ah Qh 0h 8h 6h 4h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 6h 		      |	 - 5 cards used for hand: Qh 0h 8h 6h 4h 
+Hand 2:								Hand 2:
+--------							--------
+Ah Qh 0h 8h 6h 5h 						Ah Qh 0h 8h 6h 5h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 6h 		      |	 - 5 cards used for hand: Qh 0h 8h 6h 5h 
+Comparison : 							Comparison : 
+--------------							--------------
+Tie							      |	Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ah Qh 0h 8h 6h 4h 						Ah Qh 0h 8h 6h 4h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 6h 		      |	 - 5 cards used for hand: Qh 0h 8h 6h 4h 
+Hand 2:								Hand 2:
+--------							--------
+Ah Qh 0h 8h 6h 3h 						Ah Qh 0h 8h 6h 3h 
+ - Flush in suit h					      |	 - No flush
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: FLUSH			      |	 - evaluate_hand's ranking: NOTHING
+ - 5 cards used for hand: Ah Qh 0h 8h 6h 		      |	 - 5 cards used for hand: Qh 0h 8h 6h 3h 
+Comparison : 							Comparison : 
+--------------							--------------
+Tie							      |	Hand 1 wins!
+============================					============================
+Testcase 7: Trying hands with full houses
+Valgrind returned an error status
+==2998== Memcheck, a memory error detector
+==2998== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2998== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2998== Command: ./test-eval inp.7.txt
+==2998== Parent PID: 2997
+==2998== 
+==2998== Use of uninitialised value of size 8
+==2998==    at 0x400C02: print_hand (deck.c:19)
+==2998==    by 0x40289F: describe_hand (test-eval.c:74)
+==2998==    by 0x402A7F: main (test-eval.c:116)
+==2998== 
+==2998== Invalid read of size 8
+==2998==    at 0x400C02: print_hand (deck.c:19)
+==2998==    by 0x40289F: describe_hand (test-eval.c:74)
+==2998==    by 0x402A7F: main (test-eval.c:116)
+==2998==  Address 0x18 is not stack'd, malloc'd or (recently) free'd
+==2998== 
+==2998== 
+==2998== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2998==  Access not within mapped region at address 0x18
+==2998==    at 0x400C02: print_hand (deck.c:19)
+==2998==    by 0x40289F: describe_hand (test-eval.c:74)
+==2998==    by 0x402A7F: main (test-eval.c:116)
+==2998==  If you believe this happened as a result of a stack
+==2998==  overflow in your program's main thread (unlikely but
+==2998==  possible), you can try to increase the size of the
+==2998==  main thread stack using the --main-stacksize= flag.
+==2998==  The main thread stack size used in this run was 8388608.
+==2998== 
+==2998== HEAP SUMMARY:
+==2998==     in use at exit: 912 bytes in 19 blocks
+==2998==   total heap usage: 480 allocs, 461 frees, 18,344 bytes allocated
+==2998== 
+==2998== LEAK SUMMARY:
+==2998==    definitely lost: 0 bytes in 0 blocks
+==2998==    indirectly lost: 0 bytes in 0 blocks
+==2998==      possibly lost: 0 bytes in 0 blocks
+==2998==    still reachable: 912 bytes in 19 blocks
+==2998==         suppressed: 0 bytes in 0 blocks
+==2998== Rerun with --leak-check=full to see details of leaked memory
+==2998== 
+==2998== For counts of detected and suppressed errors, rerun with: -v
+==2998== Use --track-origins=yes to see where uninitialised values come from
+==2998== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+Testcase 8: Trying hands with 4 of a kind
+Valgrind returned an error status
+==3003== Memcheck, a memory error detector
+==3003== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==3003== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==3003== Command: ./test-eval inp.8.txt
+==3003== Parent PID: 3002
+==3003== 
+==3003== Use of uninitialised value of size 8
+==3003==    at 0x400C02: print_hand (deck.c:19)
+==3003==    by 0x40289F: describe_hand (test-eval.c:74)
+==3003==    by 0x402A9F: main (test-eval.c:119)
+==3003== 
+==3003== Invalid read of size 8
+==3003==    at 0x400C02: print_hand (deck.c:19)
+==3003==    by 0x40289F: describe_hand (test-eval.c:74)
+==3003==    by 0x402A9F: main (test-eval.c:119)
+==3003==  Address 0x52095f0 is 0 bytes inside a block of size 24 free'd
+==3003==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3003==    by 0x402099: evaluate_hand (eval.c:516)
+==3003==    by 0x402854: describe_hand (test-eval.c:68)
+==3003==    by 0x402A9F: main (test-eval.c:119)
+==3003==  Block was alloc'd at
+==3003==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3003==    by 0x4013DE: get_match_counts (eval-c4.c:70)
+==3003==    by 0x402017: evaluate_hand (eval.c:511)
+==3003==    by 0x402854: describe_hand (test-eval.c:68)
+==3003==    by 0x402A9F: main (test-eval.c:119)
+==3003== 
+==3003== 
+==3003== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==3003==  Access not within mapped region at address 0x0
+==3003==    at 0x400C02: print_hand (deck.c:19)
+==3003==    by 0x40289F: describe_hand (test-eval.c:74)
+==3003==    by 0x402A9F: main (test-eval.c:119)
+==3003==  If you believe this happened as a result of a stack
+==3003==  overflow in your program's main thread (unlikely but
+==3003==  possible), you can try to increase the size of the
+==3003==  main thread stack using the --main-stacksize= flag.
+==3003==  The main thread stack size used in this run was 8388608.
+==3003== 
+==3003== HEAP SUMMARY:
+==3003==     in use at exit: 896 bytes in 18 blocks
+==3003==   total heap usage: 150 allocs, 132 frees, 11,568 bytes allocated
+==3003== 
+==3003== LEAK SUMMARY:
+==3003==    definitely lost: 0 bytes in 0 blocks
+==3003==    indirectly lost: 0 bytes in 0 blocks
+==3003==      possibly lost: 0 bytes in 0 blocks
+==3003==    still reachable: 896 bytes in 18 blocks
+==3003==         suppressed: 0 bytes in 0 blocks
+==3003== Rerun with --leak-check=full to see details of leaked memory
+==3003== 
+==3003== For counts of detected and suppressed errors, rerun with: -v
+==3003== Use --track-origins=yes to see where uninitialised values come from
+==3003== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)
+Testcase 9: Trying hands with straight flushes
+ Checking the output 
+Line_13_did_not_match
+Line_14_did_not_match
+Line_17_did_not_match
+Line_21_did_not_match
+Line_31_did_not_match
+Line_35_did_not_match
+Line_36_did_not_match
+Line_39_did_not_match
+Line_40_did_not_match
+Line_43_did_not_match
+Line_50_did_not_match
+Line_53_did_not_match
+Line_58_did_not_match
+Line_59_did_not_match
+Line_62_did_not_match
+Line_66_did_not_match
+Line_71_did_not_match
+Line_72_did_not_match
+Line_75_did_not_match
+Line_80_did_not_match
+Line_81_did_not_match
+Line_82_did_not_match
+Line_85_did_not_match
+Your file did not match the expected ouput
+ - Output did not match, testcase failed
+Hand 1:								Hand 1:
+--------							--------
+As Ks Qs Js 0s 							As Ks Qs Js 0s 
+ - Flush in suit s						 - Flush in suit s
+ - Straight flush at index 0					 - Straight flush at index 0
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH			 - evaluate_hand's ranking: STRAIGHT_FLUSH
+ - 5 cards used for hand: As Ks Qs Js 0s 			 - 5 cards used for hand: As Ks Qs Js 0s 
+Hand 2:								Hand 2:
+--------							--------
+Kh Qh Jh 0h 9h 							Kh Qh Jh 0h 9h 
+ - Flush in suit h					      |	 - No flush
+ - Straight flush at index 0				      |	 - Straight at index 0
+ - The most of a kind is 1 of a kind (at index 0 / value K)	 - The most of a kind is 1 of a kind (at index 0 / value K)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH		      |	 - evaluate_hand's ranking: STRAIGHT
+ - 5 cards used for hand: Kh Qh Jh 0h 9h 			 - 5 cards used for hand: Kh Qh Jh 0h 9h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!						      |	Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+As Ks Qs Js 0s 9s 8s 						As Ks Qs Js 0s 9s 8s 
+ - Flush in suit s						 - Flush in suit s
+ - Straight flush at index 0				      <
+ - Straight flush at index 1				      <
+ - Straight flush at index 2					 - Straight flush at index 2
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH			 - evaluate_hand's ranking: STRAIGHT_FLUSH
+ - 5 cards used for hand: As Ks Qs Js 0s 		      |	 - 5 cards used for hand: Qs Js 0s 9s 8s 
+Hand 2:								Hand 2:
+--------							--------
+Kh Qh Jh 0h 9h 8h 7h 						Kh Qh Jh 0h 9h 8h 7h 
+ - Flush in suit h					      |	 - No flush
+ - Straight flush at index 0				      |	 - Straight at index 2
+ - Straight flush at index 1				      <
+ - Straight flush at index 2				      <
+ - The most of a kind is 1 of a kind (at index 0 / value K)	 - The most of a kind is 1 of a kind (at index 0 / value K)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH		      |	 - evaluate_hand's ranking: STRAIGHT
+ - 5 cards used for hand: Kh Qh Jh 0h 9h 		      |	 - 5 cards used for hand: Jh 0h 9h 8h 7h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!						      |	Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ac As Kc Ks Qs Js 0s 						Ac As Kc Ks Qs Js 0s 
+ - Flush in suit s						 - Flush in suit s
+ - Straight at index 0						 - Straight at index 0
+ - Straight flush at index 1				      |	 - Straight at index 1
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: STRAIGHT_FLUSH		      |	 - evaluate_hand's ranking: FLUSH
+ - 5 cards used for hand: As Ks Qs Js 0s 			 - 5 cards used for hand: As Ks Qs Js 0s 
+Hand 2:								Hand 2:
+--------							--------
+Ad Kh Qh Jh Js 0h 9h 						Ad Kh Qh Jh Js 0h 9h 
+ - Flush in suit h					      |	 - No flush
+ - Straight at index 0					      |	 - Straight at index 1
+ - Straight flush at index 1				      <
+ - The most of a kind is 2 of a kind (at index 3 / value J)	 - The most of a kind is 2 of a kind (at index 3 / value J)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH		      |	 - evaluate_hand's ranking: STRAIGHT
+ - 5 cards used for hand: Kh Qh Jh 0h 9h 			 - 5 cards used for hand: Kh Qh Jh 0h 9h 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!						      |	Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ah Kc 5h 4h 3h 2h 						Ah Kc 5h 4h 3h 2h 
+ - Flush in suit h					      |	 - No flush
+ - Straight flush at index 0				      |	 - Straight at index 0
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH		      |	 - evaluate_hand's ranking: STRAIGHT
+ - 5 cards used for hand: 5h 4h 3h 2h Ah 			 - 5 cards used for hand: 5h 4h 3h 2h Ah 
+Hand 2:								Hand 2:
+--------							--------
+Ac 6c 5c 4c 3c 2c 						Ac 6c 5c 4c 3c 2c 
+ - Flush in suit c					      |	 - No flush
+ - Straight flush at index 0				      |	 - Straight at index 0
+ - Straight flush at index 1				      |	 - Straight at index 1
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH		      |	 - evaluate_hand's ranking: STRAIGHT
+ - 5 cards used for hand: 5c 4c 3c 2c Ac 			 - 5 cards used for hand: 5c 4c 3c 2c Ac 
+Comparison : 							Comparison : 
+--------------							--------------
+Tie								Tie
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+As Ks Qs Js 0s 							As Ks Qs Js 0s 
+ - Flush in suit s						 - Flush in suit s
+ - Straight flush at index 0					 - Straight flush at index 0
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH			 - evaluate_hand's ranking: STRAIGHT_FLUSH
+ - 5 cards used for hand: As Ks Qs Js 0s 			 - 5 cards used for hand: As Ks Qs Js 0s 
+Hand 2:								Hand 2:
+--------							--------
+As 5s 4s 3s 2s 							As 5s 4s 3s 2s 
+ - Flush in suit s						 - Flush in suit s
+ - Straight flush at index 0					 - Straight flush at index 0
+ - The most of a kind is 1 of a kind (at index 0 / value A)	 - The most of a kind is 1 of a kind (at index 0 / value A)
+ - No secondary pair						 - No secondary pair
+ - evaluate_hand's ranking: STRAIGHT_FLUSH			 - evaluate_hand's ranking: STRAIGHT_FLUSH
+ - 5 cards used for hand: 5s 4s 3s 2s As 			 - 5 cards used for hand: 5s 4s 3s 2s As 
+Comparison : 							Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Testcase 10: Trying each type of hand ranking
+Valgrind returned an error status
+==3021== Memcheck, a memory error detector
+==3021== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==3021== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==3021== Command: ./test-eval inp.10.txt
+==3021== Parent PID: 3020
+==3021== 
+==3021== Use of uninitialised value of size 8
+==3021==    at 0x400C02: print_hand (deck.c:19)
+==3021==    by 0x40289F: describe_hand (test-eval.c:74)
+==3021==    by 0x402A9F: main (test-eval.c:119)
+==3021== 
+==3021== Invalid read of size 8
+==3021==    at 0x400C02: print_hand (deck.c:19)
+==3021==    by 0x40289F: describe_hand (test-eval.c:74)
+==3021==    by 0x402A9F: main (test-eval.c:119)
+==3021==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==3021== 
+==3021== 
+==3021== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==3021==  Access not within mapped region at address 0x0
+==3021==    at 0x400C02: print_hand (deck.c:19)
+==3021==    by 0x40289F: describe_hand (test-eval.c:74)
+==3021==    by 0x402A9F: main (test-eval.c:119)
+==3021==  If you believe this happened as a result of a stack
+==3021==  overflow in your program's main thread (unlikely but
+==3021==  possible), you can try to increase the size of the
+==3021==  main thread stack using the --main-stacksize= flag.
+==3021==  The main thread stack size used in this run was 8388608.
+==3021== 
+==3021== HEAP SUMMARY:
+==3021==     in use at exit: 880 bytes in 17 blocks
+==3021==   total heap usage: 210 allocs, 193 frees, 12,716 bytes allocated
+==3021== 
+==3021== LEAK SUMMARY:
+==3021==    definitely lost: 0 bytes in 0 blocks
+==3021==    indirectly lost: 0 bytes in 0 blocks
+==3021==      possibly lost: 0 bytes in 0 blocks
+==3021==    still reachable: 880 bytes in 17 blocks
+==3021==         suppressed: 0 bytes in 0 blocks
+==3021== Rerun with --leak-check=full to see details of leaked memory
+==3021== 
+==3021== For counts of detected and suppressed errors, rerun with: -v
+==3021== Use --track-origins=yes to see where uninitialised values come from
+==3021== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+Overall Grade: F
