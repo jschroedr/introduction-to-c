@@ -1,4 +1,4 @@
-Grading at Fri Dec 27 04:01:05 UTC 2019
+Grading at Fri Dec 27 04:12:04 UTC 2019
 Compiling your code
 rm -f test poker cards.o my-test-main.o *~
 cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o deck.o deck.c
@@ -7,473 +7,383 @@ cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o cards.o cards.c
 gcc -o test-eval -ggdb3 deck.o deck-c4.o eval-c4.o eval.o test-eval.o cards.o input.o future.o
 Testcase 1: Trying hands with nothing
 Valgrind returned an error status
-==740== Memcheck, a memory error detector
-==740== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==740== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==740== Command: ./test-eval inp.1.txt
-==740== Parent PID: 739
-==740== 
-==740== Invalid read of size 8
-==740==    at 0x4027EF: describe_hand (test-eval.c:60)
-==740==    by 0x402AA4: main (test-eval.c:116)
-==740==  Address 0x5205758 is 8 bytes before a block of size 48 alloc'd
-==740==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==740==    by 0x401054: add_card_to (deck-c4.c:29)
-==740==    by 0x403242: hand_from_string (input.c:49)
-==740==    by 0x402A29: main (test-eval.c:110)
-==740== 
-==740== Invalid read of size 8
-==740==    at 0x4027F2: describe_hand (test-eval.c:60)
-==740==    by 0x402AA4: main (test-eval.c:116)
-==740==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==740== 
-==740== 
-==740== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==740==  Access not within mapped region at address 0x0
-==740==    at 0x4027F2: describe_hand (test-eval.c:60)
-==740==    by 0x402AA4: main (test-eval.c:116)
-==740==  If you believe this happened as a result of a stack
-==740==  overflow in your program's main thread (unlikely but
-==740==  possible), you can try to increase the size of the
-==740==  main thread stack using the --main-stacksize= flag.
-==740==  The main thread stack size used in this run was 8388608.
-==740== 
-==740== HEAP SUMMARY:
-==740==     in use at exit: 896 bytes in 18 blocks
-==740==   total heap usage: 31 allocs, 13 frees, 9,352 bytes allocated
-==740== 
-==740== LEAK SUMMARY:
-==740==    definitely lost: 0 bytes in 0 blocks
-==740==    indirectly lost: 0 bytes in 0 blocks
-==740==      possibly lost: 0 bytes in 0 blocks
-==740==    still reachable: 896 bytes in 18 blocks
-==740==         suppressed: 0 bytes in 0 blocks
-==740== Rerun with --leak-check=full to see details of leaked memory
-==740== 
-==740== For counts of detected and suppressed errors, rerun with: -v
-==740== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==990== Memcheck, a memory error detector
+==990== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==990== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==990== Command: ./test-eval inp.1.txt
+==990== Parent PID: 989
+==990== 
+==990== Conditional jump or move depends on uninitialised value(s)
+==990==    at 0x402740: ranking_to_string (cards.c:20)
+==990==    by 0x402361: describe_hand (test-eval.c:69)
+==990==    by 0x402582: main (test-eval.c:116)
+==990== 
+==990== 
+==990== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==990==    at 0x4E6F428: raise (raise.c:54)
+==990==    by 0x4E71029: abort (abort.c:89)
+==990==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==990==    by 0x4E67C81: __assert_fail (assert.c:101)
+==990==    by 0x40275A: ranking_to_string (cards.c:20)
+==990==    by 0x402361: describe_hand (test-eval.c:69)
+==990==    by 0x402582: main (test-eval.c:116)
+==990== 
+==990== HEAP SUMMARY:
+==990==     in use at exit: 896 bytes in 18 blocks
+==990==   total heap usage: 34 allocs, 16 frees, 9,546 bytes allocated
+==990== 
+==990== LEAK SUMMARY:
+==990==    definitely lost: 0 bytes in 0 blocks
+==990==    indirectly lost: 0 bytes in 0 blocks
+==990==      possibly lost: 0 bytes in 0 blocks
+==990==    still reachable: 896 bytes in 18 blocks
+==990==         suppressed: 0 bytes in 0 blocks
+==990== Rerun with --leak-check=full to see details of leaked memory
+==990== 
+==990== For counts of detected and suppressed errors, rerun with: -v
+==990== Use --track-origins=yes to see where uninitialised values come from
+==990== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 2: Trying hands with pairs
 Valgrind returned an error status
-==745== Memcheck, a memory error detector
-==745== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==745== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==745== Command: ./test-eval inp.2.txt
-==745== Parent PID: 744
-==745== 
-==745== Invalid read of size 8
-==745==    at 0x4027EF: describe_hand (test-eval.c:60)
-==745==    by 0x402AA4: main (test-eval.c:116)
-==745==  Address 0x5205758 is 8 bytes before a block of size 48 alloc'd
-==745==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==745==    by 0x401054: add_card_to (deck-c4.c:29)
-==745==    by 0x403242: hand_from_string (input.c:49)
-==745==    by 0x402A29: main (test-eval.c:110)
-==745== 
-==745== Invalid read of size 8
-==745==    at 0x4027F2: describe_hand (test-eval.c:60)
-==745==    by 0x402AA4: main (test-eval.c:116)
-==745==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==745== 
-==745== 
-==745== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==745==  Access not within mapped region at address 0x0
-==745==    at 0x4027F2: describe_hand (test-eval.c:60)
-==745==    by 0x402AA4: main (test-eval.c:116)
-==745==  If you believe this happened as a result of a stack
-==745==  overflow in your program's main thread (unlikely but
-==745==  possible), you can try to increase the size of the
-==745==  main thread stack using the --main-stacksize= flag.
-==745==  The main thread stack size used in this run was 8388608.
-==745== 
-==745== HEAP SUMMARY:
-==745==     in use at exit: 880 bytes in 17 blocks
-==745==   total heap usage: 29 allocs, 12 frees, 9,296 bytes allocated
-==745== 
-==745== LEAK SUMMARY:
-==745==    definitely lost: 0 bytes in 0 blocks
-==745==    indirectly lost: 0 bytes in 0 blocks
-==745==      possibly lost: 0 bytes in 0 blocks
-==745==    still reachable: 880 bytes in 17 blocks
-==745==         suppressed: 0 bytes in 0 blocks
-==745== Rerun with --leak-check=full to see details of leaked memory
-==745== 
-==745== For counts of detected and suppressed errors, rerun with: -v
-==745== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==995== Memcheck, a memory error detector
+==995== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==995== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==995== Command: ./test-eval inp.2.txt
+==995== Parent PID: 994
+==995== 
+==995== Conditional jump or move depends on uninitialised value(s)
+==995==    at 0x402740: ranking_to_string (cards.c:20)
+==995==    by 0x402361: describe_hand (test-eval.c:69)
+==995==    by 0x402582: main (test-eval.c:116)
+==995== 
+==995== 
+==995== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==995==    at 0x4E6F428: raise (raise.c:54)
+==995==    by 0x4E71029: abort (abort.c:89)
+==995==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==995==    by 0x4E67C81: __assert_fail (assert.c:101)
+==995==    by 0x40275A: ranking_to_string (cards.c:20)
+==995==    by 0x402361: describe_hand (test-eval.c:69)
+==995==    by 0x402582: main (test-eval.c:116)
+==995== 
+==995== HEAP SUMMARY:
+==995==     in use at exit: 880 bytes in 17 blocks
+==995==   total heap usage: 32 allocs, 15 frees, 9,490 bytes allocated
+==995== 
+==995== LEAK SUMMARY:
+==995==    definitely lost: 0 bytes in 0 blocks
+==995==    indirectly lost: 0 bytes in 0 blocks
+==995==      possibly lost: 0 bytes in 0 blocks
+==995==    still reachable: 880 bytes in 17 blocks
+==995==         suppressed: 0 bytes in 0 blocks
+==995== Rerun with --leak-check=full to see details of leaked memory
+==995== 
+==995== For counts of detected and suppressed errors, rerun with: -v
+==995== Use --track-origins=yes to see where uninitialised values come from
+==995== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 3: Trying hands with 2 pairs
 Valgrind returned an error status
-==750== Memcheck, a memory error detector
-==750== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==750== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==750== Command: ./test-eval inp.3.txt
-==750== Parent PID: 749
-==750== 
-==750== Invalid read of size 8
-==750==    at 0x4027EF: describe_hand (test-eval.c:60)
-==750==    by 0x402AA4: main (test-eval.c:116)
-==750==  Address 0x5205698 is 8 bytes before a block of size 40 alloc'd
-==750==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==750==    by 0x401054: add_card_to (deck-c4.c:29)
-==750==    by 0x403242: hand_from_string (input.c:49)
-==750==    by 0x402A29: main (test-eval.c:110)
-==750== 
-==750== Invalid read of size 8
-==750==    at 0x4027F2: describe_hand (test-eval.c:60)
-==750==    by 0x402AA4: main (test-eval.c:116)
-==750==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==750== 
-==750== 
-==750== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==750==  Access not within mapped region at address 0x0
-==750==    at 0x4027F2: describe_hand (test-eval.c:60)
-==750==    by 0x402AA4: main (test-eval.c:116)
-==750==  If you believe this happened as a result of a stack
-==750==  overflow in your program's main thread (unlikely but
-==750==  possible), you can try to increase the size of the
-==750==  main thread stack using the --main-stacksize= flag.
-==750==  The main thread stack size used in this run was 8388608.
-==750== 
-==750== HEAP SUMMARY:
-==750==     in use at exit: 864 bytes in 16 blocks
-==750==   total heap usage: 27 allocs, 11 frees, 9,236 bytes allocated
-==750== 
-==750== LEAK SUMMARY:
-==750==    definitely lost: 0 bytes in 0 blocks
-==750==    indirectly lost: 0 bytes in 0 blocks
-==750==      possibly lost: 0 bytes in 0 blocks
-==750==    still reachable: 864 bytes in 16 blocks
-==750==         suppressed: 0 bytes in 0 blocks
-==750== Rerun with --leak-check=full to see details of leaked memory
-==750== 
-==750== For counts of detected and suppressed errors, rerun with: -v
-==750== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1000== Memcheck, a memory error detector
+==1000== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1000== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1000== Command: ./test-eval inp.3.txt
+==1000== Parent PID: 999
+==1000== 
+==1000== Conditional jump or move depends on uninitialised value(s)
+==1000==    at 0x402740: ranking_to_string (cards.c:20)
+==1000==    by 0x402361: describe_hand (test-eval.c:69)
+==1000==    by 0x402582: main (test-eval.c:116)
+==1000== 
+==1000== 
+==1000== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1000==    at 0x4E6F428: raise (raise.c:54)
+==1000==    by 0x4E71029: abort (abort.c:89)
+==1000==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1000==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1000==    by 0x40275A: ranking_to_string (cards.c:20)
+==1000==    by 0x402361: describe_hand (test-eval.c:69)
+==1000==    by 0x402582: main (test-eval.c:116)
+==1000== 
+==1000== HEAP SUMMARY:
+==1000==     in use at exit: 864 bytes in 16 blocks
+==1000==   total heap usage: 30 allocs, 14 frees, 9,426 bytes allocated
+==1000== 
+==1000== LEAK SUMMARY:
+==1000==    definitely lost: 0 bytes in 0 blocks
+==1000==    indirectly lost: 0 bytes in 0 blocks
+==1000==      possibly lost: 0 bytes in 0 blocks
+==1000==    still reachable: 864 bytes in 16 blocks
+==1000==         suppressed: 0 bytes in 0 blocks
+==1000== Rerun with --leak-check=full to see details of leaked memory
+==1000== 
+==1000== For counts of detected and suppressed errors, rerun with: -v
+==1000== Use --track-origins=yes to see where uninitialised values come from
+==1000== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 4: Trying hands with 3 of a kind
 Valgrind returned an error status
-==755== Memcheck, a memory error detector
-==755== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==755== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==755== Command: ./test-eval inp.4.txt
-==755== Parent PID: 754
-==755== 
-==755== Invalid read of size 8
-==755==    at 0x4027EF: describe_hand (test-eval.c:60)
-==755==    by 0x402AA4: main (test-eval.c:116)
-==755==  Address 0x5205758 is 8 bytes before a block of size 48 alloc'd
-==755==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==755==    by 0x401054: add_card_to (deck-c4.c:29)
-==755==    by 0x403242: hand_from_string (input.c:49)
-==755==    by 0x402A29: main (test-eval.c:110)
-==755== 
-==755== Invalid read of size 8
-==755==    at 0x4027F2: describe_hand (test-eval.c:60)
-==755==    by 0x402AA4: main (test-eval.c:116)
-==755==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==755== 
-==755== 
-==755== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==755==  Access not within mapped region at address 0x0
-==755==    at 0x4027F2: describe_hand (test-eval.c:60)
-==755==    by 0x402AA4: main (test-eval.c:116)
-==755==  If you believe this happened as a result of a stack
-==755==  overflow in your program's main thread (unlikely but
-==755==  possible), you can try to increase the size of the
-==755==  main thread stack using the --main-stacksize= flag.
-==755==  The main thread stack size used in this run was 8388608.
-==755== 
-==755== HEAP SUMMARY:
-==755==     in use at exit: 896 bytes in 18 blocks
-==755==   total heap usage: 31 allocs, 13 frees, 9,352 bytes allocated
-==755== 
-==755== LEAK SUMMARY:
-==755==    definitely lost: 0 bytes in 0 blocks
-==755==    indirectly lost: 0 bytes in 0 blocks
-==755==      possibly lost: 0 bytes in 0 blocks
-==755==    still reachable: 896 bytes in 18 blocks
-==755==         suppressed: 0 bytes in 0 blocks
-==755== Rerun with --leak-check=full to see details of leaked memory
-==755== 
-==755== For counts of detected and suppressed errors, rerun with: -v
-==755== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1005== Memcheck, a memory error detector
+==1005== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1005== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1005== Command: ./test-eval inp.4.txt
+==1005== Parent PID: 1004
+==1005== 
+==1005== Conditional jump or move depends on uninitialised value(s)
+==1005==    at 0x402740: ranking_to_string (cards.c:20)
+==1005==    by 0x402361: describe_hand (test-eval.c:69)
+==1005==    by 0x402582: main (test-eval.c:116)
+==1005== 
+==1005== 
+==1005== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1005==    at 0x4E6F428: raise (raise.c:54)
+==1005==    by 0x4E71029: abort (abort.c:89)
+==1005==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1005==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1005==    by 0x40275A: ranking_to_string (cards.c:20)
+==1005==    by 0x402361: describe_hand (test-eval.c:69)
+==1005==    by 0x402582: main (test-eval.c:116)
+==1005== 
+==1005== HEAP SUMMARY:
+==1005==     in use at exit: 896 bytes in 18 blocks
+==1005==   total heap usage: 34 allocs, 16 frees, 9,546 bytes allocated
+==1005== 
+==1005== LEAK SUMMARY:
+==1005==    definitely lost: 0 bytes in 0 blocks
+==1005==    indirectly lost: 0 bytes in 0 blocks
+==1005==      possibly lost: 0 bytes in 0 blocks
+==1005==    still reachable: 896 bytes in 18 blocks
+==1005==         suppressed: 0 bytes in 0 blocks
+==1005== Rerun with --leak-check=full to see details of leaked memory
+==1005== 
+==1005== For counts of detected and suppressed errors, rerun with: -v
+==1005== Use --track-origins=yes to see where uninitialised values come from
+==1005== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 5: Trying hands with straights
 Valgrind returned an error status
-==760== Memcheck, a memory error detector
-==760== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==760== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==760== Command: ./test-eval inp.5.txt
-==760== Parent PID: 759
-==760== 
-==760== Invalid read of size 8
-==760==    at 0x4027EF: describe_hand (test-eval.c:60)
-==760==    by 0x402AA4: main (test-eval.c:116)
-==760==  Address 0x5205698 is 8 bytes before a block of size 40 alloc'd
-==760==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==760==    by 0x401054: add_card_to (deck-c4.c:29)
-==760==    by 0x403242: hand_from_string (input.c:49)
-==760==    by 0x402A29: main (test-eval.c:110)
-==760== 
-==760== Invalid read of size 8
-==760==    at 0x4027F2: describe_hand (test-eval.c:60)
-==760==    by 0x402AA4: main (test-eval.c:116)
-==760==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==760== 
-==760== 
-==760== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==760==  Access not within mapped region at address 0x0
-==760==    at 0x4027F2: describe_hand (test-eval.c:60)
-==760==    by 0x402AA4: main (test-eval.c:116)
-==760==  If you believe this happened as a result of a stack
-==760==  overflow in your program's main thread (unlikely but
-==760==  possible), you can try to increase the size of the
-==760==  main thread stack using the --main-stacksize= flag.
-==760==  The main thread stack size used in this run was 8388608.
-==760== 
-==760== HEAP SUMMARY:
-==760==     in use at exit: 864 bytes in 16 blocks
-==760==   total heap usage: 27 allocs, 11 frees, 9,236 bytes allocated
-==760== 
-==760== LEAK SUMMARY:
-==760==    definitely lost: 0 bytes in 0 blocks
-==760==    indirectly lost: 0 bytes in 0 blocks
-==760==      possibly lost: 0 bytes in 0 blocks
-==760==    still reachable: 864 bytes in 16 blocks
-==760==         suppressed: 0 bytes in 0 blocks
-==760== Rerun with --leak-check=full to see details of leaked memory
-==760== 
-==760== For counts of detected and suppressed errors, rerun with: -v
-==760== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1010== Memcheck, a memory error detector
+==1010== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1010== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1010== Command: ./test-eval inp.5.txt
+==1010== Parent PID: 1009
+==1010== 
+==1010== Conditional jump or move depends on uninitialised value(s)
+==1010==    at 0x402740: ranking_to_string (cards.c:20)
+==1010==    by 0x402361: describe_hand (test-eval.c:69)
+==1010==    by 0x402582: main (test-eval.c:116)
+==1010== 
+==1010== 
+==1010== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1010==    at 0x4E6F428: raise (raise.c:54)
+==1010==    by 0x4E71029: abort (abort.c:89)
+==1010==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1010==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1010==    by 0x40275A: ranking_to_string (cards.c:20)
+==1010==    by 0x402361: describe_hand (test-eval.c:69)
+==1010==    by 0x402582: main (test-eval.c:116)
+==1010== 
+==1010== HEAP SUMMARY:
+==1010==     in use at exit: 864 bytes in 16 blocks
+==1010==   total heap usage: 30 allocs, 14 frees, 9,426 bytes allocated
+==1010== 
+==1010== LEAK SUMMARY:
+==1010==    definitely lost: 0 bytes in 0 blocks
+==1010==    indirectly lost: 0 bytes in 0 blocks
+==1010==      possibly lost: 0 bytes in 0 blocks
+==1010==    still reachable: 864 bytes in 16 blocks
+==1010==         suppressed: 0 bytes in 0 blocks
+==1010== Rerun with --leak-check=full to see details of leaked memory
+==1010== 
+==1010== For counts of detected and suppressed errors, rerun with: -v
+==1010== Use --track-origins=yes to see where uninitialised values come from
+==1010== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 6: Trying hands with flushes
 Valgrind returned an error status
-==765== Memcheck, a memory error detector
-==765== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==765== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==765== Command: ./test-eval inp.6.txt
-==765== Parent PID: 764
-==765== 
-==765== Invalid read of size 8
-==765==    at 0x4027EF: describe_hand (test-eval.c:60)
-==765==    by 0x402AA4: main (test-eval.c:116)
-==765==  Address 0x5205758 is 8 bytes before a block of size 48 alloc'd
-==765==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==765==    by 0x401054: add_card_to (deck-c4.c:29)
-==765==    by 0x403242: hand_from_string (input.c:49)
-==765==    by 0x402A29: main (test-eval.c:110)
-==765== 
-==765== Invalid read of size 8
-==765==    at 0x4027F2: describe_hand (test-eval.c:60)
-==765==    by 0x402AA4: main (test-eval.c:116)
-==765==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==765== 
-==765== 
-==765== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==765==  Access not within mapped region at address 0x0
-==765==    at 0x4027F2: describe_hand (test-eval.c:60)
-==765==    by 0x402AA4: main (test-eval.c:116)
-==765==  If you believe this happened as a result of a stack
-==765==  overflow in your program's main thread (unlikely but
-==765==  possible), you can try to increase the size of the
-==765==  main thread stack using the --main-stacksize= flag.
-==765==  The main thread stack size used in this run was 8388608.
-==765== 
-==765== HEAP SUMMARY:
-==765==     in use at exit: 896 bytes in 18 blocks
-==765==   total heap usage: 31 allocs, 13 frees, 9,352 bytes allocated
-==765== 
-==765== LEAK SUMMARY:
-==765==    definitely lost: 0 bytes in 0 blocks
-==765==    indirectly lost: 0 bytes in 0 blocks
-==765==      possibly lost: 0 bytes in 0 blocks
-==765==    still reachable: 896 bytes in 18 blocks
-==765==         suppressed: 0 bytes in 0 blocks
-==765== Rerun with --leak-check=full to see details of leaked memory
-==765== 
-==765== For counts of detected and suppressed errors, rerun with: -v
-==765== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1015== Memcheck, a memory error detector
+==1015== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1015== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1015== Command: ./test-eval inp.6.txt
+==1015== Parent PID: 1014
+==1015== 
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x402740: ranking_to_string (cards.c:20)
+==1015==    by 0x402361: describe_hand (test-eval.c:69)
+==1015==    by 0x402582: main (test-eval.c:116)
+==1015== 
+==1015== 
+==1015== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1015==    at 0x4E6F428: raise (raise.c:54)
+==1015==    by 0x4E71029: abort (abort.c:89)
+==1015==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1015==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1015==    by 0x40275A: ranking_to_string (cards.c:20)
+==1015==    by 0x402361: describe_hand (test-eval.c:69)
+==1015==    by 0x402582: main (test-eval.c:116)
+==1015== 
+==1015== HEAP SUMMARY:
+==1015==     in use at exit: 896 bytes in 18 blocks
+==1015==   total heap usage: 34 allocs, 16 frees, 9,546 bytes allocated
+==1015== 
+==1015== LEAK SUMMARY:
+==1015==    definitely lost: 0 bytes in 0 blocks
+==1015==    indirectly lost: 0 bytes in 0 blocks
+==1015==      possibly lost: 0 bytes in 0 blocks
+==1015==    still reachable: 896 bytes in 18 blocks
+==1015==         suppressed: 0 bytes in 0 blocks
+==1015== Rerun with --leak-check=full to see details of leaked memory
+==1015== 
+==1015== For counts of detected and suppressed errors, rerun with: -v
+==1015== Use --track-origins=yes to see where uninitialised values come from
+==1015== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 7: Trying hands with full houses
 Valgrind returned an error status
-==770== Memcheck, a memory error detector
-==770== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==770== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==770== Command: ./test-eval inp.7.txt
-==770== Parent PID: 769
-==770== 
-==770== Invalid read of size 8
-==770==    at 0x4027EF: describe_hand (test-eval.c:60)
-==770==    by 0x402AA4: main (test-eval.c:116)
-==770==  Address 0x5205818 is 8 bytes before a block of size 56 alloc'd
-==770==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==770==    by 0x401054: add_card_to (deck-c4.c:29)
-==770==    by 0x403242: hand_from_string (input.c:49)
-==770==    by 0x402A29: main (test-eval.c:110)
-==770== 
-==770== Invalid read of size 8
-==770==    at 0x4027F2: describe_hand (test-eval.c:60)
-==770==    by 0x402AA4: main (test-eval.c:116)
-==770==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==770== 
-==770== 
-==770== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==770==  Access not within mapped region at address 0x0
-==770==    at 0x4027F2: describe_hand (test-eval.c:60)
-==770==    by 0x402AA4: main (test-eval.c:116)
-==770==  If you believe this happened as a result of a stack
-==770==  overflow in your program's main thread (unlikely but
-==770==  possible), you can try to increase the size of the
-==770==  main thread stack using the --main-stacksize= flag.
-==770==  The main thread stack size used in this run was 8388608.
-==770== 
-==770== HEAP SUMMARY:
-==770==     in use at exit: 928 bytes in 20 blocks
-==770==   total heap usage: 35 allocs, 15 frees, 9,484 bytes allocated
-==770== 
-==770== LEAK SUMMARY:
-==770==    definitely lost: 0 bytes in 0 blocks
-==770==    indirectly lost: 0 bytes in 0 blocks
-==770==      possibly lost: 0 bytes in 0 blocks
-==770==    still reachable: 928 bytes in 20 blocks
-==770==         suppressed: 0 bytes in 0 blocks
-==770== Rerun with --leak-check=full to see details of leaked memory
-==770== 
-==770== For counts of detected and suppressed errors, rerun with: -v
-==770== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1020== Memcheck, a memory error detector
+==1020== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1020== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1020== Command: ./test-eval inp.7.txt
+==1020== Parent PID: 1019
+==1020== 
+==1020== Conditional jump or move depends on uninitialised value(s)
+==1020==    at 0x402740: ranking_to_string (cards.c:20)
+==1020==    by 0x402361: describe_hand (test-eval.c:69)
+==1020==    by 0x402582: main (test-eval.c:116)
+==1020== 
+==1020== 
+==1020== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1020==    at 0x4E6F428: raise (raise.c:54)
+==1020==    by 0x4E71029: abort (abort.c:89)
+==1020==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1020==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1020==    by 0x40275A: ranking_to_string (cards.c:20)
+==1020==    by 0x402361: describe_hand (test-eval.c:69)
+==1020==    by 0x402582: main (test-eval.c:116)
+==1020== 
+==1020== HEAP SUMMARY:
+==1020==     in use at exit: 928 bytes in 20 blocks
+==1020==   total heap usage: 38 allocs, 18 frees, 9,682 bytes allocated
+==1020== 
+==1020== LEAK SUMMARY:
+==1020==    definitely lost: 0 bytes in 0 blocks
+==1020==    indirectly lost: 0 bytes in 0 blocks
+==1020==      possibly lost: 0 bytes in 0 blocks
+==1020==    still reachable: 928 bytes in 20 blocks
+==1020==         suppressed: 0 bytes in 0 blocks
+==1020== Rerun with --leak-check=full to see details of leaked memory
+==1020== 
+==1020== For counts of detected and suppressed errors, rerun with: -v
+==1020== Use --track-origins=yes to see where uninitialised values come from
+==1020== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 8: Trying hands with 4 of a kind
 Valgrind returned an error status
-==775== Memcheck, a memory error detector
-==775== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==775== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==775== Command: ./test-eval inp.8.txt
-==775== Parent PID: 774
-==775== 
-==775== Invalid read of size 8
-==775==    at 0x4027EF: describe_hand (test-eval.c:60)
-==775==    by 0x402AA4: main (test-eval.c:116)
-==775==  Address 0x5205758 is 8 bytes before a block of size 48 alloc'd
-==775==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==775==    by 0x401054: add_card_to (deck-c4.c:29)
-==775==    by 0x403242: hand_from_string (input.c:49)
-==775==    by 0x402A29: main (test-eval.c:110)
-==775== 
-==775== Invalid read of size 8
-==775==    at 0x4027F2: describe_hand (test-eval.c:60)
-==775==    by 0x402AA4: main (test-eval.c:116)
-==775==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==775== 
-==775== 
-==775== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==775==  Access not within mapped region at address 0x0
-==775==    at 0x4027F2: describe_hand (test-eval.c:60)
-==775==    by 0x402AA4: main (test-eval.c:116)
-==775==  If you believe this happened as a result of a stack
-==775==  overflow in your program's main thread (unlikely but
-==775==  possible), you can try to increase the size of the
-==775==  main thread stack using the --main-stacksize= flag.
-==775==  The main thread stack size used in this run was 8388608.
-==775== 
-==775== HEAP SUMMARY:
-==775==     in use at exit: 896 bytes in 18 blocks
-==775==   total heap usage: 31 allocs, 13 frees, 9,352 bytes allocated
-==775== 
-==775== LEAK SUMMARY:
-==775==    definitely lost: 0 bytes in 0 blocks
-==775==    indirectly lost: 0 bytes in 0 blocks
-==775==      possibly lost: 0 bytes in 0 blocks
-==775==    still reachable: 896 bytes in 18 blocks
-==775==         suppressed: 0 bytes in 0 blocks
-==775== Rerun with --leak-check=full to see details of leaked memory
-==775== 
-==775== For counts of detected and suppressed errors, rerun with: -v
-==775== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1025== Memcheck, a memory error detector
+==1025== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1025== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1025== Command: ./test-eval inp.8.txt
+==1025== Parent PID: 1024
+==1025== 
+==1025== Conditional jump or move depends on uninitialised value(s)
+==1025==    at 0x402740: ranking_to_string (cards.c:20)
+==1025==    by 0x402361: describe_hand (test-eval.c:69)
+==1025==    by 0x402582: main (test-eval.c:116)
+==1025== 
+==1025== 
+==1025== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1025==    at 0x4E6F428: raise (raise.c:54)
+==1025==    by 0x4E71029: abort (abort.c:89)
+==1025==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1025==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1025==    by 0x40275A: ranking_to_string (cards.c:20)
+==1025==    by 0x402361: describe_hand (test-eval.c:69)
+==1025==    by 0x402582: main (test-eval.c:116)
+==1025== 
+==1025== HEAP SUMMARY:
+==1025==     in use at exit: 896 bytes in 18 blocks
+==1025==   total heap usage: 34 allocs, 16 frees, 9,546 bytes allocated
+==1025== 
+==1025== LEAK SUMMARY:
+==1025==    definitely lost: 0 bytes in 0 blocks
+==1025==    indirectly lost: 0 bytes in 0 blocks
+==1025==      possibly lost: 0 bytes in 0 blocks
+==1025==    still reachable: 896 bytes in 18 blocks
+==1025==         suppressed: 0 bytes in 0 blocks
+==1025== Rerun with --leak-check=full to see details of leaked memory
+==1025== 
+==1025== For counts of detected and suppressed errors, rerun with: -v
+==1025== Use --track-origins=yes to see where uninitialised values come from
+==1025== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 9: Trying hands with straight flushes
 Valgrind returned an error status
-==780== Memcheck, a memory error detector
-==780== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==780== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==780== Command: ./test-eval inp.9.txt
-==780== Parent PID: 779
-==780== 
-==780== Invalid read of size 8
-==780==    at 0x4027EF: describe_hand (test-eval.c:60)
-==780==    by 0x402AA4: main (test-eval.c:116)
-==780==  Address 0x5205698 is 8 bytes before a block of size 40 alloc'd
-==780==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==780==    by 0x401054: add_card_to (deck-c4.c:29)
-==780==    by 0x403242: hand_from_string (input.c:49)
-==780==    by 0x402A29: main (test-eval.c:110)
-==780== 
-==780== Invalid read of size 8
-==780==    at 0x4027F2: describe_hand (test-eval.c:60)
-==780==    by 0x402AA4: main (test-eval.c:116)
-==780==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==780== 
-==780== 
-==780== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==780==  Access not within mapped region at address 0x0
-==780==    at 0x4027F2: describe_hand (test-eval.c:60)
-==780==    by 0x402AA4: main (test-eval.c:116)
-==780==  If you believe this happened as a result of a stack
-==780==  overflow in your program's main thread (unlikely but
-==780==  possible), you can try to increase the size of the
-==780==  main thread stack using the --main-stacksize= flag.
-==780==  The main thread stack size used in this run was 8388608.
-==780== 
-==780== HEAP SUMMARY:
-==780==     in use at exit: 864 bytes in 16 blocks
-==780==   total heap usage: 27 allocs, 11 frees, 9,236 bytes allocated
-==780== 
-==780== LEAK SUMMARY:
-==780==    definitely lost: 0 bytes in 0 blocks
-==780==    indirectly lost: 0 bytes in 0 blocks
-==780==      possibly lost: 0 bytes in 0 blocks
-==780==    still reachable: 864 bytes in 16 blocks
-==780==         suppressed: 0 bytes in 0 blocks
-==780== Rerun with --leak-check=full to see details of leaked memory
-==780== 
-==780== For counts of detected and suppressed errors, rerun with: -v
-==780== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1030== Memcheck, a memory error detector
+==1030== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1030== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1030== Command: ./test-eval inp.9.txt
+==1030== Parent PID: 1029
+==1030== 
+==1030== Conditional jump or move depends on uninitialised value(s)
+==1030==    at 0x402740: ranking_to_string (cards.c:20)
+==1030==    by 0x402361: describe_hand (test-eval.c:69)
+==1030==    by 0x402582: main (test-eval.c:116)
+==1030== 
+==1030== 
+==1030== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1030==    at 0x4E6F428: raise (raise.c:54)
+==1030==    by 0x4E71029: abort (abort.c:89)
+==1030==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1030==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1030==    by 0x40275A: ranking_to_string (cards.c:20)
+==1030==    by 0x402361: describe_hand (test-eval.c:69)
+==1030==    by 0x402582: main (test-eval.c:116)
+==1030== 
+==1030== HEAP SUMMARY:
+==1030==     in use at exit: 864 bytes in 16 blocks
+==1030==   total heap usage: 30 allocs, 14 frees, 9,426 bytes allocated
+==1030== 
+==1030== LEAK SUMMARY:
+==1030==    definitely lost: 0 bytes in 0 blocks
+==1030==    indirectly lost: 0 bytes in 0 blocks
+==1030==      possibly lost: 0 bytes in 0 blocks
+==1030==    still reachable: 864 bytes in 16 blocks
+==1030==         suppressed: 0 bytes in 0 blocks
+==1030== Rerun with --leak-check=full to see details of leaked memory
+==1030== 
+==1030== For counts of detected and suppressed errors, rerun with: -v
+==1030== Use --track-origins=yes to see where uninitialised values come from
+==1030== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testcase 10: Trying each type of hand ranking
 Valgrind returned an error status
-==785== Memcheck, a memory error detector
-==785== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==785== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==785== Command: ./test-eval inp.10.txt
-==785== Parent PID: 784
-==785== 
-==785== Invalid read of size 8
-==785==    at 0x4027EF: describe_hand (test-eval.c:60)
-==785==    by 0x402AA4: main (test-eval.c:116)
-==785==  Address 0x5205758 is 8 bytes before a block of size 48 alloc'd
-==785==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==785==    by 0x401054: add_card_to (deck-c4.c:29)
-==785==    by 0x403242: hand_from_string (input.c:49)
-==785==    by 0x402A29: main (test-eval.c:110)
-==785== 
-==785== Invalid read of size 8
-==785==    at 0x4027F2: describe_hand (test-eval.c:60)
-==785==    by 0x402AA4: main (test-eval.c:116)
-==785==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==785== 
-==785== 
-==785== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==785==  Access not within mapped region at address 0x0
-==785==    at 0x4027F2: describe_hand (test-eval.c:60)
-==785==    by 0x402AA4: main (test-eval.c:116)
-==785==  If you believe this happened as a result of a stack
-==785==  overflow in your program's main thread (unlikely but
-==785==  possible), you can try to increase the size of the
-==785==  main thread stack using the --main-stacksize= flag.
-==785==  The main thread stack size used in this run was 8388608.
-==785== 
-==785== HEAP SUMMARY:
-==785==     in use at exit: 896 bytes in 18 blocks
-==785==   total heap usage: 31 allocs, 13 frees, 9,352 bytes allocated
-==785== 
-==785== LEAK SUMMARY:
-==785==    definitely lost: 0 bytes in 0 blocks
-==785==    indirectly lost: 0 bytes in 0 blocks
-==785==      possibly lost: 0 bytes in 0 blocks
-==785==    still reachable: 896 bytes in 18 blocks
-==785==         suppressed: 0 bytes in 0 blocks
-==785== Rerun with --leak-check=full to see details of leaked memory
-==785== 
-==785== For counts of detected and suppressed errors, rerun with: -v
-==785== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1035== Memcheck, a memory error detector
+==1035== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1035== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1035== Command: ./test-eval inp.10.txt
+==1035== Parent PID: 1034
+==1035== 
+==1035== Conditional jump or move depends on uninitialised value(s)
+==1035==    at 0x402740: ranking_to_string (cards.c:20)
+==1035==    by 0x402361: describe_hand (test-eval.c:69)
+==1035==    by 0x402582: main (test-eval.c:116)
+==1035== 
+==1035== 
+==1035== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1035==    at 0x4E6F428: raise (raise.c:54)
+==1035==    by 0x4E71029: abort (abort.c:89)
+==1035==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1035==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1035==    by 0x40275A: ranking_to_string (cards.c:20)
+==1035==    by 0x402361: describe_hand (test-eval.c:69)
+==1035==    by 0x402582: main (test-eval.c:116)
+==1035== 
+==1035== HEAP SUMMARY:
+==1035==     in use at exit: 896 bytes in 18 blocks
+==1035==   total heap usage: 34 allocs, 16 frees, 9,546 bytes allocated
+==1035== 
+==1035== LEAK SUMMARY:
+==1035==    definitely lost: 0 bytes in 0 blocks
+==1035==    indirectly lost: 0 bytes in 0 blocks
+==1035==      possibly lost: 0 bytes in 0 blocks
+==1035==    still reachable: 896 bytes in 18 blocks
+==1035==         suppressed: 0 bytes in 0 blocks
+==1035== Rerun with --leak-check=full to see details of leaked memory
+==1035== 
+==1035== For counts of detected and suppressed errors, rerun with: -v
+==1035== Use --track-origins=yes to see where uninitialised values come from
+==1035== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 Overall Grade: F
