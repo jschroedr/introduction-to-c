@@ -363,6 +363,7 @@ hand_eval_t build_hand_from_match(deck_t * hand,
 				  size_t idx) {
 
   hand_eval_t ans;
+  ans.ranking = what;
   /*
   // maximum of two card types in any poker hand
   card_t * cardTypes[2];
