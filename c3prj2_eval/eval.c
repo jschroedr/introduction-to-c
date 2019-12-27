@@ -13,6 +13,7 @@
  *
  */
 int card_ptr_comp(const void * vp1, const void * vp2) {
+  /*
   // note that vp1 and vp2 are passed as const void *
   // because that is the type that qsort demands
   // so we need to cast to card_t type
@@ -37,6 +38,8 @@ int card_ptr_comp(const void * vp1, const void * vp2) {
   } else {  // card1.value < card2.value
     return 1;
   }
+  */
+  return 0;
 }
 
 
@@ -50,6 +53,7 @@ int card_ptr_comp(const void * vp1, const void * vp2) {
  *
  */
 suit_t flush_suit(deck_t * hand) {
+  /*
   int topSuitValue = 0;
   int topSuitType = NUM_SUITS;
   int spades = 0;
@@ -94,6 +98,8 @@ suit_t flush_suit(deck_t * hand) {
   } else {
     return NUM_SUITS;
   }
+  */
+  return NUM_SUITS;
 }
 
 /**
@@ -106,6 +112,7 @@ suit_t flush_suit(deck_t * hand) {
  * watched.
  */
 unsigned get_largest_element(unsigned * arr, size_t n) {
+  /*
   int largestValue = 0;
   int largestIndex = 0;
   for(int i = 0; i < n; i ++) {
@@ -115,6 +122,8 @@ unsigned get_largest_element(unsigned * arr, size_t n) {
     }
   }
   return arr[largestIndex];
+  */
+  return 0;
 }
 
 /**
@@ -133,10 +142,12 @@ unsigned get_largest_element(unsigned * arr, size_t n) {
  *
  */
 size_t get_match_index(unsigned * match_counts, size_t n, unsigned n_of_akind){
+  /*
   int index = -1;
   for (int i = 0; i < n; i ++) {
     if (match_counts[i] == n_of_akind) {
-      return index;  // return the lowest index (or first matching element)
+      index = i;
+      break;  // return the lowest index (or first matching element)
     }
   }
   // it is guaranteed that n_of_akind is in match_counts
@@ -146,6 +157,8 @@ size_t get_match_index(unsigned * match_counts, size_t n, unsigned n_of_akind){
     abort();
   }
   return index;
+  */
+  return 0;
 }
 
 /**
@@ -226,12 +239,14 @@ int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n);
 int isAceLowStraightAt(deck_t * hand, size_t index, suit_t fs);
 // main function definition
 int is_straight_at(deck_t * hand, size_t index, suit_t fs) {
+  /*
   if(isAceLowStraightAt(hand, index, fs) == 1) {
     return 1;
   }
   if(isNLengthStraightAt(hand, index, fs, 5) == 1) {
     return 1;
   }
+  */
   return 0;
 }
 
@@ -347,6 +362,8 @@ hand_eval_t build_hand_from_match(deck_t * hand,
 				  hand_ranking_t what,
 				  size_t idx) {
 
+  hand_eval_t ans;
+  /*
   // maximum of two card types in any poker hand
   card_t * cardTypes[2];
   int cardTypesN = 0;
@@ -379,6 +396,7 @@ hand_eval_t build_hand_from_match(deck_t * hand,
       handCount ++;
     }
   }
+  */
   return ans;
 }
 
@@ -407,6 +425,7 @@ hand_eval_t build_hand_from_match(deck_t * hand,
  * 
  */
 int compare_hands(deck_t * hand1, deck_t * hand2) {
+  /*
   // sort each hand DESC using our comparison function
   qsort(hand1->cards, hand1->n_cards, sizeof(hand1->cards[0]), card_ptr_comp);
   qsort(hand2->cards, hand2->n_cards, sizeof(hand2->cards[0]), card_ptr_comp);
@@ -433,6 +452,7 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
       return -1;
     }
   }
+  */
   return 0;
 }
 
