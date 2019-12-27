@@ -66,6 +66,7 @@ suit_t flush_suit(deck_t * hand) {
 	topSuitValue = spades;
 	topSuitType = SPADES;
       }
+      break;
     case DIAMONDS:
       diamonds ++;
       if(diamonds > topSuitValue) {
@@ -79,16 +80,19 @@ suit_t flush_suit(deck_t * hand) {
 	topSuitValue = hearts;
 	topSuitType = HEARTS;
       }
+      break;
     case CLUBS:
       clubs ++;
       if(clubs > topSuitValue) {
 	topSuitValue = clubs;
 	topSuitType = CLUBS;
       }
+      break;
     default:
       topSuitValue = 0;
       topSuitType = NUM_SUITS;
     }
+    break;
   }
   if(topSuitValue >= 5) {
     return topSuitType;
