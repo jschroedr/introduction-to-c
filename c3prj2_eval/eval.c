@@ -226,7 +226,7 @@ int isAceLowStraightAt(deck_t * hand, size_t index, suit_t fs);
 // main function definition
 int is_straight_at(deck_t * hand, size_t index, suit_t fs) {
   if(isAceLowStraightAt(hand, index, fs) == 1) {
-    return 1;
+    return -1;
   }
   if(isNLengthStraightAt(hand, index, fs, 5) == 1) {
     return 1;
@@ -310,9 +310,9 @@ int isAceLowStraightAt(deck_t * hand, size_t index, suit_t fs) {
   if(fiveIndex == -1) {
     return 0;
   } else {
-    printf("Trying for an ace-low straight");
     // find the 5, 4, 3, 2 combo we will need to complete the straight
-    return isNLengthStraightAt(hand, fiveIndex, fs, 4);
+    int result = isNLengthStraightAt(hand, fiveIndex, fs, 4);
+    return result;
   }
 }
 
@@ -344,38 +344,29 @@ hand_eval_t build_hand_from_match(deck_t * hand,
 				  hand_ranking_t what,
 				  size_t idx) {
 
-  // maximum of two card types in any poker hand
-  card_t * cardTypes[2];
-  int cardTypesN = 0;
-  
   hand_eval_t ans;
   ans.ranking = what;
   int handCount = 0;
   for(int i = idx; i < n; i ++) {
-    int newCardType = 1;  // assume new card type to start
-    for(int j = 0; j < cardTypesN; j ++) {
-      if(hand->cards[i]->value == cardTypes[j]->value) {
-	newCardType = 0; // not a new card type
-      }
-    }
-    if (newCardType == 1) {
-      cardTypes[cardTypesN] = hand->cards[i];
-      cardTypesN ++;
-    }
     ans.cards[handCount] = hand->cards[i];
     handCount ++;
   }
   // fill the reaminder of the "cards" array with the
   // highest-value cards from the hand which were not
   // in the n of a kind
-  int remainingSpots = 5 - handCount;
-  for(int i = 0; i < remainingSpots; i ++) {
-    // as long as the card is not part of the pre-existing collection
-    if((i != idx) && (i >= (idx + n))) {
-      ans.cards[handCount] = hand->cards[i];
-      handCount ++;
+  // printf("n = %d, handCount = %d", n, handCount);
+    for(int i = 0; i < hand->n_cards; i ++) {
+      // as long as the card is not part of the pre-existing collection
+      // printf("i = %d\n", i);
+      if((i != idx) && (i > (idx + n))) {
+	// printf("adding\n");
+	ans.cards[handCount] = hand->cards[i];
+	handCount ++;
+	if(handCount == 5){
+	  break;
+	}
+      }
     }
-  }
   return ans;
 }
 
