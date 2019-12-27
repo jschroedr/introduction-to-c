@@ -416,10 +416,10 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
   if(hand1Ranking.ranking == hand2Ranking.ranking) {
     // tiebreaker
     for(int i = 0; i < 5; i ++) {
-      if(hand1Ranking.cards[i] > hand2Ranking.cards[i]) {
+      if(hand1Ranking.cards[i]->value > hand2Ranking.cards[i]->value) {
 	return 1;
       }
-      if (hand1Ranking.cards[i] < hand2Ranking.cards[i]) {
+      if (hand1Ranking.cards[i]->value < hand2Ranking.cards[i]->value) {
 	return -1;
       }
     }
