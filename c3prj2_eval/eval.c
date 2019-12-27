@@ -138,20 +138,15 @@ unsigned get_largest_element(unsigned * arr, size_t n) {
  *
  */
 size_t get_match_index(unsigned * match_counts, size_t n, unsigned n_of_akind){
-  int index = -1;
   for (int i = 0; i < n; i ++) {
     if (match_counts[i] == n_of_akind) {
-      index = i;
-      break;  // return the lowest index (or first matching element)
+      return i;  // return the lowest index (or first matching element)
     }
   }
   // it is guaranteed that n_of_akind is in match_counts
   // if not, you should abort as this is evidence of an error
-  if (index == -1) {
-    printf("n_of_akind not found in match_counts");
-    abort();
-  }
-  return index;
+  printf("n_of_akind not found in match_counts");
+  abort();
 }
 
 /**
