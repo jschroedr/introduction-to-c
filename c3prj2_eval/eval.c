@@ -259,14 +259,11 @@ int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n) {
 	    straightValue ++;
 	  }
 	} else {
-	  // any suit will do, we are on a run
 	  straightValue ++;
 	}
       }
     } else {
-      // start over, now with this card as thisValue
-      thisValue = hand->cards[i]->value;
-      straightValue = 1;
+      break;
     }
   }
   if(straightValue == n) {
@@ -313,6 +310,7 @@ int isAceLowStraightAt(deck_t * hand, size_t index, suit_t fs) {
   if(fiveIndex == -1) {
     return 0;
   } else {
+    printf("Trying for an ace-low straight");
     // find the 5, 4, 3, 2 combo we will need to complete the straight
     return isNLengthStraightAt(hand, fiveIndex, fs, 4);
   }
