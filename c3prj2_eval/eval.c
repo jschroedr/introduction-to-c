@@ -91,15 +91,14 @@ suit_t flush_suit(deck_t * hand) {
     default:
       topSuitValue = 0;
       topSuitType = NUM_SUITS;
+      break;
     }
-    break;
   }
   if(topSuitValue >= 5) {
     return topSuitType;
   } else {
     return NUM_SUITS;
   }
-  return NUM_SUITS;
 }
 
 /**
