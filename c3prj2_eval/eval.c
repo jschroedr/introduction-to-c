@@ -172,11 +172,14 @@ size_t get_match_index(unsigned * match_counts, size_t n, unsigned n_of_akind){
 ssize_t  find_secondary_pair(deck_t * hand,
 			     unsigned * match_counts,
 			     size_t match_idx) {
+  return -1;
+  /*
   int previousMatchValue = hand->cards[match_idx]->value;
   for(int i = 0; i < hand->n_cards; i ++) {
     int matchCountValue = match_counts[i];
+    printf("%d: %d", i, matchCountValue);
     int thisCardValue = hand->cards[i]->value;
-    // if the match count is <1 (2 [pair] or 3 [three-of-a-kind])
+    // if the match count is > 1 (2 [pair] or 3 [three-of-a-kind])
     // AND the value of the card is not the same as the previous match
     // (aka. it is a new pairing)
     if((matchCountValue > 1) && (thisCardValue != previousMatchValue)) {
@@ -188,6 +191,7 @@ ssize_t  find_secondary_pair(deck_t * hand,
   }
   // if no second pair+ is found, then return -1
   return -1;
+  */
 }
 
 /**
