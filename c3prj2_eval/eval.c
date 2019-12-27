@@ -229,7 +229,7 @@ int is_straight_at(deck_t * hand, size_t index, suit_t fs) {
   if(isAceLowStraightAt(hand, index, fs) == 1) {
     return 1;
   }
-  if(isNLengthStraightAt(hand, index, fs, 5)) {
+  if(isNLengthStraightAt(hand, index, fs, 5) == 1) {
     return 1;
   }
   return 0;
@@ -408,8 +408,8 @@ hand_eval_t build_hand_from_match(deck_t * hand,
  */
 int compare_hands(deck_t * hand1, deck_t * hand2) {
   // sort each hand DESC using our comparison function
-  qsort(hand1, hand1->n_cards, sizeof(hand1->cards[0]), card_ptr_comp);
-  qsort(hand2, hand2->n_cards, sizeof(hand2->cards[0]), card_ptr_comp);
+  qsort(hand1->cards, hand1->n_cards, sizeof(hand1->cards[0]), card_ptr_comp);
+  qsort(hand2->cards, hand2->n_cards, sizeof(hand2->cards[0]), card_ptr_comp);
 
   // evaluate each hand, yielding a ranking for each
   hand_eval_t hand1Ranking = evaluate_hand(hand1);
