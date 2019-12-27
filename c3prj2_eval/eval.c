@@ -264,7 +264,7 @@ int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n) {
       break;
     }
   }
-  if(straightValue == n) {
+  if(straightValue >= n) {
     return 1;
   } else {
     return 0;
