@@ -1,4 +1,4 @@
-Grading at Mon Dec 30 22:49:11 UTC 2019
+Grading at Mon Dec 30 22:54:54 UTC 2019
 Compiling your code
 rm -f test poker cards.o my-test-main.o *~
 cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o deck.o deck.c
@@ -7,156 +7,386 @@ cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o cards.o cards.c
 gcc -o test-eval -ggdb3 deck.o deck-c4.o eval-c4.o eval.o test-eval.o cards.o input.o future.o
 Testcase 1: Trying hands with nothing
 Valgrind returned an error status
-==585== Memcheck, a memory error detector
-==585== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==585== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==585== Command: ./test-eval inp.1.txt
-==585== Parent PID: 584
-==585== 
-==585== Use of uninitialised value of size 8
-==585==    at 0x400C02: print_hand (deck.c:19)
-==585==    by 0x4028AF: describe_hand (test-eval.c:74)
-==585==    by 0x402A8F: main (test-eval.c:116)
-==585== 
-==585== Invalid read of size 8
-==585==    at 0x400C02: print_hand (deck.c:19)
-==585==    by 0x4028AF: describe_hand (test-eval.c:74)
-==585==    by 0x402A8F: main (test-eval.c:116)
-==585==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==585== 
-==585== 
-==585== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==585==  Access not within mapped region at address 0x0
-==585==    at 0x400C02: print_hand (deck.c:19)
-==585==    by 0x4028AF: describe_hand (test-eval.c:74)
-==585==    by 0x402A8F: main (test-eval.c:116)
-==585==  If you believe this happened as a result of a stack
-==585==  overflow in your program's main thread (unlikely but
-==585==  possible), you can try to increase the size of the
-==585==  main thread stack using the --main-stacksize= flag.
-==585==  The main thread stack size used in this run was 8388608.
-==585== 
-==585== HEAP SUMMARY:
-==585==     in use at exit: 864 bytes in 16 blocks
-==585==   total heap usage: 202 allocs, 186 frees, 12,472 bytes allocated
-==585== 
-==585== LEAK SUMMARY:
-==585==    definitely lost: 0 bytes in 0 blocks
-==585==    indirectly lost: 0 bytes in 0 blocks
-==585==      possibly lost: 0 bytes in 0 blocks
-==585==    still reachable: 864 bytes in 16 blocks
-==585==         suppressed: 0 bytes in 0 blocks
-==585== Rerun with --leak-check=full to see details of leaked memory
-==585== 
-==585== For counts of detected and suppressed errors, rerun with: -v
-==585== Use --track-origins=yes to see where uninitialised values come from
-==585== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==825== Memcheck, a memory error detector
+==825== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==825== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==825== Command: ./test-eval inp.1.txt
+==825== Parent PID: 824
+==825== 
+==825== Use of uninitialised value of size 8
+==825==    at 0x400C02: print_hand (deck.c:19)
+==825==    by 0x4028C9: describe_hand (test-eval.c:74)
+==825==    by 0x402AA9: main (test-eval.c:116)
+==825== 
+==825== Invalid read of size 8
+==825==    at 0x400C02: print_hand (deck.c:19)
+==825==    by 0x4028C9: describe_hand (test-eval.c:74)
+==825==    by 0x402AA9: main (test-eval.c:116)
+==825==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==825== 
+==825== 
+==825== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==825==  Access not within mapped region at address 0x0
+==825==    at 0x400C02: print_hand (deck.c:19)
+==825==    by 0x4028C9: describe_hand (test-eval.c:74)
+==825==    by 0x402AA9: main (test-eval.c:116)
+==825==  If you believe this happened as a result of a stack
+==825==  overflow in your program's main thread (unlikely but
+==825==  possible), you can try to increase the size of the
+==825==  main thread stack using the --main-stacksize= flag.
+==825==  The main thread stack size used in this run was 8388608.
+==825== 
+==825== HEAP SUMMARY:
+==825==     in use at exit: 864 bytes in 16 blocks
+==825==   total heap usage: 202 allocs, 186 frees, 12,472 bytes allocated
+==825== 
+==825== LEAK SUMMARY:
+==825==    definitely lost: 0 bytes in 0 blocks
+==825==    indirectly lost: 0 bytes in 0 blocks
+==825==      possibly lost: 0 bytes in 0 blocks
+==825==    still reachable: 864 bytes in 16 blocks
+==825==         suppressed: 0 bytes in 0 blocks
+==825== Rerun with --leak-check=full to see details of leaked memory
+==825== 
+==825== For counts of detected and suppressed errors, rerun with: -v
+==825== Use --track-origins=yes to see where uninitialised values come from
+==825== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 Testcase 2: Trying hands with pairs
 Valgrind returned an error status
-==590== Memcheck, a memory error detector
-==590== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==590== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==590== Command: ./test-eval inp.2.txt
-==590== Parent PID: 589
-==590== 
-==590== Use of uninitialised value of size 8
-==590==    at 0x400C02: print_hand (deck.c:19)
-==590==    by 0x4028AF: describe_hand (test-eval.c:74)
-==590==    by 0x402AAF: main (test-eval.c:119)
-==590== 
-==590== Invalid read of size 8
-==590==    at 0x400C02: print_hand (deck.c:19)
-==590==    by 0x4028AF: describe_hand (test-eval.c:74)
-==590==    by 0x402AAF: main (test-eval.c:119)
-==590==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==590== 
-==590== 
-==590== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==590==  Access not within mapped region at address 0x0
-==590==    at 0x400C02: print_hand (deck.c:19)
-==590==    by 0x4028AF: describe_hand (test-eval.c:74)
-==590==    by 0x402AAF: main (test-eval.c:119)
-==590==  If you believe this happened as a result of a stack
-==590==  overflow in your program's main thread (unlikely but
-==590==  possible), you can try to increase the size of the
-==590==  main thread stack using the --main-stacksize= flag.
-==590==  The main thread stack size used in this run was 8388608.
-==590== 
-==590== HEAP SUMMARY:
-==590==     in use at exit: 880 bytes in 17 blocks
-==590==   total heap usage: 32 allocs, 15 frees, 9,360 bytes allocated
-==590== 
-==590== LEAK SUMMARY:
-==590==    definitely lost: 0 bytes in 0 blocks
-==590==    indirectly lost: 0 bytes in 0 blocks
-==590==      possibly lost: 0 bytes in 0 blocks
-==590==    still reachable: 880 bytes in 17 blocks
-==590==         suppressed: 0 bytes in 0 blocks
-==590== Rerun with --leak-check=full to see details of leaked memory
-==590== 
-==590== For counts of detected and suppressed errors, rerun with: -v
-==590== Use --track-origins=yes to see where uninitialised values come from
-==590== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==830== Memcheck, a memory error detector
+==830== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==830== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==830== Command: ./test-eval inp.2.txt
+==830== Parent PID: 829
+==830== 
+==830== Use of uninitialised value of size 8
+==830==    at 0x400C02: print_hand (deck.c:19)
+==830==    by 0x4028C9: describe_hand (test-eval.c:74)
+==830==    by 0x402AC9: main (test-eval.c:119)
+==830== 
+==830== Invalid read of size 8
+==830==    at 0x400C02: print_hand (deck.c:19)
+==830==    by 0x4028C9: describe_hand (test-eval.c:74)
+==830==    by 0x402AC9: main (test-eval.c:119)
+==830==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==830== 
+==830== 
+==830== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==830==  Access not within mapped region at address 0x0
+==830==    at 0x400C02: print_hand (deck.c:19)
+==830==    by 0x4028C9: describe_hand (test-eval.c:74)
+==830==    by 0x402AC9: main (test-eval.c:119)
+==830==  If you believe this happened as a result of a stack
+==830==  overflow in your program's main thread (unlikely but
+==830==  possible), you can try to increase the size of the
+==830==  main thread stack using the --main-stacksize= flag.
+==830==  The main thread stack size used in this run was 8388608.
+==830== 
+==830== HEAP SUMMARY:
+==830==     in use at exit: 880 bytes in 17 blocks
+==830==   total heap usage: 32 allocs, 15 frees, 9,360 bytes allocated
+==830== 
+==830== LEAK SUMMARY:
+==830==    definitely lost: 0 bytes in 0 blocks
+==830==    indirectly lost: 0 bytes in 0 blocks
+==830==      possibly lost: 0 bytes in 0 blocks
+==830==    still reachable: 880 bytes in 17 blocks
+==830==         suppressed: 0 bytes in 0 blocks
+==830== Rerun with --leak-check=full to see details of leaked memory
+==830== 
+==830== For counts of detected and suppressed errors, rerun with: -v
+==830== Use --track-origins=yes to see where uninitialised values come from
+==830== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 Testcase 3: Trying hands with 2 pairs
  Checking the output 
-Your file matched the expected output
- - Testcase passed
+Line_7_did_not_match
+Line_15_did_not_match
+Line_17_did_not_match
+Line_27_did_not_match
+Line_35_did_not_match
+Line_37_did_not_match
+Line_47_did_not_match
+Line_55_did_not_match
+Line_57_did_not_match
+Line_67_did_not_match
+Line_75_did_not_match
+Line_77_did_not_match
+Line_87_did_not_match
+Line_95_did_not_match
+Line_97_did_not_match
+Line_107_did_not_match
+Line_115_did_not_match
+Line_117_did_not_match
+Line_127_did_not_match
+Line_135_did_not_match
+Line_137_did_not_match
+Line_147_did_not_match
+Line_155_did_not_match
+Line_157_did_not_match
+Line_167_did_not_match
+Line_175_did_not_match
+Line_177_did_not_match
+Line_187_did_not_match
+Line_195_did_not_match
+Line_197_did_not_match
+Your file did not match the expected ouput
+ - Output did not match, testcase failed
+Hand 1:								Hand 1:
+--------							--------
+Ac As Kc Kh 4d 							Ac As Kc Kh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ac As Kc Kh 4d 			 - 5 cards used for hand: Ac As Kc Kh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah Kd Ks 3h 							Ad Ah Kd Ks 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ad Ah Kd Ks 3h 			 - 5 cards used for hand: Ad Ah Kd Ks 3h 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ac As Kc Kh 4d 							Ac As Kc Kh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ac As Kc Kh 4d 			 - 5 cards used for hand: Ac As Kc Kh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah Qd Qs 3h 							Ad Ah Qd Qs 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ad Ah Qd Qs 3h 			 - 5 cards used for hand: Ad Ah Qd Qs 3h 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kc Ks Qc Qh 4d 							Kc Ks Qc Qh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value K)	 - The most of a kind is 2 of a kind (at index 0 / value K)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Kc Ks Qc Qh 4d 			 - 5 cards used for hand: Kc Ks Qc Qh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah Jd Js 3h 							Ad Ah Jd Js 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value J)				 - Secondary pair at index 2 (value J)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ad Ah Jd Js 3h 			 - 5 cards used for hand: Ad Ah Jd Js 3h 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kc Ks Qc Qh 4d 							Kc Ks Qc Qh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value K)	 - The most of a kind is 2 of a kind (at index 0 / value K)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Kc Ks Qc Qh 4d 			 - 5 cards used for hand: Kc Ks Qc Qh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah Qd Qs 3h 							Ad Ah Qd Qs 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value Q)				 - Secondary pair at index 2 (value Q)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ad Ah Qd Qs 3h 			 - 5 cards used for hand: Ad Ah Qd Qs 3h 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Js 7c 7h 4s 3d 3h 						Js 7c 7h 4s 3d 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 1 / value 7)	 - The most of a kind is 2 of a kind (at index 1 / value 7)
+ - Secondary pair at index 4 (value 3)				 - Secondary pair at index 4 (value 3)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: 7c 7h 3d 3h Js 			 - 5 cards used for hand: 7c 7h 3d 3h Js 
+Hand 2:								Hand 2:
+--------							--------
+Qs 7d 7s 5c 2d 2h 						Qs 7d 7s 5c 2d 2h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 1 / value 7)	 - The most of a kind is 2 of a kind (at index 1 / value 7)
+ - Secondary pair at index 4 (value 2)				 - Secondary pair at index 4 (value 2)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: 7d 7s 2d 2h Qs 			 - 5 cards used for hand: 7d 7s 2d 2h Qs 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Js 7c 7h 4s 3d 3h 						Js 7c 7h 4s 3d 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 1 / value 7)	 - The most of a kind is 2 of a kind (at index 1 / value 7)
+ - Secondary pair at index 4 (value 3)				 - Secondary pair at index 4 (value 3)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: 7c 7h 3d 3h Js 			 - 5 cards used for hand: 7c 7h 3d 3h Js 
+Hand 2:								Hand 2:
+--------							--------
+Qs 8d 8s 5c 2d 2h 						Qs 8d 8s 5c 2d 2h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 1 / value 8)	 - The most of a kind is 2 of a kind (at index 1 / value 8)
+ - Secondary pair at index 4 (value 2)				 - Secondary pair at index 4 (value 2)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: 8d 8s 2d 2h Qs 			 - 5 cards used for hand: 8d 8s 2d 2h Qs 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Jc Js 9d 5c 5s 4h 						Jc Js 9d 5c 5s 4h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 9d 			 - 5 cards used for hand: Jc Js 5c 5s 9d 
+Hand 2:								Hand 2:
+--------							--------
+Jc Js 9d 4c 4s 3h 						Jc Js 9d 4c 4s 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 4)				 - Secondary pair at index 3 (value 4)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 4c 4s 9d 			 - 5 cards used for hand: Jc Js 4c 4s 9d 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Jc Js 9d 5c 5s 4h 						Jc Js 9d 5c 5s 4h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 9d 			 - 5 cards used for hand: Jc Js 5c 5s 9d 
+Hand 2:								Hand 2:
+--------							--------
+Qc Qs 9d 5c 5s 3h 						Qc Qs 9d 5c 5s 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value Q)	 - The most of a kind is 2 of a kind (at index 0 / value Q)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Qc Qs 5c 5s 9d 			 - 5 cards used for hand: Qc Qs 5c 5s 9d 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Jc Js 9d 5c 5s 4h 						Jc Js 9d 5c 5s 4h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 9d 			 - 5 cards used for hand: Jc Js 5c 5s 9d 
+Hand 2:								Hand 2:
+--------							--------
+Jc Js 8d 5c 5s 3h 						Jc Js 8d 5c 5s 3h 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 8d 			 - 5 cards used for hand: Jc Js 5c 5s 8d 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Ac As Kc Kh 4d 							Ac As Kc Kh 4d 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value A)	 - The most of a kind is 2 of a kind (at index 0 / value A)
+ - Secondary pair at index 2 (value K)				 - Secondary pair at index 2 (value K)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Ac As Kc Kh 4d 			 - 5 cards used for hand: Ac As Kc Kh 4d 
+Hand 2:								Hand 2:
+--------							--------
+Jc Js 8d 5c 5s 							Jc Js 8d 5c 5s 
+ - No flush							 - No flush
+ - The most of a kind is 2 of a kind (at index 0 / value J)	 - The most of a kind is 2 of a kind (at index 0 / value J)
+ - Secondary pair at index 3 (value 5)				 - Secondary pair at index 3 (value 5)
+ - evaluate_hand's ranking: TWO_PAIR			      |	2 - evaluate_hand's ranking: TWO_PAIR
+ - 5 cards used for hand: Jc Js 5c 5s 8d 			 - 5 cards used for hand: Jc Js 5c 5s 8d 
+Comparison : 						      |	22Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
 Testcase 4: Trying hands with 3 of a kind
 Valgrind returned an error status
-==607== Memcheck, a memory error detector
-==607== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==607== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==607== Command: ./test-eval inp.4.txt
-==607== Parent PID: 606
-==607== 
-==607== Use of uninitialised value of size 8
-==607==    at 0x400C02: print_hand (deck.c:19)
-==607==    by 0x4028AF: describe_hand (test-eval.c:74)
-==607==    by 0x402A8F: main (test-eval.c:116)
-==607== 
-==607== Invalid read of size 8
-==607==    at 0x400C02: print_hand (deck.c:19)
-==607==    by 0x4028AF: describe_hand (test-eval.c:74)
-==607==    by 0x402A8F: main (test-eval.c:116)
-==607==  Address 0x520bd30 is 0 bytes inside a block of size 24 free'd
-==607==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==607==    by 0x4020A9: evaluate_hand (eval.c:515)
-==607==    by 0x402864: describe_hand (test-eval.c:68)
-==607==    by 0x402A8F: main (test-eval.c:116)
-==607==  Block was alloc'd at
-==607==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==607==    by 0x4013DE: get_match_counts (eval-c4.c:70)
-==607==    by 0x402027: evaluate_hand (eval.c:510)
-==607==    by 0x402864: describe_hand (test-eval.c:68)
-==607==    by 0x402A8F: main (test-eval.c:116)
-==607== 
-==607== 
-==607== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==607==  Access not within mapped region at address 0x0
-==607==    at 0x400C02: print_hand (deck.c:19)
-==607==    by 0x4028AF: describe_hand (test-eval.c:74)
-==607==    by 0x402A8F: main (test-eval.c:116)
-==607==  If you believe this happened as a result of a stack
-==607==  overflow in your program's main thread (unlikely but
-==607==  possible), you can try to increase the size of the
-==607==  main thread stack using the --main-stacksize= flag.
-==607==  The main thread stack size used in this run was 8388608.
-==607== 
-==607== HEAP SUMMARY:
-==607==     in use at exit: 896 bytes in 18 blocks
-==607==   total heap usage: 264 allocs, 246 frees, 13,664 bytes allocated
-==607== 
-==607== LEAK SUMMARY:
-==607==    definitely lost: 0 bytes in 0 blocks
-==607==    indirectly lost: 0 bytes in 0 blocks
-==607==      possibly lost: 0 bytes in 0 blocks
-==607==    still reachable: 896 bytes in 18 blocks
-==607==         suppressed: 0 bytes in 0 blocks
-==607== Rerun with --leak-check=full to see details of leaked memory
-==607== 
-==607== For counts of detected and suppressed errors, rerun with: -v
-==607== Use --track-origins=yes to see where uninitialised values come from
-==607== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)
+==848== Memcheck, a memory error detector
+==848== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==848== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==848== Command: ./test-eval inp.4.txt
+==848== Parent PID: 847
+==848== 
+==848== Use of uninitialised value of size 8
+==848==    at 0x400C02: print_hand (deck.c:19)
+==848==    by 0x4028C9: describe_hand (test-eval.c:74)
+==848==    by 0x402AA9: main (test-eval.c:116)
+==848== 
+==848== Invalid read of size 8
+==848==    at 0x400C02: print_hand (deck.c:19)
+==848==    by 0x4028C9: describe_hand (test-eval.c:74)
+==848==    by 0x402AA9: main (test-eval.c:116)
+==848==  Address 0x520bd30 is 0 bytes inside a block of size 24 free'd
+==848==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==848==    by 0x4020C3: evaluate_hand (eval.c:518)
+==848==    by 0x40287E: describe_hand (test-eval.c:68)
+==848==    by 0x402AA9: main (test-eval.c:116)
+==848==  Block was alloc'd at
+==848==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==848==    by 0x4013DE: get_match_counts (eval-c4.c:70)
+==848==    by 0x402041: evaluate_hand (eval.c:513)
+==848==    by 0x40287E: describe_hand (test-eval.c:68)
+==848==    by 0x402AA9: main (test-eval.c:116)
+==848== 
+==848== 
+==848== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==848==  Access not within mapped region at address 0x0
+==848==    at 0x400C02: print_hand (deck.c:19)
+==848==    by 0x4028C9: describe_hand (test-eval.c:74)
+==848==    by 0x402AA9: main (test-eval.c:116)
+==848==  If you believe this happened as a result of a stack
+==848==  overflow in your program's main thread (unlikely but
+==848==  possible), you can try to increase the size of the
+==848==  main thread stack using the --main-stacksize= flag.
+==848==  The main thread stack size used in this run was 8388608.
+==848== 
+==848== HEAP SUMMARY:
+==848==     in use at exit: 896 bytes in 18 blocks
+==848==   total heap usage: 264 allocs, 246 frees, 13,664 bytes allocated
+==848== 
+==848== LEAK SUMMARY:
+==848==    definitely lost: 0 bytes in 0 blocks
+==848==    indirectly lost: 0 bytes in 0 blocks
+==848==      possibly lost: 0 bytes in 0 blocks
+==848==    still reachable: 896 bytes in 18 blocks
+==848==         suppressed: 0 bytes in 0 blocks
+==848== Rerun with --leak-check=full to see details of leaked memory
+==848== 
+==848== For counts of detected and suppressed errors, rerun with: -v
+==848== Use --track-origins=yes to see where uninitialised values come from
+==848== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)
 Testcase 5: Trying hands with straights
  Checking the output 
 Your file matched the expected output
@@ -167,54 +397,284 @@ Your file matched the expected output
  - Testcase passed
 Testcase 7: Trying hands with full houses
  Checking the output 
-Your file matched the expected output
- - Testcase passed
+Line_7_did_not_match
+Line_15_did_not_match
+Line_17_did_not_match
+Line_27_did_not_match
+Line_35_did_not_match
+Line_37_did_not_match
+Line_47_did_not_match
+Line_55_did_not_match
+Line_57_did_not_match
+Line_67_did_not_match
+Line_75_did_not_match
+Line_77_did_not_match
+Line_87_did_not_match
+Line_95_did_not_match
+Line_97_did_not_match
+Line_107_did_not_match
+Line_115_did_not_match
+Line_117_did_not_match
+Line_127_did_not_match
+Line_135_did_not_match
+Line_137_did_not_match
+Line_147_did_not_match
+Line_155_did_not_match
+Line_157_did_not_match
+Line_167_did_not_match
+Line_175_did_not_match
+Line_177_did_not_match
+Line_187_did_not_match
+Line_195_did_not_match
+Line_197_did_not_match
+Your file did not match the expected ouput
+ - Output did not match, testcase failed
+Hand 1:								Hand 1:
+--------							--------
+Kd Kh Ks 8d 7c 7h 2c 						Kd Kh Ks 8d 7c 7h 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value K)	 - The most of a kind is 3 of a kind (at index 0 / value K)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Kd Kh Ks 7c 7h 			 - 5 cards used for hand: Kd Kh Ks 7c 7h 
+Hand 2:								Hand 2:
+--------							--------
+Kd Kh Ks 9h 7c 7h 2h 						Kd Kh Ks 9h 7c 7h 2h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value K)	 - The most of a kind is 3 of a kind (at index 0 / value K)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Kd Kh Ks 7c 7h 			 - 5 cards used for hand: Kd Kh Ks 7c 7h 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Tie								Tie
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kd Kh Ks 8d 7c 7h 2c 						Kd Kh Ks 8d 7c 7h 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value K)	 - The most of a kind is 3 of a kind (at index 0 / value K)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Kd Kh Ks 7c 7h 			 - 5 cards used for hand: Kd Kh Ks 7c 7h 
+Hand 2:								Hand 2:
+--------							--------
+Qd Qh Qs 9h 7c 7h 2h 						Qd Qh Qs 9h 7c 7h 2h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value Q)	 - The most of a kind is 3 of a kind (at index 0 / value Q)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Qd Qh Qs 7c 7h 			 - 5 cards used for hand: Qd Qh Qs 7c 7h 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kd Kh Ks 8d 7c 7h 2c 						Kd Kh Ks 8d 7c 7h 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value K)	 - The most of a kind is 3 of a kind (at index 0 / value K)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Kd Kh Ks 7c 7h 			 - 5 cards used for hand: Kd Kh Ks 7c 7h 
+Hand 2:								Hand 2:
+--------							--------
+Qd Qh Qs 9h 8c 8h 2h 						Qd Qh Qs 9h 8c 8h 2h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value Q)	 - The most of a kind is 3 of a kind (at index 0 / value Q)
+ - Secondary pair at index 4 (value 8)				 - Secondary pair at index 4 (value 8)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Qd Qh Qs 8c 8h 			 - 5 cards used for hand: Qd Qh Qs 8c 8h 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kd Kh Ks 8d 7c 7h 2c 						Kd Kh Ks 8d 7c 7h 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value K)	 - The most of a kind is 3 of a kind (at index 0 / value K)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Kd Kh Ks 7c 7h 			 - 5 cards used for hand: Kd Kh Ks 7c 7h 
+Hand 2:								Hand 2:
+--------							--------
+Qd Qh Qs 9h 7c 7h 7s 						Qd Qh Qs 9h 7c 7h 7s 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value Q)	 - The most of a kind is 3 of a kind (at index 0 / value Q)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Qd Qh Qs 7c 7h 			 - 5 cards used for hand: Qd Qh Qs 7c 7h 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kd Kh Ks 8d 7c 7h 						Kd Kh Ks 8d 7c 7h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value K)	 - The most of a kind is 3 of a kind (at index 0 / value K)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Kd Kh Ks 7c 7h 			 - 5 cards used for hand: Kd Kh Ks 7c 7h 
+Hand 2:								Hand 2:
+--------							--------
+Qd Qh Qs 9h 8c 8h 						Qd Qh Qs 9h 8c 8h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value Q)	 - The most of a kind is 3 of a kind (at index 0 / value Q)
+ - Secondary pair at index 4 (value 8)				 - Secondary pair at index 4 (value 8)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Qd Qh Qs 8c 8h 			 - 5 cards used for hand: Qd Qh Qs 8c 8h 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+As Kd Kh Ks 7c 7h 2c 						As Kd Kh Ks 7c 7h 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 1 / value K)	 - The most of a kind is 3 of a kind (at index 1 / value K)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Kd Kh Ks 7c 7h 			 - 5 cards used for hand: Kd Kh Ks 7c 7h 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah As 8c 8d 8h 						Ad Ah As 8c 8d 8h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value A)	 - The most of a kind is 3 of a kind (at index 0 / value A)
+ - Secondary pair at index 3 (value 8)				 - Secondary pair at index 3 (value 8)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Ad Ah As 8c 8d 			 - 5 cards used for hand: Ad Ah As 8c 8d 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+As Kd Kh Ks 7c 7h 2c 						As Kd Kh Ks 7c 7h 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 1 / value K)	 - The most of a kind is 3 of a kind (at index 1 / value K)
+ - Secondary pair at index 4 (value 7)				 - Secondary pair at index 4 (value 7)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Kd Kh Ks 7c 7h 			 - 5 cards used for hand: Kd Kh Ks 7c 7h 
+Hand 2:								Hand 2:
+--------							--------
+Ad Ah As 6c 6d 6h 						Ad Ah As 6c 6d 6h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 0 / value A)	 - The most of a kind is 3 of a kind (at index 0 / value A)
+ - Secondary pair at index 3 (value 6)				 - Secondary pair at index 3 (value 6)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: Ad Ah As 6c 6d 			 - 5 cards used for hand: Ad Ah As 6c 6d 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 2 wins!							Hand 2 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kh Ks 8c 7c 7d 7h 						Kh Ks 8c 7c 7d 7h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 3 / value 7)	 - The most of a kind is 3 of a kind (at index 3 / value 7)
+ - Secondary pair at index 0 (value K)				 - Secondary pair at index 0 (value K)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: 7c 7d 7h Kh Ks 			 - 5 cards used for hand: 7c 7d 7h Kh Ks 
+Hand 2:								Hand 2:
+--------							--------
+Kh Ks 9d 3c 3h 3s 2c 						Kh Ks 9d 3c 3h 3s 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 3 / value 3)	 - The most of a kind is 3 of a kind (at index 3 / value 3)
+ - Secondary pair at index 0 (value K)				 - Secondary pair at index 0 (value K)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: 3c 3h 3s Kh Ks 			 - 5 cards used for hand: 3c 3h 3s Kh Ks 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kh Ks 8c 7c 7d 7h 						Kh Ks 8c 7c 7d 7h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 3 / value 7)	 - The most of a kind is 3 of a kind (at index 3 / value 7)
+ - Secondary pair at index 0 (value K)				 - Secondary pair at index 0 (value K)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: 7c 7d 7h Kh Ks 			 - 5 cards used for hand: 7c 7d 7h Kh Ks 
+Hand 2:								Hand 2:
+--------							--------
+Qh Qs 9d 3c 3h 3s 2c 						Qh Qs 9d 3c 3h 3s 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 3 / value 3)	 - The most of a kind is 3 of a kind (at index 3 / value 3)
+ - Secondary pair at index 0 (value Q)				 - Secondary pair at index 0 (value Q)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: 3c 3h 3s Qh Qs 			 - 5 cards used for hand: 3c 3h 3s Qh Qs 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
+Hand 1:								Hand 1:
+--------							--------
+Kh Ks 8c 7c 7d 7h 						Kh Ks 8c 7c 7d 7h 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 3 / value 7)	 - The most of a kind is 3 of a kind (at index 3 / value 7)
+ - Secondary pair at index 0 (value K)				 - Secondary pair at index 0 (value K)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: 7c 7d 7h Kh Ks 			 - 5 cards used for hand: 7c 7d 7h Kh Ks 
+Hand 2:								Hand 2:
+--------							--------
+Jh Js 9d 7c 7h 7s 2c 						Jh Js 9d 7c 7h 7s 2c 
+ - No flush							 - No flush
+ - The most of a kind is 3 of a kind (at index 3 / value 7)	 - The most of a kind is 3 of a kind (at index 3 / value 7)
+ - Secondary pair at index 0 (value J)				 - Secondary pair at index 0 (value J)
+ - evaluate_hand's ranking: FULL_HOUSE			      |	3 - evaluate_hand's ranking: FULL_HOUSE
+ - 5 cards used for hand: 7c 7h 7s Jh Js 			 - 5 cards used for hand: 7c 7h 7s Jh Js 
+Comparison : 						      |	33Comparison : 
+--------------							--------------
+Hand 1 wins!							Hand 1 wins!
+============================					============================
 Testcase 8: Trying hands with 4 of a kind
 Valgrind returned an error status
-==648== Memcheck, a memory error detector
-==648== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==648== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==648== Command: ./test-eval inp.8.txt
-==648== Parent PID: 647
-==648== 
-==648== Use of uninitialised value of size 8
-==648==    at 0x400C02: print_hand (deck.c:19)
-==648==    by 0x4028AF: describe_hand (test-eval.c:74)
-==648==    by 0x402AAF: main (test-eval.c:119)
-==648== 
-==648== Invalid read of size 8
-==648==    at 0x400C02: print_hand (deck.c:19)
-==648==    by 0x4028AF: describe_hand (test-eval.c:74)
-==648==    by 0x402AAF: main (test-eval.c:119)
-==648==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==648== 
-==648== 
-==648== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==648==  Access not within mapped region at address 0x0
-==648==    at 0x400C02: print_hand (deck.c:19)
-==648==    by 0x4028AF: describe_hand (test-eval.c:74)
-==648==    by 0x402AAF: main (test-eval.c:119)
-==648==  If you believe this happened as a result of a stack
-==648==  overflow in your program's main thread (unlikely but
-==648==  possible), you can try to increase the size of the
-==648==  main thread stack using the --main-stacksize= flag.
-==648==  The main thread stack size used in this run was 8388608.
-==648== 
-==648== HEAP SUMMARY:
-==648==     in use at exit: 896 bytes in 18 blocks
-==648==   total heap usage: 150 allocs, 132 frees, 11,568 bytes allocated
-==648== 
-==648== LEAK SUMMARY:
-==648==    definitely lost: 0 bytes in 0 blocks
-==648==    indirectly lost: 0 bytes in 0 blocks
-==648==      possibly lost: 0 bytes in 0 blocks
-==648==    still reachable: 896 bytes in 18 blocks
-==648==         suppressed: 0 bytes in 0 blocks
-==648== Rerun with --leak-check=full to see details of leaked memory
-==648== 
-==648== For counts of detected and suppressed errors, rerun with: -v
-==648== Use --track-origins=yes to see where uninitialised values come from
-==648== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==890== Memcheck, a memory error detector
+==890== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==890== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==890== Command: ./test-eval inp.8.txt
+==890== Parent PID: 889
+==890== 
+==890== Use of uninitialised value of size 8
+==890==    at 0x400C02: print_hand (deck.c:19)
+==890==    by 0x4028C9: describe_hand (test-eval.c:74)
+==890==    by 0x402AC9: main (test-eval.c:119)
+==890== 
+==890== Invalid read of size 8
+==890==    at 0x400C02: print_hand (deck.c:19)
+==890==    by 0x4028C9: describe_hand (test-eval.c:74)
+==890==    by 0x402AC9: main (test-eval.c:119)
+==890==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==890== 
+==890== 
+==890== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==890==  Access not within mapped region at address 0x0
+==890==    at 0x400C02: print_hand (deck.c:19)
+==890==    by 0x4028C9: describe_hand (test-eval.c:74)
+==890==    by 0x402AC9: main (test-eval.c:119)
+==890==  If you believe this happened as a result of a stack
+==890==  overflow in your program's main thread (unlikely but
+==890==  possible), you can try to increase the size of the
+==890==  main thread stack using the --main-stacksize= flag.
+==890==  The main thread stack size used in this run was 8388608.
+==890== 
+==890== HEAP SUMMARY:
+==890==     in use at exit: 896 bytes in 18 blocks
+==890==   total heap usage: 150 allocs, 132 frees, 11,568 bytes allocated
+==890== 
+==890== LEAK SUMMARY:
+==890==    definitely lost: 0 bytes in 0 blocks
+==890==    indirectly lost: 0 bytes in 0 blocks
+==890==      possibly lost: 0 bytes in 0 blocks
+==890==    still reachable: 896 bytes in 18 blocks
+==890==         suppressed: 0 bytes in 0 blocks
+==890== Rerun with --leak-check=full to see details of leaked memory
+==890== 
+==890== For counts of detected and suppressed errors, rerun with: -v
+==890== Use --track-origins=yes to see where uninitialised values come from
+==890== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 Testcase 9: Trying hands with straight flushes
  Checking the output 
 Line_53_did_not_match
@@ -339,49 +799,49 @@ Hand 1 wins!						      <
 ============================				      <
 Testcase 10: Trying each type of hand ranking
 Valgrind returned an error status
-==666== Memcheck, a memory error detector
-==666== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==666== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==666== Command: ./test-eval inp.10.txt
-==666== Parent PID: 665
-==666== 
-==666== Use of uninitialised value of size 8
-==666==    at 0x400C02: print_hand (deck.c:19)
-==666==    by 0x4028AF: describe_hand (test-eval.c:74)
-==666==    by 0x402AAF: main (test-eval.c:119)
-==666== 
-==666== Invalid read of size 8
-==666==    at 0x400C02: print_hand (deck.c:19)
-==666==    by 0x4028AF: describe_hand (test-eval.c:74)
-==666==    by 0x402AAF: main (test-eval.c:119)
-==666==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==666== 
-==666== 
-==666== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==666==  Access not within mapped region at address 0x0
-==666==    at 0x400C02: print_hand (deck.c:19)
-==666==    by 0x4028AF: describe_hand (test-eval.c:74)
-==666==    by 0x402AAF: main (test-eval.c:119)
-==666==  If you believe this happened as a result of a stack
-==666==  overflow in your program's main thread (unlikely but
-==666==  possible), you can try to increase the size of the
-==666==  main thread stack using the --main-stacksize= flag.
-==666==  The main thread stack size used in this run was 8388608.
-==666== 
-==666== HEAP SUMMARY:
-==666==     in use at exit: 880 bytes in 17 blocks
-==666==   total heap usage: 210 allocs, 193 frees, 12,716 bytes allocated
-==666== 
-==666== LEAK SUMMARY:
-==666==    definitely lost: 0 bytes in 0 blocks
-==666==    indirectly lost: 0 bytes in 0 blocks
-==666==      possibly lost: 0 bytes in 0 blocks
-==666==    still reachable: 880 bytes in 17 blocks
-==666==         suppressed: 0 bytes in 0 blocks
-==666== Rerun with --leak-check=full to see details of leaked memory
-==666== 
-==666== For counts of detected and suppressed errors, rerun with: -v
-==666== Use --track-origins=yes to see where uninitialised values come from
-==666== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==908== Memcheck, a memory error detector
+==908== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==908== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==908== Command: ./test-eval inp.10.txt
+==908== Parent PID: 907
+==908== 
+==908== Use of uninitialised value of size 8
+==908==    at 0x400C02: print_hand (deck.c:19)
+==908==    by 0x4028C9: describe_hand (test-eval.c:74)
+==908==    by 0x402AC9: main (test-eval.c:119)
+==908== 
+==908== Invalid read of size 8
+==908==    at 0x400C02: print_hand (deck.c:19)
+==908==    by 0x4028C9: describe_hand (test-eval.c:74)
+==908==    by 0x402AC9: main (test-eval.c:119)
+==908==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==908== 
+==908== 
+==908== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==908==  Access not within mapped region at address 0x0
+==908==    at 0x400C02: print_hand (deck.c:19)
+==908==    by 0x4028C9: describe_hand (test-eval.c:74)
+==908==    by 0x402AC9: main (test-eval.c:119)
+==908==  If you believe this happened as a result of a stack
+==908==  overflow in your program's main thread (unlikely but
+==908==  possible), you can try to increase the size of the
+==908==  main thread stack using the --main-stacksize= flag.
+==908==  The main thread stack size used in this run was 8388608.
+==908== 
+==908== HEAP SUMMARY:
+==908==     in use at exit: 880 bytes in 17 blocks
+==908==   total heap usage: 210 allocs, 193 frees, 12,716 bytes allocated
+==908== 
+==908== LEAK SUMMARY:
+==908==    definitely lost: 0 bytes in 0 blocks
+==908==    indirectly lost: 0 bytes in 0 blocks
+==908==      possibly lost: 0 bytes in 0 blocks
+==908==    still reachable: 880 bytes in 17 blocks
+==908==         suppressed: 0 bytes in 0 blocks
+==908== Rerun with --leak-check=full to see details of leaked memory
+==908== 
+==908== For counts of detected and suppressed errors, rerun with: -v
+==908== Use --track-origins=yes to see where uninitialised values come from
+==908== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 
 Overall Grade: F
