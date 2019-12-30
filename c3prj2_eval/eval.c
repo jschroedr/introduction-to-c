@@ -412,7 +412,7 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
       }
     }
   } else {
-    if(hand1Ranking.ranking > hand2Ranking.ranking) {
+    if(hand1Ranking.ranking < hand2Ranking.ranking) {
       return 1;
     } else {
       return -1;
