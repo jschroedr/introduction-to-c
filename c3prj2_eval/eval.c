@@ -260,6 +260,8 @@ int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n) {
 	straightValue ++;
 	// on success we update the thisValueIndex to be where nextValueIndex was
 	thisValueIndex = nextValueIndex;
+      } else {
+	break;
       }
     }
     nextValueIndex ++;
