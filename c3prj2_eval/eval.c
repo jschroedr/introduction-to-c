@@ -405,7 +405,7 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
   // check if rankings are the same or different
   if(hand1Ranking.ranking == hand2Ranking.ranking) {
     // tiebreaker
-    for(int i = 0; i < 5; i ++) {
+    for(int i = 0; i < hand1->n_cards; i ++) {
       if(hand1Ranking.cards[i]->value > hand2Ranking.cards[i]->value) {
 	return 1;
       }
