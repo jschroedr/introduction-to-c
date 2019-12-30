@@ -243,6 +243,34 @@ int is_straight_at(deck_t * hand, size_t index, suit_t fs) {
  */
 int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n) {
   int straightValue = 1;  // always starting at one so this can == n
+  int cardCount = 0;
+  int thisValueIndex = index;
+  int nextValueIndex = (thisValueIndex + 1);
+  printf("N = %d", n);
+  while (cardCount < n) {
+    printf("CC = %d", cardCount);
+    // check that there is space for another comparison before continuing
+    if (nextValueIndex > hand->n_cards) {
+      break;
+    }
+    // get thisValue and nextValue
+    int thisValue = hand->cards[thisValueIndex]->value;
+    int nextValue = hand->cards[nextValueIndex]->value;
+    int nextSuit = hand->cards[nextValueIndex]->suit;
+    // check for success on value (next must be this - 1)
+    if (nextValue == (thisValue - 1)) {
+      // check for success on suit (next must match fs or fs == NUM_SUITS)
+      if((fs == NUM_SUITS) || (nextSuit == fs)) {
+	// increment the score
+	straightValue ++;
+	// on success we update the thisValueIndex to be where nextValueIndex was
+	thisValueIndex = nextValueIndex;
+      }
+    }
+    nextValueIndex ++;
+    cardCount ++;
+  }
+  /*
   for(int i = (index + 1); i < hand->n_cards; i ++) {
     int thisValue = hand->cards[i - 1]->value;
     int diff = thisValue - hand->cards[i]->value;
@@ -250,20 +278,20 @@ int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n) {
     if(diff <= 1) {
       // if one lower, we might be on a run
       if(diff == 1) {
+	printf("I-1 = S:%d V:%d\n", hand->cards[i - 1]->suit, hand->cards[i - 1]->value);
+	printf("I = S:%d V:%d\n", hand->cards[i]->suit, hand->cards[i]->value);
+	printf("FS = %d\n", fs);
 	// check for suit value - do we need to check for straight flush only?
-	if(fs != NUM_SUITS) {
-	  // only a matching suit will do
-	  if (hand->cards[i]->suit == fs) {
-	    straightValue ++;
-	  }
-	} else {
+	if((fs == NUM_SUITS) || (hand->cards[i]->suit == fs)) {
 	  straightValue ++;
 	}
+	printf("StraightValue = %d\n", straightValue);
       }
     } else {
       break;
     }
   }
+  */
   if(straightValue >= n) {
     return 1;
   } else {
