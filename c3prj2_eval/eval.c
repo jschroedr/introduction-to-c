@@ -246,13 +246,8 @@ int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n) {
   int cardCount = 0;
   int thisValueIndex = index;
   int nextValueIndex = (thisValueIndex + 1);
-  printf("N = %d", n);
-  while (cardCount < n) {
-    printf("CC = %d", cardCount);
+  while (nextValueIndex < hand->n_cards) {
     // check that there is space for another comparison before continuing
-    if (nextValueIndex > hand->n_cards) {
-      break;
-    }
     // get thisValue and nextValue
     int thisValue = hand->cards[thisValueIndex]->value;
     int nextValue = hand->cards[nextValueIndex]->value;
@@ -270,28 +265,6 @@ int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n) {
     nextValueIndex ++;
     cardCount ++;
   }
-  /*
-  for(int i = (index + 1); i < hand->n_cards; i ++) {
-    int thisValue = hand->cards[i - 1]->value;
-    int diff = thisValue - hand->cards[i]->value;
-    // if tie or one lower, we continue (valid run still possible)
-    if(diff <= 1) {
-      // if one lower, we might be on a run
-      if(diff == 1) {
-	printf("I-1 = S:%d V:%d\n", hand->cards[i - 1]->suit, hand->cards[i - 1]->value);
-	printf("I = S:%d V:%d\n", hand->cards[i]->suit, hand->cards[i]->value);
-	printf("FS = %d\n", fs);
-	// check for suit value - do we need to check for straight flush only?
-	if((fs == NUM_SUITS) || (hand->cards[i]->suit == fs)) {
-	  straightValue ++;
-	}
-	printf("StraightValue = %d\n", straightValue);
-      }
-    } else {
-      break;
-    }
-  }
-  */
   if(straightValue >= n) {
     return 1;
   } else {
