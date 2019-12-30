@@ -250,6 +250,10 @@ int isNLengthStraightAt(deck_t * hand, size_t index, suit_t fs, int n) {
     // check that there is space for another comparison before continuing
     // get thisValue and nextValue
     int thisValue = hand->cards[thisValueIndex]->value;
+    int thisSuit = hand->cards[thisValueIndex]->suit;
+    if ((fs != NUM_SUITS) && (thisSuit != fs)) {
+      break;
+    }
     int nextValue = hand->cards[nextValueIndex]->value;
     int nextSuit = hand->cards[nextValueIndex]->suit;
     // check for success on value (next must be this - 1)
