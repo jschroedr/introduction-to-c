@@ -342,33 +342,24 @@ hand_eval_t build_hand_from_match(deck_t * hand,
 				  unsigned n,
 				  hand_ranking_t what,
 				  size_t idx) {
-
-  printf("%d", n);
   hand_eval_t ans;
   ans.ranking = what;
   int handCount = 0;
-  if (n > 0) {
-    for(int i = idx; i < (idx + n); i ++) {
-      ans.cards[handCount] = hand->cards[i];
+  int topCardIndex = 0;
+  while (handCount < 5) {
+    // fill the idx to n cards first...
+    while (handCount < n) {
+      ans.cards[handCount] = hand->cards[idx + handCount];
       handCount ++;
     }
-  }
-  // fill the reaminder of the "cards" array with the
-  // highest-value cards from the hand which were not
-  // in the n of a kind
-  // printf("n = %d, handCount = %d", n, handCount);
-  for(int i = 0; i < hand->n_cards; i ++) {
-    // as long as the card is not part of the pre-existing collection
-    // printf("i = %d\n", i);
-    if((i != idx) && (i > (idx + n))) {
-      // printf("adding\n");
-      ans.cards[handCount] = hand->cards[i];
+    // then fill in the top ranking cards
+    if (topCardIndex < idx || topCardIndex >= (idx + n)) {
+      ans.cards[handCount] = hand->cards[topCardIndex];
       handCount ++;
-      if(handCount == 5){
-	break;
-      }
     }
+    topCardIndex ++;
   }
+  assert(handCount == 5);
   return ans;
 }
 
