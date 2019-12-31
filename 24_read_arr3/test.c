@@ -26,6 +26,5 @@ int main (void) {
     }
   }
   printf("*q=%d\n", *q);
-
   return EXIT_SUCCESS;
 }
