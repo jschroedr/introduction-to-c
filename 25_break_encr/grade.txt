@@ -1,4 +1,4 @@
-Grading at Sun Jan 19 19:32:17 UTC 2020
+Grading at Sun Jan 19 19:35:45 UTC 2020
 Attempting to compile breaker.c 
 gcc -Wall -Werror breaker.c -o breaker
 testcase1 passed
@@ -7,9 +7,9 @@ testcase2:
 testcase2 passed
 #################################################
 testcase3:
-testcase3 failed
+testcase3 passed
 #################################################
 testcase4:
 testcase4 passed
 
-Overall Grade: C
+Overall Grade: A
