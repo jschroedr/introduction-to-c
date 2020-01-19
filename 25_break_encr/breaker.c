@@ -110,11 +110,21 @@ int main(int argc, char ** argv) {
   // this number should be the encryption key used on the text
   // it should be in the range 0, 26
   // the number you print should obey (0 <= answer <= 26)
+  if(shift < 0) {
+    shift += 26;
+    shift %= 26;
+  }
+  
   printf("%d", shift);
   
   // on failure, your program should print an appropriate error message
   // to stderr, then exit with EXIT_FAILURE
+  if(fclose(inputFile) != 0) {
+    perror("Failed to close inputFile!");
+    return EXIT_FAILURE;
+  }
 
+  
   // provide a makefile which complies your program into a binary called "breaker"
   return EXIT_SUCCESS;
 }
