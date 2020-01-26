@@ -83,11 +83,10 @@ int main(int argc, char ** argv) {
   if(rowCount > 10 || columnCount != 0) {
     perror("Matrix not fully formed, please provide valid 10x10 input");
     return EXIT_FAILURE;
-  }
-
+  } else {
   // execute rotate function
   rotate(matrix);
-
+  
   // print rotated result on stdout
   for(int y = 0; y < 10; y ++) {
     for(int x = 0; x < 10; x ++) {
@@ -98,4 +97,5 @@ int main(int argc, char ** argv) {
       }
     }
   return EXIT_SUCCESS;
+  }
 }
