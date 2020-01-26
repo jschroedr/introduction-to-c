@@ -1,0 +1,7 @@
+// imports
+
+
+// one command line argument, a string specifying input file to read
+// test: right number of arguments?
+// test: file found and able to be opened for reading?
+
