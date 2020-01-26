@@ -80,7 +80,7 @@ int main(int argc, char ** argv) {
 
   }
   // ensure the process completed as expected, starting on row 11
-  if(rowCount > 10 || columnCount != 0) {
+  if(rowCount > 10 || columnCount != 0 || rowCount < 10) {
     perror("Matrix not fully formed, please provide valid 10x10 input");
     return EXIT_FAILURE;
   } else {
