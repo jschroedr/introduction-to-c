@@ -69,6 +69,15 @@ int main(int argc, char ** argv) {
 	rowCount ++;
       }
     }
+    
+    // if we are at 11 raise an error - this should be a carriage return
+    if(columnCount == 11) {
+      if(c != 13 || c != 11) {
+	perror("File too long. Expecting 10 characters in length left-to-right");
+	return EXIT_FAILURE;
+      }
+    }
+
   }
   // ensure the process completed as expected, starting on row 11
   if(rowCount != 11 && columnCount != 0) {
