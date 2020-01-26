@@ -44,7 +44,7 @@ int main(int argc, char ** argv) {
   // while we have not reached the end of the file
   while ((c = fgetc(targetFile)) != EOF) {
     // ensure our length does not exceed 10 chars
-    if (columnCount >= 10) {
+    if (columnCount > 10) {
       perror("Line too long. Invalid length");
       return EXIT_FAILURE;
     }
