@@ -44,11 +44,11 @@ int main(int argc, char ** argv) {
   // while we have not reached the end of the file
   while ((c = fgetc(targetFile)) != EOF) {
     // ensure our length does not exceed 10 chars
-    if (columnCount > 10) {
+    if (columnCount >= 10) {
       perror("Line too long. Invalid length");
       return EXIT_FAILURE;
     }
-    if (rowCount > 10) {
+    if (rowCount >= 10) {
       perror("Too many rows. Expecting 10");
       return EXIT_FAILURE;
     }
@@ -77,25 +77,24 @@ int main(int argc, char ** argv) {
 	return EXIT_FAILURE;
       }
     }
-
   }
   // ensure the process completed as expected, starting on row 11
   if(rowCount != 10 || columnCount != 0) {
     perror("Matrix not fully formed, please provide valid 10x10 input");
     return EXIT_FAILURE;
   } else {
-  // execute rotate function
-  rotate(matrix);
+    // execute rotate function
+    rotate(matrix);
   
-  // print rotated result on stdout
-  for(int y = 0; y < 10; y ++) {
-    for(int x = 0; x < 10; x ++) {
+    // print rotated result on stdout
+    for(int y = 0; y < 10; y ++) {
+      for(int x = 0; x < 10; x ++) {
 	printf("%c", matrix[y][x]);
 	if (x == 9) {
 	  printf("\n");
 	}
       }
     }
-  return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
   }
 }
