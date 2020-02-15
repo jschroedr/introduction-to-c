@@ -4,9 +4,10 @@
 #include <string.h>
 
 void encrypt(FILE * f, int key, FILE * outfile){
-  char * line;
+  // FIX 2: set line = NULL
+  char * line = NULL;
   size_t sz;
-  while (getline(&line,&sz, f) >= 0) {
+  while (getline(&line, &sz, f) >= 0) {
     char * ptr = line;
     while (*ptr != '\0') {
       int c = *ptr;
@@ -22,6 +23,8 @@ void encrypt(FILE * f, int key, FILE * outfile){
     }
     fprintf(outfile, "%s", line);
   }
+  // FIX 2: line must be freed before the stack frame closes
+  free(line);
 }
 
 int main(int argc, char ** argv) {
@@ -40,11 +43,13 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   //outfileNAme is argv[2] + ".txt", so add 4 to its length.
-  char * outFileName = malloc((strlen(argv[2]) + 4) * sizeof(*outFileName));
+  // FIX 1: add additional character to strlen for null terminator
+  char * outFileName = malloc((strlen(argv[2]) + 5) * sizeof(*outFileName));
   strcpy(outFileName, argv[2]);
   strcat(outFileName, ".enc");
   FILE * outFile = fopen(outFileName, "w");
-  encrypt(f,key, outFile);
+  encrypt(f, key, outFile);
+  free(outFileName);
   if (fclose(outFile) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
