@@ -45,17 +45,18 @@ int main(int argc, char ** argv) {
       lineArray[lineCount - 1] = malloc((strlen(line) + 1) * sizeof(lineArray[lineCount - 1]));
       strcpy(lineArray[lineCount - 1], line);
       lineCount ++;
-      if(nread == 1) {
-	break;
-      }
     }
-    free(line);
-    // sort the array of strings
-    sortData(lineArray, (lineCount - 1));
-    // print the array of strings
-    printSortResult(lineArray, (lineCount - 1));
-    // free the array of strings
-    freeLineArray(lineArray, (lineCount - 1));
+    if (line != NULL) {
+      free(line);
+    }
+    if (lineArray != NULL) {
+      // sort the array of strings
+      sortData(lineArray, (lineCount - 1));
+      // print the array of strings
+      printSortResult(lineArray, (lineCount - 1));
+      // free the array of strings
+      freeLineArray(lineArray, (lineCount - 1));
+    }
     return EXIT_SUCCESS;
   } else {  // argc > 1
     for (int i = 1; i < argc; i ++) {
@@ -74,14 +75,18 @@ int main(int argc, char ** argv) {
 	strcpy(lineArray[lineCount - 1], line);
 	lineCount ++;
       }
-      free(line);
-      // sort the lines
-      sortData(lineArray, (lineCount - 1));
-      // print the results (TODO)
-      printSortResult(lineArray, (lineCount - 1));
-      // free the memory
-      freeLineArray(lineArray, (lineCount - 1));
-      // close the file
+      if (line != NULL) {
+	free(line);
+      }
+      if (lineArray != NULL) {
+	// sort the lines
+	sortData(lineArray, (lineCount - 1));
+	// print the results (TODO)
+	printSortResult(lineArray, (lineCount - 1));
+	// free the memory
+	freeLineArray(lineArray, (lineCount - 1));
+	// close the file
+      }
       if (fclose(targetFile) != 0) {
 	perror("Unable to close input file");
 	return EXIT_FAILURE;
