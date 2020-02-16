@@ -73,9 +73,6 @@ int main(int argc, char ** argv) {
 	lineArray[lineCount - 1] = malloc((strlen(line) + 1) * sizeof(lineArray[lineCount - 1]));
 	strcpy(lineArray[lineCount - 1], line);
 	lineCount ++;
-	if(nread == 1) {
-	  break;
-	}
       }
       free(line);
       // sort the lines
