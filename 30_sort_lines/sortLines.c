@@ -42,9 +42,12 @@ int main(int argc, char ** argv) {
     lineCount = 1;
     while ((nread = getline(&line, &len, stdin)) != -1) {
       lineArray = realloc(lineArray, (lineCount * sizeof(lineArray)));
-      lineArray[lineCount - 1] = malloc(((strlen(line) + 1) * sizeof(lineArray[lineCount - 1])));
+      lineArray[lineCount - 1] = malloc((strlen(line) + 1) * sizeof(lineArray[lineCount - 1]));
       strcpy(lineArray[lineCount - 1], line);
       lineCount ++;
+      if(nread == 1) {
+	break;
+      }
     }
     free(line);
     // sort the array of strings
