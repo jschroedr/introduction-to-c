@@ -48,11 +48,11 @@ int main(int argc, char ** argv) {
     }
     free(line);
     // sort the array of strings
-    sortData(lineArray, lineCount);
+    sortData(lineArray, (lineCount - 1));
     // print the array of strings
-    printSortResult(lineArray, lineCount);
+    printSortResult(lineArray, (lineCount - 1));
     // free the array of strings
-    freeLineArray(lineArray, lineCount);
+    freeLineArray(lineArray, (lineCount - 1));
     return EXIT_SUCCESS;
   } else {  // argc > 1
     for (int i = 1; i < argc; i ++) {
