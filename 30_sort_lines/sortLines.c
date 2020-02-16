@@ -38,14 +38,15 @@ int main(int argc, char ** argv) {
   char * line = NULL;
   char ** lineArray = NULL;
   size_t lineCount;
-  int totalFiles = argc - 1;
-  if (totalFiles == 0) {
+  if (argc == 1) {
     lineCount = 1;
-    while ((nread = getline(line, len, stdin)) != -1) {
+    while ((nread = getline(&line, &len, stdin)) != -1) {
       lineArray = realloc(lineArray, (lineCount * sizeof(lineArray)));
-      lineArray[lineCount - 1] = line;
+      lineArray[lineCount - 1] = realloc(lineArray[lineCount - 1], ((strlen(line) + 1) * sizeof(lineArray[lineCount - 1])));
+      strcpy(lineArray[lineCount - 1], line);
       lineCount ++;
     }
+    free(line);
     // sort the array of strings
     sortData(lineArray, lineCount);
     // print the array of strings
@@ -54,35 +55,35 @@ int main(int argc, char ** argv) {
     freeLineArray(lineArray, lineCount);
     return EXIT_SUCCESS;
   } else {  // argc > 1
-    for (int i = 0; i < totalFiles; i ++) {
+    for (int i = 1; i < argc; i ++) {
       // treat each argument as an input file name
       // open the file
       FILE * targetFile = fopen(argv[i], "r");
       if (targetFile == NULL) {
-	fprintf(stderror, "File not found");
+	fprintf(stderr, "File not found");
 	return EXIT_FAILURE;
       }
       lineCount = 1;
       // read all the lines of data in it
-      while (nread = getline(line, len, targetFile) != -1) {
-	if (nread == 0) {
-	  break;
-	}
+      while ((nread = getline(&line, &len, targetFile)) != -1) {
 	lineArray = realloc(lineArray, (lineCount * sizeof(lineArray)));
-	lineArray[lineCount - 1] = line;
+	lineArray[lineCount - 1] = malloc((strlen(line) + 1) * sizeof(lineArray[lineCount - 1]));
+	strcpy(lineArray[lineCount - 1], line);
 	lineCount ++;
       }
+      free(line);
       // sort the lines
-      sortData(lineArray, lineCount);
+      sortData(lineArray, (lineCount - 1));
       // print the results (TODO)
-      printSortResult(lineArray, lineCount);
+      printSortResult(lineArray, (lineCount - 1));
       // free the memory
-      freeLineArray(lineArray, lineCount);
+      freeLineArray(lineArray, (lineCount - 1));
       // close the file
       if (fclose(targetFile) != 0) {
 	perror("Unable to close input file");
 	return EXIT_FAILURE;
       }
+    }
   }
   return EXIT_SUCCESS;
 }
