@@ -35,10 +35,10 @@ void freeLineArray(char ** data, size_t count) {
 int main(int argc, char ** argv) {
   size_t len = 0;
   ssize_t nread;
-  char * line = NULL;
-  char ** lineArray = NULL;
   size_t lineCount;
   if (argc == 1) {
+    char * line = NULL;
+    char ** lineArray = NULL;
     lineCount = 1;
     while ((nread = getline(&line, &len, stdin)) != -1) {
       lineArray = realloc(lineArray, (lineCount * sizeof(lineArray)));
@@ -60,6 +60,8 @@ int main(int argc, char ** argv) {
     return EXIT_SUCCESS;
   } else {  // argc > 1
     for (int i = 1; i < argc; i ++) {
+      char * line = NULL;
+      char ** lineArray = NULL;
       // treat each argument as an input file name
       // open the file
       FILE * targetFile = fopen(argv[i], "r");
