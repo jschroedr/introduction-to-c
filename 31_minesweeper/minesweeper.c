@@ -169,6 +169,7 @@ void freeBoard(board_t * b) {
   for(int y = 0; y < b->height; y ++) {
     free(b->board[y]);
   }
+  free(b->board);
   free(b);
 }
 
