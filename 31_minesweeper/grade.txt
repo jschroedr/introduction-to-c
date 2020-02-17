@@ -1,4 +1,4 @@
-Grading at Mon Feb 17 02:58:52 UTC 2020
+Grading at Mon Feb 17 03:09:05 UTC 2020
 Attempting to compile minesweeper.c
 #################################################
 testcase1:
@@ -17,6 +17,8 @@ Your output is correct
 valgrind was clean
 #################################################
 testcase4:
-Your output is incorrect
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: C
+Overall Grade: A
