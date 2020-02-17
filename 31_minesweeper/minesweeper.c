@@ -115,24 +115,18 @@ void printBoard(board_t * b) {
 }
 int countMines(board_t * b, int x, int y) {
   int numMines = 0;
-  for (int ny = (y - 1); ny <= (y + 1); ny ++) {
-    for (int nx = (x - 1); nx <= (x + 1); nx ++) {
-      // ensure we are not on the x, y provided
-      // printf("%d=%d, %d=%d", nx, x, ny, y);
-      if((nx != x) && (ny != y)) {
-	// ensure we are inbounds
-	if((nx >= 0) && (ny >= 0)) {
-	  if((nx < b->width) && (ny < b->height)) {
-	    if(IS_MINE(b->board[ny][nx])) {
-	      numMines ++;
-	      // printf("\n\tMine found, %d %d", newY, newX);
-	    }
-	  }
+  for (int dy = -1; dy <= 1; dy ++) {
+    for (int dx = -1; dx <= 1; dx ++) {
+      int nx = x + dx;
+      int ny = y + dy;
+      if (nx >= 0 && nx < b->width &&
+	  ny >= 0 && ny < b->height) {
+	if(IS_MINE(b->board[ny][nx])) {
+	    numMines ++;
 	}
       }
     }
   }
-  // printf("\n %d %d | numMines: %d", x, y, numMines);
   return numMines;
 }
 int click (board_t * b, int x, int y) {
