@@ -117,14 +117,14 @@ int countMines(board_t * b, int x, int y) {
   int numMines = 0;
   for (int i = -1; i <= 1; i ++) {
     for (int j = -1; j <= 1; j ++) {
-      int ix = i + x;
-      int jy = j + y;
+      int newX = i + x;
+      int newY = j + y;
       // ensure we are not on the x, y provided
-      if((ix != x) && (jy != y)) {
+      if((newX != x) && (newY != y)) {
 	// ensure we are inbounds
-	if((ix >= 0) && (jy >= 0)) {
-	  if((ix < b->width) && (jy < b->height)) {
-	    if(IS_MINE(b->board[jy][ix])) {
+	if((newX >= 0) && (newY >= 0)) {
+	  if((newX < b->width) && (newY < b->height)) {
+	    if(IS_MINE(b->board[newY][newX])) {
 	      numMines ++;
 	    }
 	  }
