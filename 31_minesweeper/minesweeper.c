@@ -124,7 +124,7 @@ int countMines(board_t * b, int x, int y) {
       // ensure we are not on the x, y provided
       if(!(((nx + i) == x) && ((ny + j) == y))) {
 	// ensure we are inbounds
-	if(((nx + i) <= b->width) && ((nx + i) >= 0) && ((ny + j) <= b->height) && ((ny + j) >= 0)) {
+	if(((nx + i) < b->width) && ((nx + i) >= 0) && ((ny + j) < b->height) && ((ny + j) >= 0)) {
 	  if(IS_MINE(b->board[ny + j][nx + i])) {
 	    numMines ++;
 	  }
