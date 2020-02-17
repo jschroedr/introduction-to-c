@@ -116,16 +116,13 @@ int countMines(board_t * b, int x, int y) {
   // coordinate and return that count
   // mine == (HAS_MINE || KNOWN_MINE)
   // use IS_MINE(b->board[ny][nx])
-
-  int nx = x - 1;
-  int ny = y - 1;
   int numMines = 0;
   int ix;
   int jy;
-  for (int i = 0; i < 3; i ++) {
-    for (int j = 0; j < 3; j ++) {
-      ix = i + nx;
-      jy = j + ny;
+  for (int i = (x - 1); i <= 1; i ++) {
+    for (int j = (y - 1); j <= 1; j ++) {
+      ix = i + x;
+      jy = j + y;
       // ensure we are not on the x, y provided
       if(ix != x && jy != y) {
 	// ensure we are inbounds
