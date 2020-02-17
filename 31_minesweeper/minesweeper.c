@@ -115,8 +115,8 @@ void printBoard(board_t * b) {
 }
 int countMines(board_t * b, int x, int y) {
   int numMines = 0;
-  for (int nx = x - 1; nx <= (x + 1); nx ++) {
-    for (int ny = (y - 1); ny <= (y + 1); ny ++) {
+  for (int ny = (y - 1); ny <= (y + 1); ny ++) {
+    for (int nx = (x - 1); nx <= (x + 1); nx ++) {
       // ensure we are not on the x, y provided
       // printf("%d=%d, %d=%d", nx, x, ny, y);
       if((nx != x) && (ny != y)) {
