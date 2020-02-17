@@ -40,7 +40,7 @@ void addRandomMine(board_t * b) {
   b->board[y][x] = HAS_MINE;
 }
 
-// TODO: testing requried
+
 board_t * makeBoard(int w, int h, int numMines) {
   // malloc and initialize a board_t
   board_t * newBoard = malloc(sizeof(board_t));
@@ -115,23 +115,24 @@ void printBoard(board_t * b) {
 }
 int countMines(board_t * b, int x, int y) {
   int numMines = 0;
-  for (int i = -1; i <= 1; i ++) {
-    for (int j = -1; j <= 1; j ++) {
-      int newX = i + x;
-      int newY = j + y;
+  for (int nx = x - 1; nx <= (x + 1); nx ++) {
+    for (int ny = (y - 1); ny <= (y + 1); ny ++) {
       // ensure we are not on the x, y provided
-      if((newX != x) && (newY != y)) {
+      // printf("%d=%d, %d=%d", nx, x, ny, y);
+      if((nx != x) && (ny != y)) {
 	// ensure we are inbounds
-	if((newX >= 0) && (newY >= 0)) {
-	  if((newX <= b->width) && (newY <= b->height)) {
-	    if(IS_MINE(b->board[newY][newX])) {
+	if((nx >= 0) && (ny >= 0)) {
+	  if((nx < b->width) && (ny < b->height)) {
+	    if(IS_MINE(b->board[ny][nx])) {
 	      numMines ++;
+	      // printf("\n\tMine found, %d %d", newY, newX);
 	    }
 	  }
 	}
       }
     }
   }
+  // printf("\n %d %d | numMines: %d", x, y, numMines);
   return numMines;
 }
 int click (board_t * b, int x, int y) {
