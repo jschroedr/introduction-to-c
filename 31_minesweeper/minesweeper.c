@@ -119,15 +119,15 @@ int countMines(board_t * b, int x, int y) {
   // mine == (HAS_MINE || KNOWN_MINE)
   // use IS_MINE(b->board[ny][nx])
   int numMines = 0;
-  for (int i = (x - 1); i <= 1; i ++) {
-    for (int j = (y - 1); j <= 1; j ++) {
+  for (int i = (x - 1); i < 2; i ++) {
+    for (int j = (y - 1); j < 2; j ++) {
       int ix = i + x;
       int jy = j + y;
       // ensure we are not on the x, y provided
       if(ix != x && jy != y) {
 	// ensure we are inbounds
 	if(ix >= 0 && jy >= 0) {
-	  if(ix < b->width && jy < b->height) {
+	  if(ix <= b->width && jy <= b->height) {
 	    if(IS_MINE(b->board[jy][ix])) {
 	      numMines ++;
 	    }
