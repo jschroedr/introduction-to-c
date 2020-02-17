@@ -43,24 +43,25 @@ void addRandomMine(board_t * b) {
 // TODO: testing requried
 board_t * makeBoard(int w, int h, int numMines) {
   // malloc and initialize a board_t
-  board_t * newBoard = malloc(sizeof(newBoard));
+  board_t * newBoard = malloc(sizeof(board_t));
   newBoard->width = w;
   newBoard->height = h;
   newBoard->totalMines = numMines;
   // call malloc to allocate space for 2D array
-  newBoard->board = malloc(sizeof(char **));
+  newBoard->board = malloc(sizeof(newBoard->board));
   // fille in all squares with unknown
   for(int y = 0; y < h; y ++) {
-    newBoard->board[y] = malloc(sizeof(char *)); 
+    newBoard->board = realloc(newBoard->board, (y + 1) * sizeof(newBoard->board));
+    newBoard->board[y] = NULL;
     for(int x = 0; x < w; x ++) {
-      newBoard->board[y] = realloc(newBoard->board[y], (x + 1) * sizeof(UNKNOWN));
+      newBoard->board[y] = realloc(newBoard->board[y], (x + 1) * sizeof(newBoard->board[y]));
       newBoard->board[y][x] = UNKNOWN;
     }
   }
   addRandomMine(newBoard);
-  return NULL;
+  return newBoard;
 }
-void printBoard(board_t * b) {    
+void printBoard(board_t * b) {
   int found = 0;
   printf("    ");
   for (int x = 0; x < b->width; x++) {
