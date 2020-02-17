@@ -1,4 +1,4 @@
-Grading at Mon Feb 17 01:00:30 UTC 2020
+Grading at Mon Feb 17 01:02:30 UTC 2020
 Attempting to compile minesweeper.c
 #################################################
 testcase1:
@@ -12,9 +12,9 @@ Your output is correct
 valgrind was clean
 #################################################
 testcase3:
-valgrind reported memory errors
+Your output is incorrect
 #################################################
 testcase4:
-valgrind reported memory errors
+Your output is incorrect
 
 Overall Grade: F
