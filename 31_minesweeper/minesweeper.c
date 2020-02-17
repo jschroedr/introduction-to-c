@@ -58,7 +58,7 @@ board_t * makeBoard(int w, int h, int numMines) {
       newBoard->board[y][x] = UNKNOWN;
     }
   }
-  for(int i = 0; i <= numMines; i ++) {
+  for(int i = 0; i < numMines; i ++) {
     addRandomMine(newBoard);
   }
   return newBoard;
