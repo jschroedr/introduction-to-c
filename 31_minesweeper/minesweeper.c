@@ -124,7 +124,7 @@ int countMines(board_t * b, int x, int y) {
       // ensure we are not on the x, y provided
       if(!(((nx + i) == x) && ((ny + j) == y))) {
 	// ensure we are inbounds
-	if(((nx + i) <= b->w) && ((nx + i) >= 0) && ((ny + j) <= b->h) && ((ny + j) >= 0)) {
+	if(((nx + i) <= b->width) && ((nx + i) >= 0) && ((ny + j) <= b->height) && ((ny + j) >= 0)) {
 	  if(IS_MINE(b->board[ny + j][nx + i])) {
 	    numMines ++;
 	  }
@@ -154,8 +154,8 @@ int click (board_t * b, int x, int y) {
 }
 
 int checkWin(board_t * b) {
-  for(int y = 0; y < b->h; y ++) {
-    for(int x = 0; x < b->w; x ++) {
+  for(int y = 0; y < b->height; y ++) {
+    for(int x = 0; x < b->width; x ++) {
       if(b->board[y][x] == UNKNOWN) {
 	return 0;
       }
@@ -165,7 +165,7 @@ int checkWin(board_t * b) {
 }
 
 void freeBoard(board_t * b) {
-  for(int y = 0; y < b->h; y ++) {
+  for(int y = 0; y < b->height; y ++) {
     free(b->board[y]);
   }
   free(b);
