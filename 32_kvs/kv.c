@@ -69,25 +69,28 @@ kvarray_t * readKVs(const char * fname) {
     kvpair_t keyValue;
     keyValue.key = key;
     keyValue.value = value;
-    kvArray->array = realloc(kvArray->array, (kvArray->length + 1) * sizeof(*kvArray->array));
-    kvArray->array[kvArray->length] = keyValue;
-    kvArray->length = (kvArray->length + 1);
+    kvArray->length = kvArray->length + 1;
+    kvArray->array = realloc(kvArray->array, kvArray->length * sizeof(*kvArray->array));
+    kvArray->array[kvArray->length - 1] = keyValue;
   }
   if(fclose(targetFile) == EOF) {
     perror("Unable to close file");
     return NULL;
   }
   // TODO: refactor to get key, value from curline in separate function
+  free(curline);
   return kvArray;
 }
 
 
 void freeKVs(kvarray_t * pairs) {
   // TODO: free all memory (each key and value in the array)
-  for(int i = 0; i < pairs->length; i++) {
+  for(int i = 0; i <= pairs->length; i++) {
     free(pairs->array[i].key);
     free(pairs->array[i].value);
   }
+  free(pairs->array);
+  free(pairs);
 }
 
 void printKVs(kvarray_t * pairs) {
