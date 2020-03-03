@@ -77,7 +77,6 @@ kvarray_t * readKVs(const char * fname) {
     perror("Unable to close file");
     return NULL;
   }
-  // TODO: refactor to get key, value from curline in separate function
   free(curline);
   return kvArray;
 }
