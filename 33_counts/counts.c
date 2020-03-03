@@ -20,6 +20,13 @@ void addCountsValidName(counts_t * c, const char * name) {
       return;
     }
   }
+  one_count_t newCount;
+  newCount.total = 1;
+  newCount.key = malloc(sizeof(name));
+  strcpy(newCount.key, name);
+  c->length ++;
+  c->counts = realloc(c->counts, sizeof(*c->counts) * (c->length));
+  c->counts[(c->length - 1)] = newCount;
 }
 
 
@@ -55,6 +62,6 @@ void freeCounts(counts_t * c) {
   for (int i = 0; i < c->length; i ++) {
     free(c->counts[i].key);
   }
-  // free(c->counts);
+  free(c->counts);
   free(c);
 }
