@@ -185,6 +185,7 @@ deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands) {
   // get all excluded cards from all hands
   deck_t * excludedCards = malloc(sizeof(deck_t));
   excludedCards->n_cards = 0;
+  excludedCards->cards = NULL;
   for(int i = 0; i < n_hands; i ++) {
     for(int j = 0; j < hands[i]->n_cards; j ++) {
       card_t c;
