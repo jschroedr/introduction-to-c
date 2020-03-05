@@ -124,8 +124,8 @@ void assert_full_deck(deck_t * d) {
  */
 void add_card_to(deck_t * deck, card_t c) {
   deck->n_cards = (deck->n_cards + 1);
-  deck->cards = realloc(sizeof(*deck->cards) * deck->n_cards);
-  deck->cards[deck->n_cards - 1] = c;
+  deck->cards = realloc(deck->cards, sizeof(deck->cards) * deck->n_cards);
+  deck->cards[deck->n_cards - 1] = &c;
   return;
 }
 
@@ -137,11 +137,11 @@ void add_card_to(deck_t * deck, card_t c) {
  *
  */
 card_t * add_empty_card(deck_t * deck) {
-  cart_t c;
+  card_t c;
   c.value = 0;
   c.suit = 0;
   add_card_to(deck, c);
-  return deck[deck->n_cards];
+  return deck->cards[deck->n_cards];
 }
 
 /**
@@ -151,17 +151,17 @@ card_t * add_empty_card(deck_t * deck) {
  * that appear in excluded cards
  *
  */
-deck_t make_deck_exclude(deck_t * excluded_cards) {
-  deck_t newDeck;
-  newDeck.n_cards = 0;
+deck_t * make_deck_exclude(deck_t * excluded_cards) {
+  deck_t * newDeck = malloc(sizeof(deck_t));
+  newDeck->n_cards = 0;
   for(int i = 0; i < 52; i ++) {
-    cart_c c = card_from_num(i);
+    card_t c = card_from_num(i);
     int add = 1;  // assume the card is good
     for(int j = 0; j < excluded_cards->n_cards; j ++) {
       // only add the card if it is not in excluded cards
       if(
-	 c.suit == excluded_cards->cards[j].suit &&
-	 c.value == excluded_cards->cards[j].value
+	 c.suit == excluded_cards->cards[j]->suit &&
+	 c.value == excluded_cards->cards[j]->value
 	 ) {
 	add = 0;
 	break;
@@ -169,7 +169,7 @@ deck_t make_deck_exclude(deck_t * excluded_cards) {
     }
     // if the card is valid, add it
     if(add == 1) {
-      add_card_to(&newDeck, c);
+      add_card_to(newDeck, c);
     }
   }
   return newDeck;
@@ -181,18 +181,21 @@ deck_t make_deck_exclude(deck_t * excluded_cards) {
  * after those cards have been removed from a full deck
  *
  */
-deck_t build_remaining_deck(deck_t ** hands, size_t n_hands) {
+deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands) {
   // get all excluded cards from all hands
-  deck_t excludedCards;
-  excludedCards.n_cards = 0;
+  deck_t * excludedCards = malloc(sizeof(deck_t));
+  excludedCards->n_cards = 0;
   for(int i = 0; i < n_hands; i ++) {
     for(int j = 0; j < hands[i]->n_cards; j ++) {
-      card_t c = hands[i]->cards[j];
+      card_t c;
+      c.suit = hands[i]->cards[j]->suit;
+      c.value = hands[i]->cards[j]->value;
       add_card_to(excludedCards, c);
     }
   }
-  make_deck_exclude(excludedCards);
-  free_deck(excludeCards);
+  deck_t * newDeck = make_deck_exclude(excludedCards);
+  free_deck(excludedCards);
+  return newDeck;
 }
 
 void free_deck(deck_t * deck) {

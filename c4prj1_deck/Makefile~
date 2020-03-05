@@ -1,0 +1,2 @@
+program: eval
+	gcc -Wall -Werror cards.c cards.h deck.c deck.h eval.c eval.h -o eval
