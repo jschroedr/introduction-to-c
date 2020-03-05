@@ -124,6 +124,7 @@ void assert_full_deck(deck_t * d) {
  */
 void add_card_to(deck_t * deck, card_t c) {
   printf("%d", (int)deck->n_cards);
+  deck->n_cards ++;
   // deck->cards = realloc(*deck->cards, sizeof(**deck->cards) * deck->n_cards);
   //deck->cards[deck->n_cards - 1]->suit = c.suit;
   //deck->cards[deck->n_cards - 1]->value = c.value;
