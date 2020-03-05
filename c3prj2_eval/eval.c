@@ -7,7 +7,7 @@
 unsigned * get_match_counts(deck_t * hand) {
   unsigned * intArray = malloc(sizeof(*intArray) * hand->n_cards);
   for(int i = 0; i < hand->n_cards; i++) {
-    int matchCounts = 0;
+    int matchCounts = 1;
     for(int j = 0; j < hand->n_cards; j++) {
       if(j != i) {
 	if(hand->cards[j]->value == hand->cards[i]->value) {
