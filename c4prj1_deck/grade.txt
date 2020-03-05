@@ -1,0 +1,108 @@
+Grading at Thu Mar  5 02:00:59 UTC 2020
+Compiling deck.c -> deck.o
+deck.c: In function ‘add_card_to’:
+deck.c:127:25: error: passing argument 1 of ‘realloc’ makes pointer from integer without a cast [-Werror=int-conversion]
+   deck->cards = realloc(sizeof(*deck->cards) * deck->n_cards);
+                         ^
+In file included from deck.c:2:0:
+/usr/include/stdlib.h:480:14: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void *realloc (void *__ptr, size_t __size)
+              ^
+deck.c:127:17: error: too few arguments to function ‘realloc’
+   deck->cards = realloc(sizeof(*deck->cards) * deck->n_cards);
+                 ^
+deck.c:128:34: error: incompatible types when assigning to type ‘card_t * {aka struct card_tag *}’ from type ‘card_t {aka struct card_tag}’
+   deck->cards[deck->n_cards - 1] = c;
+                                  ^
+deck.c: In function ‘add_empty_card’:
+deck.c:140:3: error: unknown type name ‘cart_t’
+   cart_t c;
+   ^
+deck.c:141:4: error: request for member ‘value’ in something not a structure or union
+   c.value = 0;
+    ^
+deck.c:142:4: error: request for member ‘suit’ in something not a structure or union
+   c.suit = 0;
+    ^
+deck.c:143:21: error: incompatible type for argument 2 of ‘add_card_to’
+   add_card_to(deck, c);
+                     ^
+deck.c:125:6: note: expected ‘card_t {aka struct card_tag}’ but argument is of type ‘int’
+ void add_card_to(deck_t * deck, card_t c) {
+      ^
+deck.c:144:10: error: incompatible types when returning type ‘deck_t {aka struct deck_tag}’ but ‘card_t * {aka struct card_tag *}’ was expected
+   return deck[deck->n_cards];
+          ^
+deck.c: At top level:
+deck.c:154:8: error: conflicting types for ‘make_deck_exclude’
+ deck_t make_deck_exclude(deck_t * excluded_cards) {
+        ^
+In file included from deck.c:4:0:
+deck.h:16:10: note: previous declaration of ‘make_deck_exclude’ was here
+ deck_t * make_deck_exclude(deck_t * excluded_cards);
+          ^
+deck.c: In function ‘make_deck_exclude’:
+deck.c:158:5: error: unknown type name ‘cart_c’
+     cart_c c = card_from_num(i);
+     ^
+deck.c:158:16: error: incompatible types when initializing type ‘int’ using type ‘card_t {aka struct card_tag}’
+     cart_c c = card_from_num(i);
+                ^
+deck.c:163:4: error: request for member ‘suit’ in something not a structure or union
+   c.suit == excluded_cards->cards[j].suit &&
+    ^
+deck.c:163:37: error: request for member ‘suit’ in something not a structure or union
+   c.suit == excluded_cards->cards[j].suit &&
+                                     ^
+deck.c:164:4: error: request for member ‘value’ in something not a structure or union
+   c.value == excluded_cards->cards[j].value
+    ^
+deck.c:164:38: error: request for member ‘value’ in something not a structure or union
+   c.value == excluded_cards->cards[j].value
+                                      ^
+deck.c:172:29: error: incompatible type for argument 2 of ‘add_card_to’
+       add_card_to(&newDeck, c);
+                             ^
+deck.c:125:6: note: expected ‘card_t {aka struct card_tag}’ but argument is of type ‘int’
+ void add_card_to(deck_t * deck, card_t c) {
+      ^
+deck.c: At top level:
+deck.c:184:8: error: conflicting types for ‘build_remaining_deck’
+ deck_t build_remaining_deck(deck_t ** hands, size_t n_hands) {
+        ^
+In file included from deck.c:4:0:
+deck.h:20:10: note: previous declaration of ‘build_remaining_deck’ was here
+ deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands) ;
+          ^
+deck.c: In function ‘build_remaining_deck’:
+deck.c:190:18: error: invalid initializer
+       card_t c = hands[i]->cards[j];
+                  ^
+deck.c:191:19: error: incompatible type for argument 1 of ‘add_card_to’
+       add_card_to(excludedCards, c);
+                   ^
+deck.c:125:6: note: expected ‘deck_t * {aka struct deck_tag *}’ but argument is of type ‘deck_t {aka struct deck_tag}’
+ void add_card_to(deck_t * deck, card_t c) {
+      ^
+deck.c:194:21: error: incompatible type for argument 1 of ‘make_deck_exclude’
+   make_deck_exclude(excludedCards);
+                     ^
+deck.c:154:8: note: expected ‘deck_t * {aka struct deck_tag *}’ but argument is of type ‘deck_t {aka struct deck_tag}’
+ deck_t make_deck_exclude(deck_t * excluded_cards) {
+        ^
+deck.c:195:13: error: ‘excludeCards’ undeclared (first use in this function)
+   free_deck(excludeCards);
+             ^
+deck.c:195:13: note: each undeclared identifier is reported only once for each function it appears in
+deck.c: In function ‘add_empty_card’:
+deck.c:145:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+deck.c: In function ‘build_remaining_deck’:
+deck.c:196:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1: all warnings being treated as errors
+Compilation of deck.c failed
+
+Overall Grade: F
