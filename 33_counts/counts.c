@@ -22,7 +22,7 @@ void addCountsValidName(counts_t * c, const char * name) {
   }
   one_count_t newCount;
   newCount.total = 1;
-  newCount.key = malloc(sizeof(name));
+  newCount.key = malloc(sizeof(char *) * strlen(name) + 1);
   strcpy(newCount.key, name);
   c->length ++;
   c->counts = realloc(c->counts, sizeof(*c->counts) * (c->length));
