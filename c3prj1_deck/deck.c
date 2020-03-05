@@ -203,6 +203,6 @@ void free_deck(deck_t * deck) {
   for(int i = 0; i < deck->n_cards; i ++) {
     free(deck->cards[i]);
   }
-  free(deck->cards);
+  // free(deck->cards);
   free(deck);
 }
