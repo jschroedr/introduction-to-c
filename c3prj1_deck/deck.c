@@ -157,6 +157,7 @@ card_t * add_empty_card(deck_t * deck) {
 deck_t * make_deck_exclude(deck_t * excluded_cards) {
   deck_t * newDeck = malloc(sizeof(deck_t));
   newDeck->n_cards = 0;
+  newDeck->cards = NULL;
   for(int i = 0; i < 52; i ++) {
     card_t c = card_from_num(i);
     int add = 1;  // assume the card is good
