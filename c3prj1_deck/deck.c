@@ -144,7 +144,7 @@ card_t * add_empty_card(deck_t * deck) {
   c.value = 0;
   c.suit = 0;
   add_card_to(deck, c);
-  return deck->cards[deck->n_cards];
+  return deck->cards[deck->n_cards - 1];
 }
 
 /**
