@@ -115,3 +115,90 @@ void assert_full_deck(deck_t * d) {
     }
   }
 }
+
+/**
+ * add_card_to
+ *
+ * Add the particular card to the given deck
+ *
+ */
+void add_card_to(deck_t * deck, card_t c) {
+  deck->n_cards = (deck->n_cards + 1);
+  deck->cards = realloc(sizeof(*deck->cards) * deck->n_cards);
+  deck->cards[deck->n_cards - 1] = c;
+  return;
+}
+
+/**
+ * add_empty_card
+ *
+ * Add a card whose value and suit are both 0, and return a pointer to it
+ * in the deck
+ *
+ */
+card_t * add_empty_card(deck_t * deck) {
+  cart_t c;
+  c.value = 0;
+  c.suit = 0;
+  add_card_to(deck, c);
+  return deck[deck->n_cards];
+}
+
+/**
+ * make_deck_exclude
+ *
+ * Create a deck that is full EXCEPT for al the cards
+ * that appear in excluded cards
+ *
+ */
+deck_t make_deck_exclude(deck_t * excluded_cards) {
+  deck_t newDeck;
+  newDeck.n_cards = 0;
+  for(int i = 0; i < 52; i ++) {
+    cart_c c = card_from_num(i);
+    int add = 1;  // assume the card is good
+    for(int j = 0; j < excluded_cards->n_cards; j ++) {
+      // only add the card if it is not in excluded cards
+      if(
+	 c.suit == excluded_cards->cards[j].suit &&
+	 c.value == excluded_cards->cards[j].value
+	 ) {
+	add = 0;
+	break;
+      }
+    }
+    // if the card is valid, add it
+    if(add == 1) {
+      add_card_to(&newDeck, c);
+    }
+  }
+  return newDeck;
+}
+
+/**
+ *
+ * Takes an array of hands and builds the deck of cards that remain
+ * after those cards have been removed from a full deck
+ *
+ */
+deck_t build_remaining_deck(deck_t ** hands, size_t n_hands) {
+  // get all excluded cards from all hands
+  deck_t excludedCards;
+  excludedCards.n_cards = 0;
+  for(int i = 0; i < n_hands; i ++) {
+    for(int j = 0; j < hands[i]->n_cards; j ++) {
+      card_t c = hands[i]->cards[j];
+      add_card_to(excludedCards, c);
+    }
+  }
+  make_deck_exclude(excludedCards);
+  free_deck(excludeCards);
+}
+
+void free_deck(deck_t * deck) {
+  for(int i = 0; i < deck->n_cards; i ++) {
+    free(deck->cards[i]);
+  }
+  free(deck->cards);
+  free(deck);
+}
