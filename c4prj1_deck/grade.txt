@@ -1,4 +1,4 @@
-Grading at Thu Mar  5 02:24:24 UTC 2020
+Grading at Thu Mar  5 02:26:11 UTC 2020
 Compiling deck.c -> deck.o
 Compiling eval.c -> eval.o
 Compiling cards.c -> cards.o
@@ -849,37 +849,37 @@ Your deck: ?0
  ?36
  
 Valgrind reported errors:
-==679== Memcheck, a memory error detector
-==679== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==679== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==679== Command: ./tester act
-==679== Parent PID: 678
-==679== 
-==679== Invalid free() / delete / delete[] / realloc()
-==679==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==679==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
-==679==    by 0x404195: check_add_card_to (in /graderhome/work/c4prj1_deck/tester)
-==679==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==679==  Address 0xfff000760 is on thread 1's stack
-==679==  in frame #1, created by free_deck (???:)
-==679== 
-==679== Invalid free() / delete / delete[] / realloc()
-==679==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==679==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
-==679==    by 0x404184: check_add_card_to (in /graderhome/work/c4prj1_deck/tester)
-==679==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==679==  Address 0xfff000760 is on thread 1's stack
-==679==  in frame #1, created by free_deck (???:)
-==679== 
-==679== 
-==679== HEAP SUMMARY:
-==679==     in use at exit: 0 bytes in 0 blocks
-==679==   total heap usage: 1,865 allocs, 2,697 frees, 159,296 bytes allocated
-==679== 
-==679== All heap blocks were freed -- no leaks are possible
-==679== 
-==679== For counts of detected and suppressed errors, rerun with: -v
-==679== ERROR SUMMARY: 832 errors from 2 contexts (suppressed: 0 from 0)
+==835== Memcheck, a memory error detector
+==835== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==835== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==835== Command: ./tester act
+==835== Parent PID: 834
+==835== 
+==835== Invalid free() / delete / delete[] / realloc()
+==835==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==835==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
+==835==    by 0x404195: check_add_card_to (in /graderhome/work/c4prj1_deck/tester)
+==835==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==835==  Address 0xfff000760 is on thread 1's stack
+==835==  in frame #1, created by free_deck (???:)
+==835== 
+==835== Invalid free() / delete / delete[] / realloc()
+==835==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==835==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
+==835==    by 0x404184: check_add_card_to (in /graderhome/work/c4prj1_deck/tester)
+==835==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==835==  Address 0xfff000760 is on thread 1's stack
+==835==  in frame #1, created by free_deck (???:)
+==835== 
+==835== 
+==835== HEAP SUMMARY:
+==835==     in use at exit: 0 bytes in 0 blocks
+==835==   total heap usage: 1,865 allocs, 2,697 frees, 159,296 bytes allocated
+==835== 
+==835== All heap blocks were freed -- no leaks are possible
+==835== 
+==835== For counts of detected and suppressed errors, rerun with: -v
+==835== ERROR SUMMARY: 832 errors from 2 contexts (suppressed: 0 from 0)
 Testing add_empty_card(deck_t *)
 Expected deck: Ad Ac 2s ?0
  
@@ -932,176 +932,176 @@ Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 5h 5d 5c 6s 6h 6d 6c 7s
  
 Your deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc  s  s  s  s  s 
 Valgrind reported errors:
-==683== Memcheck, a memory error detector
-==683== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==683== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==683== Command: ./tester aec
-==683== Parent PID: 682
-==683== 
-==683== Invalid read of size 8
-==683==    at 0x4020A2: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403A9E: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683==  Address 0x520dab0 is 0 bytes after a block of size 32 alloc'd
-==683==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==683==    by 0x402030: add_card_to (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x40208B: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403A9E: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Invalid read of size 8
-==683==    at 0x4020A2: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403AF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683==  Address 0x520dea0 is 0 bytes after a block of size 400 alloc'd
-==683==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==683==    by 0x402030: add_card_to (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x40208B: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403AF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x4029EB: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402B0A: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x40246F: suit_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B1B: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402474: suit_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B1B: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402405: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402415: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402424: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402429: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402435: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x40243A: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x4029EB: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402B0A: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x40246F: suit_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B1B: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402474: suit_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B1B: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402405: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402415: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402424: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402429: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x402435: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Conditional jump or move depends on uninitialised value(s)
-==683==    at 0x40243A: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683== 
-==683== Invalid free() / delete / delete[] / realloc()
-==683==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==683==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403D94: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683==  Address 0xfff000730 is on thread 1's stack
-==683==  in frame #0, created by free (???:)
-==683== 
-==683== Invalid free() / delete / delete[] / realloc()
-==683==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==683==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x403DA5: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==683==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==683==  Address 0xfff000730 is on thread 1's stack
-==683==  in frame #0, created by free (???:)
-==683== 
-==683== 
-==683== HEAP SUMMARY:
-==683==     in use at exit: 0 bytes in 0 blocks
-==683==   total heap usage: 2,091 allocs, 2,121 frees, 54,544 bytes allocated
-==683== 
-==683== All heap blocks were freed -- no leaks are possible
-==683== 
-==683== For counts of detected and suppressed errors, rerun with: -v
-==683== Use --track-origins=yes to see where uninitialised values come from
-==683== ERROR SUMMARY: 340 errors from 24 contexts (suppressed: 0 from 0)
+==839== Memcheck, a memory error detector
+==839== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==839== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==839== Command: ./tester aec
+==839== Parent PID: 838
+==839== 
+==839== Invalid read of size 8
+==839==    at 0x4020A2: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403A9E: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839==  Address 0x520dab0 is 0 bytes after a block of size 32 alloc'd
+==839==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==839==    by 0x402030: add_card_to (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x40208B: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403A9E: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Invalid read of size 8
+==839==    at 0x4020A2: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403AF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839==  Address 0x520dea0 is 0 bytes after a block of size 400 alloc'd
+==839==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==839==    by 0x402030: add_card_to (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x40208B: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403AF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x4029EB: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402B0A: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x40246F: suit_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B1B: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402474: suit_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B1B: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402405: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402415: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402424: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402429: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402435: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x40243A: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CDA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x4029EB: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402B0A: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x40246F: suit_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B1B: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402474: suit_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B1B: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402405: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402415: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402424: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402429: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x402435: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Conditional jump or move depends on uninitialised value(s)
+==839==    at 0x40243A: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x402B26: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403CF3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839== 
+==839== Invalid free() / delete / delete[] / realloc()
+==839==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==839==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403D94: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839==  Address 0xfff000730 is on thread 1's stack
+==839==  in frame #0, created by free (???:)
+==839== 
+==839== Invalid free() / delete / delete[] / realloc()
+==839==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==839==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x403DA5: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==839==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==839==  Address 0xfff000730 is on thread 1's stack
+==839==  in frame #0, created by free (???:)
+==839== 
+==839== 
+==839== HEAP SUMMARY:
+==839==     in use at exit: 0 bytes in 0 blocks
+==839==   total heap usage: 2,091 allocs, 2,121 frees, 54,544 bytes allocated
+==839== 
+==839== All heap blocks were freed -- no leaks are possible
+==839== 
+==839== For counts of detected and suppressed errors, rerun with: -v
+==839== Use --track-origins=yes to see where uninitialised values come from
+==839== ERROR SUMMARY: 340 errors from 24 contexts (suppressed: 0 from 0)
 Testing make_deck_exclude(deck_t *)
 Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
 Your deck:  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
@@ -1136,100 +1136,100 @@ Your deck:  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
 Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h Jh Jd Jc Qs Qh Qd Qc 
 Your deck:  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
 Valgrind reported errors:
-==687== Memcheck, a memory error detector
-==687== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==687== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==687== Command: ./tester mde
-==687== Parent PID: 686
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x4C2FD0C: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==687==    by 0x402030: add_card_to (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402170: make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x40375C: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x4029EB: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x402BCF: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x402D1E: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x40246F: suit_letter (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402D2D: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x402474: suit_letter (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402D2D: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x402405: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x402415: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x402424: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x402429: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x402435: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Conditional jump or move depends on uninitialised value(s)
-==687==    at 0x40243A: value_letter (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687== 
-==687== Invalid free() / delete / delete[] / realloc()
-==687==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==687==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x403918: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==687==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==687==  Address 0xfff0007c0 is on thread 1's stack
-==687==  in frame #0, created by free (???:)
-==687== 
-==687== 
-==687== HEAP SUMMARY:
-==687==     in use at exit: 0 bytes in 0 blocks
-==687==   total heap usage: 1,729 allocs, 2,441 frees, 153,600 bytes allocated
-==687== 
-==687== All heap blocks were freed -- no leaks are possible
-==687== 
-==687== For counts of detected and suppressed errors, rerun with: -v
-==687== Use --track-origins=yes to see where uninitialised values come from
-==687== ERROR SUMMARY: 7864 errors from 13 contexts (suppressed: 0 from 0)
+==843== Memcheck, a memory error detector
+==843== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==843== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==843== Command: ./tester mde
+==843== Parent PID: 842
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x4C2FD0C: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==843==    by 0x402030: add_card_to (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402170: make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x40375C: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x4029EB: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x402BCF: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x402D1E: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x40246F: suit_letter (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402D2D: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x402474: suit_letter (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402D2D: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x402405: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x402415: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x402424: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x402429: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x402435: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Conditional jump or move depends on uninitialised value(s)
+==843==    at 0x40243A: value_letter (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x402D38: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403864: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843== 
+==843== Invalid free() / delete / delete[] / realloc()
+==843==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==843==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x403918: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==843==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==843==  Address 0xfff0007c0 is on thread 1's stack
+==843==  in frame #0, created by free (???:)
+==843== 
+==843== 
+==843== HEAP SUMMARY:
+==843==     in use at exit: 0 bytes in 0 blocks
+==843==   total heap usage: 1,729 allocs, 2,441 frees, 153,600 bytes allocated
+==843== 
+==843== All heap blocks were freed -- no leaks are possible
+==843== 
+==843== For counts of detected and suppressed errors, rerun with: -v
+==843== Use --track-origins=yes to see where uninitialised values come from
+==843== ERROR SUMMARY: 7864 errors from 13 contexts (suppressed: 0 from 0)
 Testing build_remaining_deck(deck_t **, size_t)
 Testing with 1 hand
 Expected deck: 
@@ -1322,253 +1322,44 @@ Your deck: Kc Ac 4c 5c 6c 7c 8c 9c 0c Jc Qc
 Expected deck: 
 Your deck: Kc Ac 5c 6c 7c 8c 9c 0c Jc Qc 
 Valgrind reported errors:
-==691== Memcheck, a memory error detector
-==691== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==691== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==691== Command: ./tester brd
-==691== Parent PID: 690
-==691== 
-==691== Conditional jump or move depends on uninitialised value(s)
-==691==    at 0x4C2FD0C: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==691==    by 0x402030: add_card_to (in /graderhome/work/c4prj1_deck/tester)
-==691==    by 0x402235: build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
-==691==    by 0x4033BC: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
-==691==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==691== 
-==691== Invalid free() / delete / delete[] / realloc()
-==691==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==691==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
-==691==    by 0x402292: build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
-==691==    by 0x4033BC: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
-==691==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==691==  Address 0xfff000920 is on thread 1's stack
-==691==  in frame #1, created by free_deck (???:)
-==691== 
-==691== Conditional jump or move depends on uninitialised value(s)
-==691==    at 0x4C2EDA1: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==691==    by 0x403530: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
-==691==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==691== 
-==691== 
-==691== HEAP SUMMARY:
-==691==     in use at exit: 0 bytes in 0 blocks
-==691==   total heap usage: 4,393 allocs, 5,296 frees, 250,536 bytes allocated
-==691== 
-==691== All heap blocks were freed -- no leaks are possible
-==691== 
-==691== For counts of detected and suppressed errors, rerun with: -v
-==691== Use --track-origins=yes to see where uninitialised values come from
-==691== ERROR SUMMARY: 987 errors from 3 contexts (suppressed: 0 from 0)
+==847== Memcheck, a memory error detector
+==847== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==847== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==847== Command: ./tester brd
+==847== Parent PID: 846
+==847== 
+==847== Conditional jump or move depends on uninitialised value(s)
+==847==    at 0x4C2FD0C: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==847==    by 0x402030: add_card_to (in /graderhome/work/c4prj1_deck/tester)
+==847==    by 0x402235: build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==847==    by 0x4033BC: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==847==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==847== 
+==847== Invalid free() / delete / delete[] / realloc()
+==847==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==847==    by 0x4022CC: free_deck (in /graderhome/work/c4prj1_deck/tester)
+==847==    by 0x402292: build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==847==    by 0x4033BC: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==847==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==847==  Address 0xfff000920 is on thread 1's stack
+==847==  in frame #1, created by free_deck (???:)
+==847== 
+==847== Conditional jump or move depends on uninitialised value(s)
+==847==    at 0x4C2EDA1: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==847==    by 0x403530: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==847==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==847== 
+==847== 
+==847== HEAP SUMMARY:
+==847==     in use at exit: 0 bytes in 0 blocks
+==847==   total heap usage: 4,393 allocs, 5,296 frees, 250,536 bytes allocated
+==847== 
+==847== All heap blocks were freed -- no leaks are possible
+==847== 
+==847== For counts of detected and suppressed errors, rerun with: -v
+==847== Use --track-origins=yes to see where uninitialised values come from
+==847== ERROR SUMMARY: 987 errors from 3 contexts (suppressed: 0 from 0)
 Testing get_match_count(deck_t *)
-In this hand: Ac 
-  I expected the 0'th match count to be 1 but you got 0
-In this hand: Ac Ah 
-  I expected the 0'th match count to be 2 but you got 1
-  I expected the 1'th match count to be 2 but you got 1
-In this hand: Ac Ah Kc 
-  I expected the 0'th match count to be 2 but you got 1
-  I expected the 1'th match count to be 2 but you got 1
-  I expected the 2'th match count to be 1 but you got 0
-In this hand: Ac Ah Kc Qs 
-  I expected the 0'th match count to be 2 but you got 1
-  I expected the 1'th match count to be 2 but you got 1
-  I expected the 2'th match count to be 1 but you got 0
-  I expected the 3'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Qs 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 1 but you got 0
-  I expected the 4'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Qs 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 2 but you got 1
-  I expected the 4'th match count to be 2 but you got 1
-  I expected the 5'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Qh Qs 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 2 but you got 1
-  I expected the 4'th match count to be 2 but you got 1
-  I expected the 5'th match count to be 2 but you got 1
-  I expected the 6'th match count to be 2 but you got 1
-In this hand: Ac Ad Ah Kc Kd Qh Qs 0s 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 2 but you got 1
-  I expected the 4'th match count to be 2 but you got 1
-  I expected the 5'th match count to be 2 but you got 1
-  I expected the 6'th match count to be 2 but you got 1
-  I expected the 7'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Qh Qs 0s 9c 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 2 but you got 1
-  I expected the 4'th match count to be 2 but you got 1
-  I expected the 5'th match count to be 2 but you got 1
-  I expected the 6'th match count to be 2 but you got 1
-  I expected the 7'th match count to be 1 but you got 0
-  I expected the 8'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Qd Qh Qs 0s 9c 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 2 but you got 1
-  I expected the 4'th match count to be 2 but you got 1
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 1 but you got 0
-  I expected the 9'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Ks Qd Qh Qs 0s 9c 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 3 but you got 2
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 1 but you got 0
-  I expected the 10'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Ks Qd Qh Qs 0d 0s 9c 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 3 but you got 2
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 2 but you got 1
-  I expected the 10'th match count to be 2 but you got 1
-  I expected the 11'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Ks Qd Qh Qs 0d 0s 9c 9h 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 3 but you got 2
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 2 but you got 1
-  I expected the 10'th match count to be 2 but you got 1
-  I expected the 11'th match count to be 2 but you got 1
-  I expected the 12'th match count to be 2 but you got 1
-In this hand: Ac Ad Ah Kc Kd Ks Qd Qh Qs 0d 0s 9c 9h 7s 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 3 but you got 2
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 2 but you got 1
-  I expected the 10'th match count to be 2 but you got 1
-  I expected the 11'th match count to be 2 but you got 1
-  I expected the 12'th match count to be 2 but you got 1
-  I expected the 13'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Ks Qd Qh Qs 0d 0s 9c 9h 7s 6h 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 3 but you got 2
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 2 but you got 1
-  I expected the 10'th match count to be 2 but you got 1
-  I expected the 11'th match count to be 2 but you got 1
-  I expected the 12'th match count to be 2 but you got 1
-  I expected the 13'th match count to be 1 but you got 0
-  I expected the 14'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah Kc Kd Ks Qd Qh Qs 0d 0s 9c 9h 7h 7s 6h 
-  I expected the 0'th match count to be 3 but you got 2
-  I expected the 1'th match count to be 3 but you got 2
-  I expected the 2'th match count to be 3 but you got 2
-  I expected the 3'th match count to be 3 but you got 2
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 2 but you got 1
-  I expected the 10'th match count to be 2 but you got 1
-  I expected the 11'th match count to be 2 but you got 1
-  I expected the 12'th match count to be 2 but you got 1
-  I expected the 13'th match count to be 2 but you got 1
-  I expected the 14'th match count to be 2 but you got 1
-  I expected the 15'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah As Kc Kd Ks Qd Qh Qs 0d 0s 9c 9h 7h 7s 6h 
-  I expected the 0'th match count to be 4 but you got 3
-  I expected the 1'th match count to be 4 but you got 3
-  I expected the 2'th match count to be 4 but you got 3
-  I expected the 3'th match count to be 4 but you got 3
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 3 but you got 2
-  I expected the 10'th match count to be 2 but you got 1
-  I expected the 11'th match count to be 2 but you got 1
-  I expected the 12'th match count to be 2 but you got 1
-  I expected the 13'th match count to be 2 but you got 1
-  I expected the 14'th match count to be 2 but you got 1
-  I expected the 15'th match count to be 2 but you got 1
-  I expected the 16'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah As Kc Kd Ks Qd Qh Qs 0d 0s 9c 9h 7h 7s 6h 4d 
-  I expected the 0'th match count to be 4 but you got 3
-  I expected the 1'th match count to be 4 but you got 3
-  I expected the 2'th match count to be 4 but you got 3
-  I expected the 3'th match count to be 4 but you got 3
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 3 but you got 2
-  I expected the 10'th match count to be 2 but you got 1
-  I expected the 11'th match count to be 2 but you got 1
-  I expected the 12'th match count to be 2 but you got 1
-  I expected the 13'th match count to be 2 but you got 1
-  I expected the 14'th match count to be 2 but you got 1
-  I expected the 15'th match count to be 2 but you got 1
-  I expected the 16'th match count to be 1 but you got 0
-  I expected the 17'th match count to be 1 but you got 0
-In this hand: Ac Ad Ah As Kc Kd Ks Qd Qh Qs 0d 0s 9c 9h 9s 7h 7s 6h 4d 
-  I expected the 0'th match count to be 4 but you got 3
-  I expected the 1'th match count to be 4 but you got 3
-  I expected the 2'th match count to be 4 but you got 3
-  I expected the 3'th match count to be 4 but you got 3
-  I expected the 4'th match count to be 3 but you got 2
-  I expected the 5'th match count to be 3 but you got 2
-  I expected the 6'th match count to be 3 but you got 2
-  I expected the 7'th match count to be 3 but you got 2
-  I expected the 8'th match count to be 3 but you got 2
-  I expected the 9'th match count to be 3 but you got 2
-  I expected the 10'th match count to be 2 but you got 1
-  I expected the 11'th match count to be 2 but you got 1
-  I expected the 12'th match count to be 3 but you got 2
-  I expected the 13'th match count to be 3 but you got 2
-  I expected the 14'th match count to be 3 but you got 2
-  I expected the 15'th match count to be 2 but you got 1
-  I expected the 16'th match count to be 2 but you got 1
-  I expected the 17'th match count to be 1 but you got 0
-  I expected the 18'th match count to be 1 but you got 0
-- Test failed
+- Test passed
 
 Overall Grade: F
