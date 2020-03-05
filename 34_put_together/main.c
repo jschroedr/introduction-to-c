@@ -22,7 +22,7 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   // read each line in filename
   FILE * targetFile = fopen(filename, "r");
   if (targetFile == NULL) {
-    perror("Cannot open targetFile in countFile");
+    perror("Cannot open 'targetFile' in countFile");
     return NULL;  // add error handling to caller
   }
   size_t sz = 0;
@@ -47,13 +47,13 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
 int main(int argc, char ** argv) {
   if(argc < 2) {
     perror("Expecting at least three arguments");
-    EXIT_FAILURE;
+    return EXIT_FAILURE;
   }
   //read the key/value pairs from the file named by argv[1] (call the result kv)
   kvarray_t * kv = readKVs(argv[1]);
   if(kv == NULL) {
     perror("kv is NULL");
-    EXIT_FAILURE;
+    return EXIT_FAILURE;
   }
   //count from 2 to argc (call the number you count i)
   for(int i = 2; i < argc; i ++) {
@@ -62,7 +62,7 @@ int main(int argc, char ** argv) {
     counts_t * c = countFile(argv[i], kv);
     if (c == NULL) {
       perror("countFile returned NULL");
-      EXIT_FAILURE;
+      return EXIT_FAILURE;
     }
     //compute the output file name from argv[i] (call this outName)
     char * outName = computeOutputFileName(argv[i]); 
@@ -70,14 +70,14 @@ int main(int argc, char ** argv) {
     FILE * f = fopen(outName, "w");
     if(f == NULL) {
       perror("could not open file 'f'");
-      EXIT_FAILURE;
+      return EXIT_FAILURE;
     }
     //print the counts from c into the FILE f
     printCounts(c, f);
     //close f
     if(fclose(f) == EOF) {
       perror("Unable to close file 'f'");
-      EXIT_FAILURE;
+      return EXIT_FAILURE;
     }
     //free the memory for outName and c
     free(outName);
