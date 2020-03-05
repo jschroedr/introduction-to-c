@@ -1,4 +1,4 @@
-Grading at Thu Mar  5 02:52:49 UTC 2020
+Grading at Thu Mar  5 02:54:23 UTC 2020
 Compiling deck.c -> deck.o
 Compiling eval.c -> eval.o
 Compiling cards.c -> cards.o
@@ -6,324 +6,206 @@ Linking eval.o, deck.o, cards.o, and our tester
 Testing free_deck(deck_t *)
 - Test passed
 Testing add_card_to(deck_t *, card_t)
-0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Kd 
-Your deck: 
-Expected deck: Ks Kh Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: As Ah 
-Your deck: 
-Expected deck: Ks Kh Kd Kc Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ad Ac 2s 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 2s 2h 2d 2c 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 2d 2c 3s 3h 3d 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 3s 3h 3d 3c 4s 4h 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 3d 3c 4s 4h 4d 4c 5s 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 4s 4h 4d 4c 5s 5h 5d 5c 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 4d 4c 5s 5h 5d 5c 6s 6h 6d 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-- Test failed
+0123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051001234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950010123456789101112131415161718192021222324252627282930313233343536373839404142434445464748490120123456789101112131415161718192021222324252627282930313233343536373839404142434445464748012301234567891011121314151617181920212223242526272829303132333435363738394041424344454647012340123456789101112131415161718192021222324252627282930313233343536373839404142434445460123450123456789101112131415161718192021222324252627282930313233343536373839404142434445012345601234567891011121314151617181920212223242526272829303132333435363738394041424344012345670123456789101112131415161718192021222324252627282930313233343536373839404142430123456780123456789101112131415161718192021222324252627282930313233343536373839404142012345678901234567891011121314151617181920212223242526272829303132333435363738394041012345678910012345678910111213141516171819202122232425262728293031323334353637383940012345678910110123456789101112131415161718192021222324252627282930313233343536373839012345678910111201234567891011121314151617181920212223242526272829303132333435363738012345678910111213012345678910111213141516171819202122232425262728293031323334353637012345678910111213140123456789101112131415161718192021222324252627282930313233343536timeout: the monitored command dumped core
+Valgrind reported errors:
+==2660== Memcheck, a memory error detector
+==2660== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2660== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2660== Command: ./tester act
+==2660== Parent PID: 2659
+==2660== 
+==2660== Invalid read of size 8
+==2660==    at 0x4029B0: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==2660==    by 0x404089: check_add_card_to (in /graderhome/work/c4prj1_deck/tester)
+==2660==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2660==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==2660== 
+==2660== 
+==2660== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2660==  Access not within mapped region at address 0x0
+==2660==    at 0x4029B0: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==2660==    by 0x404089: check_add_card_to (in /graderhome/work/c4prj1_deck/tester)
+==2660==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2660==  If you believe this happened as a result of a stack
+==2660==  overflow in your program's main thread (unlikely but
+==2660==  possible), you can try to increase the size of the
+==2660==  main thread stack using the --main-stacksize= flag.
+==2660==  The main thread stack size used in this run was 8388608.
+==2660== 
+==2660== HEAP SUMMARY:
+==2660==     in use at exit: 14,336 bytes in 927 blocks
+==2660==   total heap usage: 1,033 allocs, 106 frees, 22,912 bytes allocated
+==2660== 
+==2660== LEAK SUMMARY:
+==2660==    definitely lost: 0 bytes in 0 blocks
+==2660==    indirectly lost: 0 bytes in 0 blocks
+==2660==      possibly lost: 0 bytes in 0 blocks
+==2660==    still reachable: 14,336 bytes in 927 blocks
+==2660==         suppressed: 0 bytes in 0 blocks
+==2660== Rerun with --leak-check=full to see details of leaked memory
+==2660== 
+==2660== For counts of detected and suppressed errors, rerun with: -v
+==2660== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testing add_empty_card(deck_t *)
-349448448547547547646646646646745745745745745Expected deck: Ad Ac 2s ?0
- 
-Your deck: Ad Ac 2s 
-Expected deck: Ks Kh Kd Kc As Ah 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc ?0
- 
-Your deck: Ks Kh Kd Kc As Ah 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Expected deck: 2s 2h 2d 2c ?0
- ?1
- 
-Your deck: 2s 2h 2d 2c 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc ?0
- ?1
- 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Expected deck: 2d 2c 3s 3h 3d ?0
- ?1
- ?2
- 
-Your deck: 2d 2c 3s 3h 3d 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc ?0
- ?1
- ?2
- 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Expected deck: 3s 3h 3d 3c 4s 4h ?0
- ?1
- ?2
- ?3
- 
-Your deck: 3s 3h 3d 3c 4s 4h 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc ?0
- ?1
- ?2
- ?3
- 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Expected deck: 3d 3c 4s 4h 4d 4c 5s ?0
- ?1
- ?2
- ?3
- ?4
- 
-Your deck: 3d 3c 4s 4h 4d 4c 5s 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc ?0
- ?1
- ?2
- ?3
- ?4
- 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
+34944854954764874964674784894974584694710481149timeout: the monitored command dumped core
 Valgrind reported errors:
-==2499== Memcheck, a memory error detector
-==2499== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==2499== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==2499== Command: ./tester aec
-==2499== Parent PID: 2498
-==2499== 
-==2499== Invalid read of size 8
-==2499==    at 0x40205A: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==2499==    by 0x403A5E: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==2499==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==2499==  Address 0x520b668 is 0 bytes after a block of size 24 alloc'd
-==2499==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2499==    by 0x403BFC: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==2499==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==2499== 
-==2499== Invalid read of size 8
-==2499==    at 0x40205A: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==2499==    by 0x403AB3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==2499==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==2499==  Address 0x520ca48 is 0 bytes after a block of size 392 alloc'd
-==2499==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2499==    by 0x40268A: my_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==2499==    by 0x4039D7: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
-==2499==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==2499== 
-==2499== 
-==2499== HEAP SUMMARY:
-==2499==     in use at exit: 0 bytes in 0 blocks
-==2499==   total heap usage: 2,061 allocs, 2,061 frees, 47,744 bytes allocated
-==2499== 
-==2499== All heap blocks were freed -- no leaks are possible
-==2499== 
-==2499== For counts of detected and suppressed errors, rerun with: -v
-==2499== ERROR SUMMARY: 30 errors from 2 contexts (suppressed: 0 from 0)
+==2664== Memcheck, a memory error detector
+==2664== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2664== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2664== Command: ./tester aec
+==2664== Parent PID: 2663
+==2664== 
+==2664== Invalid read of size 8
+==2664==    at 0x40206E: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x403A7E: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2664==  Address 0x520b670 is 8 bytes after a block of size 24 alloc'd
+==2664==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2664==    by 0x403C1C: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2664== 
+==2664== Invalid read of size 8
+==2664==    at 0x40206E: add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x403AD3: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2664==  Address 0x520ca50 is 8 bytes after a block of size 392 alloc'd
+==2664==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2664==    by 0x4026AA: my_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x4039F7: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2664== 
+==2664== Invalid read of size 8
+==2664==    at 0x4029B0: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x403CBA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2664==  Address 0x520b668 is 0 bytes after a block of size 24 alloc'd
+==2664==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2664==    by 0x403C1C: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2664== 
+==2664== Invalid read of size 4
+==2664==    at 0x4029B3: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x403CBA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2664==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==2664== 
+==2664== 
+==2664== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2664==  Access not within mapped region at address 0x0
+==2664==    at 0x4029B3: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x403CBA: check_add_empty_card (in /graderhome/work/c4prj1_deck/tester)
+==2664==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2664==  If you believe this happened as a result of a stack
+==2664==  overflow in your program's main thread (unlikely but
+==2664==  possible), you can try to increase the size of the
+==2664==  main thread stack using the --main-stacksize= flag.
+==2664==  The main thread stack size used in this run was 8388608.
+==2664== 
+==2664== HEAP SUMMARY:
+==2664==     in use at exit: 28,128 bytes in 1,820 blocks
+==2664==   total heap usage: 2,061 allocs, 241 frees, 47,744 bytes allocated
+==2664== 
+==2664== LEAK SUMMARY:
+==2664==    definitely lost: 0 bytes in 0 blocks
+==2664==    indirectly lost: 0 bytes in 0 blocks
+==2664==      possibly lost: 0 bytes in 0 blocks
+==2664==    still reachable: 28,128 bytes in 1,820 blocks
+==2664==         suppressed: 0 bytes in 0 blocks
+==2664== Rerun with --leak-check=full to see details of leaked memory
+==2664== 
+==2664== For counts of detected and suppressed errors, rerun with: -v
+==2664== ERROR SUMMARY: 32 errors from 4 contexts (suppressed: 0 from 0)
 Testing make_deck_exclude(deck_t *)
-0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
-Expected deck: Ks Kh Kd Kc As Ah Ad Ac 2s 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h Jh Jd Jc Qs Qh Qd Qc 
-Your deck: 
+0123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051012345678910111213141516171819202122232425262728293031323334353637383940414243444546474849500123456789101112131415161718192021222324252627282930313233343536373839404142434445464748490123456789101112131415161718192021222324252627282930313233343536373839404142434445464748012345678910111213141516171819202122232425262728293031323334353637383940414243444546470123456789101112131415161718192021222324252627282930313233343536373839404142434445460123456789101112131415161718192021222324252627282930313233343536373839404142434445012345678910111213141516171819202122232425262728293031323334353637383940414243440123456789101112131415161718192021222324252627282930313233343536373839404142430123456789101112131415161718192021222324252627282930313233343536373839404142012345678910111213141516171819202122232425262728293031323334353637383940410123456789101112131415161718192021222324252627282930313233343536373839400123456789101112131415161718192021222324252627282930313233343536373839012345678910111213141516171819202122232425262728293031323334353637380123456789101112131415161718192021222324252627282930313233343536370123456789101112131415161718192021222324252627282930313233343536timeout: the monitored command dumped core
 Valgrind reported errors:
-==2503== Memcheck, a memory error detector
-==2503== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==2503== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==2503== Command: ./tester mde
-==2503== Parent PID: 2502
-==2503== 
-==2503== Conditional jump or move depends on uninitialised value(s)
-==2503==    at 0x4C2EDA1: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2503==    by 0x4022B5: free_deck (in /graderhome/work/c4prj1_deck/tester)
-==2503==    by 0x4038D8: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
-==2503==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==2503== 
-==2503== 
-==2503== HEAP SUMMARY:
-==2503==     in use at exit: 0 bytes in 0 blocks
-==2503==   total heap usage: 1,017 allocs, 1,017 frees, 22,656 bytes allocated
-==2503== 
-==2503== All heap blocks were freed -- no leaks are possible
-==2503== 
-==2503== For counts of detected and suppressed errors, rerun with: -v
-==2503== Use --track-origins=yes to see where uninitialised values come from
-==2503== ERROR SUMMARY: 16 errors from 1 contexts (suppressed: 0 from 0)
+==2668== Memcheck, a memory error detector
+==2668== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2668== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2668== Command: ./tester mde
+==2668== Parent PID: 2667
+==2668== 
+==2668== Use of uninitialised value of size 8
+==2668==    at 0x4029B0: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==2668==    by 0x403844: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==2668==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2668== 
+==2668== Invalid read of size 8
+==2668==    at 0x4029B0: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==2668==    by 0x403844: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==2668==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2668==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==2668== 
+==2668== 
+==2668== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2668==  Access not within mapped region at address 0x0
+==2668==    at 0x4029B0: check_decks_same (in /graderhome/work/c4prj1_deck/tester)
+==2668==    by 0x403844: check_make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==2668==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2668==  If you believe this happened as a result of a stack
+==2668==  overflow in your program's main thread (unlikely but
+==2668==  possible), you can try to increase the size of the
+==2668==  main thread stack using the --main-stacksize= flag.
+==2668==  The main thread stack size used in this run was 8388608.
+==2668== 
+==2668== HEAP SUMMARY:
+==2668==     in use at exit: 14,080 bytes in 911 blocks
+==2668==   total heap usage: 1,017 allocs, 106 frees, 22,656 bytes allocated
+==2668== 
+==2668== LEAK SUMMARY:
+==2668==    definitely lost: 0 bytes in 0 blocks
+==2668==    indirectly lost: 0 bytes in 0 blocks
+==2668==      possibly lost: 0 bytes in 0 blocks
+==2668==    still reachable: 14,080 bytes in 911 blocks
+==2668==         suppressed: 0 bytes in 0 blocks
+==2668== Rerun with --leak-check=full to see details of leaked memory
+==2668== 
+==2668== For counts of detected and suppressed errors, rerun with: -v
+==2668== Use --track-origins=yes to see where uninitialised values come from
+==2668== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 Testing build_remaining_deck(deck_t **, size_t)
 Testing with 1 hand
-00000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3s 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4s 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-0000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5s 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-00000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6s 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7s 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-0000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8s 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-00000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9s 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0s 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-Testing with 2 hands
-0000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Js Jh Jd Jc Qs Qh Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qs Qh Qd Qc 
-000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Ks Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-0000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc As Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2h 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3h 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-0000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4h 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5h 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-Testing with 3 hands
-000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6h 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-0000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7h 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8h 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9h 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-0000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0h 0d 0c Jh Jd Jc Qh Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jh Jd Jc Qh Qd Qc 
-000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qh Qd Qc 
-0000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kh Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-Testing with 4 hands
-00000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ah Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2d 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-0000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3d 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4d 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5d 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-0000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5c 6d 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5c 6c 7d 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5c 6c 7c 8d 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-Testing with 5 hands
-0000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5c 6c 7c 8c 9d 9c 0d 0c Jd Jc Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5c 6c 7c 8c 9c 0d 0c Jd Jc Qd Qc 
-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5c 6c 7c 8c 9c 0c Jd Jc Qd Qc 
-0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5c 6c 7c 8c 9c 0c Jc Qd Qc 
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kd Kc Ad Ac 2c 3c 4c 5c 6c 7c 8c 9c 0c Jc Qc 
-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kc Ad Ac 2c 3c 4c 5c 6c 7c 8c 9c 0c Jc Qc 
-0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kc Ac 2c 3c 4c 5c 6c 7c 8c 9c 0c Jc Qc 
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kc Ac 3c 4c 5c 6c 7c 8c 9c 0c Jc Qc 
-Testing with 6 hands
-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kc Ac 4c 5c 6c 7c 8c 9c 0c Jc Qc 
-0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Expected deck: 
-Your deck: Kc Ac 5c 6c 7c 8c 9c 0c Jc Qc 
+0timeout: the monitored command dumped core
 Valgrind reported errors:
-==2507== Memcheck, a memory error detector
-==2507== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==2507== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==2507== Command: ./tester brd
-==2507== Parent PID: 2506
-==2507== 
-==2507== Conditional jump or move depends on uninitialised value(s)
-==2507==    at 0x4C2EDA1: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2507==    by 0x4034F0: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
-==2507==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
-==2507== 
-==2507== 
-==2507== HEAP SUMMARY:
-==2507==     in use at exit: 0 bytes in 0 blocks
-==2507==   total heap usage: 3,490 allocs, 3,490 frees, 144,584 bytes allocated
-==2507== 
-==2507== All heap blocks were freed -- no leaks are possible
-==2507== 
-==2507== For counts of detected and suppressed errors, rerun with: -v
-==2507== Use --track-origins=yes to see where uninitialised values come from
-==2507== ERROR SUMMARY: 42 errors from 1 contexts (suppressed: 0 from 0)
+==2672== Memcheck, a memory error detector
+==2672== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2672== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2672== Command: ./tester brd
+==2672== Parent PID: 2671
+==2672== 
+==2672== Invalid read of size 8
+==2672==    at 0x4020DA: make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==2672==    by 0x402259: build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==2672==    by 0x40339C: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==2672==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2672==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==2672== 
+==2672== 
+==2672== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==2672==  Access not within mapped region at address 0x0
+==2672==    at 0x4020DA: make_deck_exclude (in /graderhome/work/c4prj1_deck/tester)
+==2672==    by 0x402259: build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==2672==    by 0x40339C: check_build_remaining_deck (in /graderhome/work/c4prj1_deck/tester)
+==2672==    by 0x400B08: main (in /graderhome/work/c4prj1_deck/tester)
+==2672==  If you believe this happened as a result of a stack
+==2672==  overflow in your program's main thread (unlikely but
+==2672==  possible), you can try to increase the size of the
+==2672==  main thread stack using the --main-stacksize= flag.
+==2672==  The main thread stack size used in this run was 8388608.
+==2672== 
+==2672== HEAP SUMMARY:
+==2672==     in use at exit: 112 bytes in 10 blocks
+==2672==   total heap usage: 11 allocs, 1 frees, 4,208 bytes allocated
+==2672== 
+==2672== LEAK SUMMARY:
+==2672==    definitely lost: 0 bytes in 0 blocks
+==2672==    indirectly lost: 0 bytes in 0 blocks
+==2672==      possibly lost: 0 bytes in 0 blocks
+==2672==    still reachable: 112 bytes in 10 blocks
+==2672==         suppressed: 0 bytes in 0 blocks
+==2672== Rerun with --leak-check=full to see details of leaked memory
+==2672== 
+==2672== For counts of detected and suppressed errors, rerun with: -v
+==2672== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Testing get_match_count(deck_t *)
 - Test passed
 
