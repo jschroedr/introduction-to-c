@@ -45,13 +45,16 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
 }
 
 int main(int argc, char ** argv) {
-  //WRITE ME (plus add appropriate error checking!)
   if(argc < 2) {
     perror("Expecting at least three arguments");
     EXIT_FAILURE;
   }
   //read the key/value pairs from the file named by argv[1] (call the result kv)
   kvarray_t * kv = readKVs(argv[1]);
+  if(kv == NULL) {
+    perror("kv is NULL");
+    EXIT_FAILURE;
+  }
   //count from 2 to argc (call the number you count i)
   for(int i = 2; i < argc; i ++) {
     //count the values that appear in the file named by argv[i], using kv as the key/value pair
@@ -65,11 +68,15 @@ int main(int argc, char ** argv) {
     char * outName = computeOutputFileName(argv[i]); 
     //open the file named by outName (call that f)
     FILE * f = fopen(outName, "w");
+    if(f == NULL) {
+      perror("could not open file 'f'");
+      EXIT_FAILURE;
+    }
     //print the counts from c into the FILE f
     printCounts(c, f);
     //close f
     if(fclose(f) == EOF) {
-      perror("Unable to close file");
+      perror("Unable to close file 'f'");
       EXIT_FAILURE;
     }
     //free the memory for outName and c
