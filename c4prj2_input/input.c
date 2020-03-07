@@ -47,6 +47,10 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
 	    add_future_card(fc, idx, ptr);
 	  } else {
 	    card_t c = card_from_letters(charArray[0], charArray[1]);
+	    if(c.suit == -1) {
+	      perror("Invalid suit provided");
+	      EXIT_FAILURE;
+	    }
 	    hand->cards = realloc(hand->cards, sizeof(hand->cards) * (hand->n_cards +1));
 	    card_t * cPtr = malloc(sizeof(*cPtr));
 	    cPtr->suit = c.suit;
