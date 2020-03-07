@@ -44,7 +44,8 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
 	  charIndex = -1;
 	  if(charArray[0] == '?') {
 	    card_t * ptr = add_empty_card(hand);
-	    add_future_card(fc, charArray[1], ptr);
+	    int idx = charArray[1] - 48;
+	    add_future_card(fc, idx, ptr);
 	  } else {
 	    card_t c = card_from_letters(charArray[0], charArray[1]);
 	    hand->cards = realloc(hand->cards, sizeof(hand->cards) * hand->n_cards);
