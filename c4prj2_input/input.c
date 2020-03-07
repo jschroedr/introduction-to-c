@@ -14,6 +14,8 @@
  */
 deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
   deck_t ** hands = malloc(sizeof(*hands));
+  fc->decks = NULL;
+  fc->n_decks = 0;
   n_hands = 0;  // ensure we start from 0
   size_t sz = 0;
   ssize_t len = 0;
@@ -39,16 +41,21 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
 	charIndex ++;
 	// 2 = card complete, time for new card
 	if(charIndex == 2) {
-	  card_t c = card_from_letters(charArray[0], charArray[1]);
+	  if(charArray[0] == '?') {
+	    card_t * ptr = add_empty_card(hand);
+	    add_future_card(fc, charArray[1], ptr);
+	  } else {
+	    card_t c = card_from_letters(charArray[0], charArray[1]);
+	    hand->cards = realloc(hand->cards, sizeof(hand->cards) * hand->n_cards);
+	    hand->cards[hand->n_cards - 1]->value = c.value;
+	    hand->cards[hand->n_cards - 1]->suit = c.suit;
+	  }
 	  hand->n_cards ++;
+	  charIndex = -1;
 	  if(hand->n_cards > 5) {
 	    perror("More than five cards given for hand");
 	    return NULL;
 	  }
-	  hand->cards = realloc(hand->cards, sizeof(hand->cards) * hand->n_cards);
-	  hand->cards[hand->n_cards - 1]->value = c.value;
-	  hand->cards[hand->n_cards - 1]->suit = c.suit;
-	  charIndex = -1;
 	}
       }
     }
