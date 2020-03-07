@@ -23,16 +23,15 @@ void add_future_card(future_cards_t * fc, size_t index, card_t * ptr) {
     // alloc the missing indicies with empty decks
     for(int i = index; i < (index + 1); i++) {
       deck_t emptyDeck;
-      printf("%d", i);
       emptyDeck.n_cards = 0;
       emptyDeck.cards = NULL;
-fc->decks = realloc(fc->decks, sizeof(*fc->decks) * (i + 1));
+      fc->decks = realloc(fc->decks, sizeof(*fc->decks) * (i + 1));
       fc->decks[i] = emptyDeck;
     }
-    fc->n_decks = index + 1;
+    fc->n_decks = (index + 1);
   }
-  fc->decks[index].n_cards ++; 
-  fc->decks[index].cards = realloc(fc->decks[index].cards, sizeof(*fc->decks[index].cards) * fc->decks[index].n_cards);
+  fc->decks[index].n_cards ++;
+  fc->decks[index].cards = realloc(fc->decks[index].cards, sizeof(fc->decks[index].cards) * fc->decks[index].n_cards);
   fc->decks[index].cards[fc->decks[index].n_cards - 1] = ptr;
   return;
 }

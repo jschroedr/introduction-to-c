@@ -20,6 +20,7 @@ int main(int argc, char ** argv) {
     free(hands[i]);
   }
   free(hands);
+  free(fc->decks[0].cards);
   free(fc->decks);
   free(fc);
   fclose(f);
