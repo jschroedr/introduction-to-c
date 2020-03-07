@@ -1,0 +1,10 @@
+Grading at Sat Mar  7 18:26:28 UTC 2020
+Compiling cards.c -> cards.o
+Compiling deck.c -> deck.o
+Compiling input.c -> input.o
+gcc: error: input.c: No such file or directory
+gcc: fatal error: no input files
+compilation terminated.
+Compilation of input.c failed
+
+Overall Grade: F
