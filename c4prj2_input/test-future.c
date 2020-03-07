@@ -12,6 +12,7 @@ int main(int argc, char ** argv) {
   size_t n_hands = 0;
   deck_t ** hands = read_input(f, &n_hands, fc);
   for(int i = 0; i < n_hands; i++) {
+    print_hand(hands[i]);
     for(int j = 0; j < hands[i]->n_cards; j++) {
       free(hands[i]->cards[j]);
     }

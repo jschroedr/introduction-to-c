@@ -53,12 +53,12 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
 	    cPtr->value = c.value;
 	    hand->cards[hand->n_cards - 1] = cPtr; 
 	  }
-	  if(hand->n_cards > 5) {
-	    perror("More than five cards given for hand");
-	    return NULL;
-	  }
-	}
+      	}
       }
+    }
+    if(hand->n_cards < 5) {
+      perror("Poker hand should have at least 5 cards");
+      EXIT_FAILURE;
     }
     hands = realloc(hands, sizeof(hands) * (*n_hands));
     hands[(*n_hands) - 1] = hand;
