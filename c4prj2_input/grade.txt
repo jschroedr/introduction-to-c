@@ -1,4 +1,4 @@
-Grading at Sat Mar  7 18:47:29 UTC 2020
+Grading at Sat Mar  7 18:56:06 UTC 2020
 Compiling cards.c -> cards.o
 Compiling deck.c -> deck.o
 Compiling input.c -> input.o
@@ -8,181 +8,197 @@ Testing with input file with
  o 1 hand
  o No unknown/future cards
 Valgrind reported errors:
-==369== Memcheck, a memory error detector
-==369== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==369== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==369== Command: ./tester hands.txt draw.txt
-==369== Parent PID: 368
-==369== 
-==369== Use of uninitialised value of size 8
-==369==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==369==    by 0x4019A5: main (test-input.c:69)
-==369== 
-==369== Invalid write of size 4
-==369==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==369==    by 0x4019A5: main (test-input.c:69)
-==369==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==369== 
-==369== 
-==369== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==369==  Access not within mapped region at address 0x0
-==369==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==369==    by 0x4019A5: main (test-input.c:69)
-==369==  If you believe this happened as a result of a stack
-==369==  overflow in your program's main thread (unlikely but
-==369==  possible), you can try to increase the size of the
-==369==  main thread stack using the --main-stacksize= flag.
-==369==  The main thread stack size used in this run was 8388608.
-==369== 
-==369== HEAP SUMMARY:
-==369==     in use at exit: 704 bytes in 5 blocks
-==369==   total heap usage: 6 allocs, 1 frees, 4,800 bytes allocated
-==369== 
-==369== LEAK SUMMARY:
-==369==    definitely lost: 0 bytes in 0 blocks
-==369==    indirectly lost: 0 bytes in 0 blocks
-==369==      possibly lost: 0 bytes in 0 blocks
-==369==    still reachable: 704 bytes in 5 blocks
-==369==         suppressed: 0 bytes in 0 blocks
-==369== Rerun with --leak-check=full to see details of leaked memory
-==369== 
-==369== For counts of detected and suppressed errors, rerun with: -v
-==369== Use --track-origins=yes to see where uninitialised values come from
-==369== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==533== Memcheck, a memory error detector
+==533== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==533== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==533== Command: ./tester hands.txt draw.txt
+==533== Parent PID: 532
+==533== 
+==533== Invalid read of size 8
+==533==    at 0x400BE1: read_input (in /graderhome/work/c4prj2_input/tester)
+==533==    by 0x4019F1: main (test-input.c:69)
+==533==  Address 0x5205448 is 8 bytes before a block of size 0 alloc'd
+==533==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==533==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==533==    by 0x400BBC: read_input (in /graderhome/work/c4prj2_input/tester)
+==533==    by 0x4019F1: main (test-input.c:69)
+==533== 
+==533== Invalid write of size 4
+==533==    at 0x400BE7: read_input (in /graderhome/work/c4prj2_input/tester)
+==533==    by 0x4019F1: main (test-input.c:69)
+==533==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==533== 
+==533== 
+==533== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==533==  Access not within mapped region at address 0x0
+==533==    at 0x400BE7: read_input (in /graderhome/work/c4prj2_input/tester)
+==533==    by 0x4019F1: main (test-input.c:69)
+==533==  If you believe this happened as a result of a stack
+==533==  overflow in your program's main thread (unlikely but
+==533==  possible), you can try to increase the size of the
+==533==  main thread stack using the --main-stacksize= flag.
+==533==  The main thread stack size used in this run was 8388608.
+==533== 
+==533== HEAP SUMMARY:
+==533==     in use at exit: 696 bytes in 5 blocks
+==533==   total heap usage: 6 allocs, 1 frees, 4,792 bytes allocated
+==533== 
+==533== LEAK SUMMARY:
+==533==    definitely lost: 0 bytes in 0 blocks
+==533==    indirectly lost: 0 bytes in 0 blocks
+==533==      possibly lost: 0 bytes in 0 blocks
+==533==    still reachable: 696 bytes in 5 blocks
+==533==         suppressed: 0 bytes in 0 blocks
+==533== Rerun with --leak-check=full to see details of leaked memory
+==533== 
+==533== For counts of detected and suppressed errors, rerun with: -v
+==533== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 Testing with input file with 
  o Many hands
  o No unknown/future cards
 Valgrind reported errors:
-==374== Memcheck, a memory error detector
-==374== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==374== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==374== Command: ./tester hands.txt draw.txt
-==374== Parent PID: 373
-==374== 
-==374== Use of uninitialised value of size 8
-==374==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==374==    by 0x4019A5: main (test-input.c:69)
-==374== 
-==374== Invalid write of size 4
-==374==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==374==    by 0x4019A5: main (test-input.c:69)
-==374==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==374== 
-==374== 
-==374== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==374==  Access not within mapped region at address 0x0
-==374==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==374==    by 0x4019A5: main (test-input.c:69)
-==374==  If you believe this happened as a result of a stack
-==374==  overflow in your program's main thread (unlikely but
-==374==  possible), you can try to increase the size of the
-==374==  main thread stack using the --main-stacksize= flag.
-==374==  The main thread stack size used in this run was 8388608.
-==374== 
-==374== HEAP SUMMARY:
-==374==     in use at exit: 704 bytes in 5 blocks
-==374==   total heap usage: 6 allocs, 1 frees, 4,800 bytes allocated
-==374== 
-==374== LEAK SUMMARY:
-==374==    definitely lost: 0 bytes in 0 blocks
-==374==    indirectly lost: 0 bytes in 0 blocks
-==374==      possibly lost: 0 bytes in 0 blocks
-==374==    still reachable: 704 bytes in 5 blocks
-==374==         suppressed: 0 bytes in 0 blocks
-==374== Rerun with --leak-check=full to see details of leaked memory
-==374== 
-==374== For counts of detected and suppressed errors, rerun with: -v
-==374== Use --track-origins=yes to see where uninitialised values come from
-==374== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==538== Memcheck, a memory error detector
+==538== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==538== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==538== Command: ./tester hands.txt draw.txt
+==538== Parent PID: 537
+==538== 
+==538== Invalid read of size 8
+==538==    at 0x400BE1: read_input (in /graderhome/work/c4prj2_input/tester)
+==538==    by 0x4019F1: main (test-input.c:69)
+==538==  Address 0x5205448 is 8 bytes before a block of size 0 alloc'd
+==538==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==538==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==538==    by 0x400BBC: read_input (in /graderhome/work/c4prj2_input/tester)
+==538==    by 0x4019F1: main (test-input.c:69)
+==538== 
+==538== Invalid write of size 4
+==538==    at 0x400BE7: read_input (in /graderhome/work/c4prj2_input/tester)
+==538==    by 0x4019F1: main (test-input.c:69)
+==538==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==538== 
+==538== 
+==538== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==538==  Access not within mapped region at address 0x0
+==538==    at 0x400BE7: read_input (in /graderhome/work/c4prj2_input/tester)
+==538==    by 0x4019F1: main (test-input.c:69)
+==538==  If you believe this happened as a result of a stack
+==538==  overflow in your program's main thread (unlikely but
+==538==  possible), you can try to increase the size of the
+==538==  main thread stack using the --main-stacksize= flag.
+==538==  The main thread stack size used in this run was 8388608.
+==538== 
+==538== HEAP SUMMARY:
+==538==     in use at exit: 696 bytes in 5 blocks
+==538==   total heap usage: 6 allocs, 1 frees, 4,792 bytes allocated
+==538== 
+==538== LEAK SUMMARY:
+==538==    definitely lost: 0 bytes in 0 blocks
+==538==    indirectly lost: 0 bytes in 0 blocks
+==538==      possibly lost: 0 bytes in 0 blocks
+==538==    still reachable: 696 bytes in 5 blocks
+==538==         suppressed: 0 bytes in 0 blocks
+==538== Rerun with --leak-check=full to see details of leaked memory
+==538== 
+==538== For counts of detected and suppressed errors, rerun with: -v
+==538== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 Testing with input file with 
  o Many hands
  o 1 unknown/future cards per hand
 Valgrind reported errors:
-==380== Memcheck, a memory error detector
-==380== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==380== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==380== Command: ./tester h.txt d.txt
-==380== Parent PID: 379
-==380== 
-==380== Use of uninitialised value of size 8
-==380==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==380==    by 0x4019A5: main (test-input.c:69)
-==380== 
-==380== Invalid write of size 4
-==380==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==380==    by 0x4019A5: main (test-input.c:69)
-==380==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==380== 
-==380== 
-==380== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==380==  Access not within mapped region at address 0x0
-==380==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==380==    by 0x4019A5: main (test-input.c:69)
-==380==  If you believe this happened as a result of a stack
-==380==  overflow in your program's main thread (unlikely but
-==380==  possible), you can try to increase the size of the
-==380==  main thread stack using the --main-stacksize= flag.
-==380==  The main thread stack size used in this run was 8388608.
-==380== 
-==380== HEAP SUMMARY:
-==380==     in use at exit: 704 bytes in 5 blocks
-==380==   total heap usage: 6 allocs, 1 frees, 4,800 bytes allocated
-==380== 
-==380== LEAK SUMMARY:
-==380==    definitely lost: 0 bytes in 0 blocks
-==380==    indirectly lost: 0 bytes in 0 blocks
-==380==      possibly lost: 0 bytes in 0 blocks
-==380==    still reachable: 704 bytes in 5 blocks
-==380==         suppressed: 0 bytes in 0 blocks
-==380== Rerun with --leak-check=full to see details of leaked memory
-==380== 
-==380== For counts of detected and suppressed errors, rerun with: -v
-==380== Use --track-origins=yes to see where uninitialised values come from
-==380== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==544== Memcheck, a memory error detector
+==544== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==544== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==544== Command: ./tester h.txt d.txt
+==544== Parent PID: 543
+==544== 
+==544== Invalid read of size 8
+==544==    at 0x400BE1: read_input (in /graderhome/work/c4prj2_input/tester)
+==544==    by 0x4019F1: main (test-input.c:69)
+==544==  Address 0x5205448 is 8 bytes before a block of size 0 alloc'd
+==544==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==544==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==544==    by 0x400BBC: read_input (in /graderhome/work/c4prj2_input/tester)
+==544==    by 0x4019F1: main (test-input.c:69)
+==544== 
+==544== Invalid write of size 4
+==544==    at 0x400BE7: read_input (in /graderhome/work/c4prj2_input/tester)
+==544==    by 0x4019F1: main (test-input.c:69)
+==544==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==544== 
+==544== 
+==544== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==544==  Access not within mapped region at address 0x0
+==544==    at 0x400BE7: read_input (in /graderhome/work/c4prj2_input/tester)
+==544==    by 0x4019F1: main (test-input.c:69)
+==544==  If you believe this happened as a result of a stack
+==544==  overflow in your program's main thread (unlikely but
+==544==  possible), you can try to increase the size of the
+==544==  main thread stack using the --main-stacksize= flag.
+==544==  The main thread stack size used in this run was 8388608.
+==544== 
+==544== HEAP SUMMARY:
+==544==     in use at exit: 696 bytes in 5 blocks
+==544==   total heap usage: 6 allocs, 1 frees, 4,792 bytes allocated
+==544== 
+==544== LEAK SUMMARY:
+==544==    definitely lost: 0 bytes in 0 blocks
+==544==    indirectly lost: 0 bytes in 0 blocks
+==544==      possibly lost: 0 bytes in 0 blocks
+==544==    still reachable: 696 bytes in 5 blocks
+==544==         suppressed: 0 bytes in 0 blocks
+==544== Rerun with --leak-check=full to see details of leaked memory
+==544== 
+==544== For counts of detected and suppressed errors, rerun with: -v
+==544== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 Testing with input file with 
  o Many hands
  o Many unknown/future cards per hand
 Valgrind reported errors:
-==386== Memcheck, a memory error detector
-==386== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==386== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==386== Command: ./tester i1 i2
-==386== Parent PID: 385
-==386== 
-==386== Use of uninitialised value of size 8
-==386==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==386==    by 0x4019A5: main (test-input.c:69)
-==386== 
-==386== Invalid write of size 4
-==386==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==386==    by 0x4019A5: main (test-input.c:69)
-==386==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==386== 
-==386== 
-==386== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==386==  Access not within mapped region at address 0x0
-==386==    at 0x400BCE: read_input (in /graderhome/work/c4prj2_input/tester)
-==386==    by 0x4019A5: main (test-input.c:69)
-==386==  If you believe this happened as a result of a stack
-==386==  overflow in your program's main thread (unlikely but
-==386==  possible), you can try to increase the size of the
-==386==  main thread stack using the --main-stacksize= flag.
-==386==  The main thread stack size used in this run was 8388608.
-==386== 
-==386== HEAP SUMMARY:
-==386==     in use at exit: 704 bytes in 5 blocks
-==386==   total heap usage: 6 allocs, 1 frees, 4,800 bytes allocated
-==386== 
-==386== LEAK SUMMARY:
-==386==    definitely lost: 0 bytes in 0 blocks
-==386==    indirectly lost: 0 bytes in 0 blocks
-==386==      possibly lost: 0 bytes in 0 blocks
-==386==    still reachable: 704 bytes in 5 blocks
-==386==         suppressed: 0 bytes in 0 blocks
-==386== Rerun with --leak-check=full to see details of leaked memory
-==386== 
-==386== For counts of detected and suppressed errors, rerun with: -v
-==386== Use --track-origins=yes to see where uninitialised values come from
-==386== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==550== Memcheck, a memory error detector
+==550== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==550== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==550== Command: ./tester i1 i2
+==550== Parent PID: 549
+==550== 
+==550== Invalid read of size 8
+==550==    at 0x400BE1: read_input (in /graderhome/work/c4prj2_input/tester)
+==550==    by 0x4019F1: main (test-input.c:69)
+==550==  Address 0x5205448 is 8 bytes before a block of size 0 alloc'd
+==550==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==550==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==550==    by 0x400BBC: read_input (in /graderhome/work/c4prj2_input/tester)
+==550==    by 0x4019F1: main (test-input.c:69)
+==550== 
+==550== Invalid write of size 4
+==550==    at 0x400BE7: read_input (in /graderhome/work/c4prj2_input/tester)
+==550==    by 0x4019F1: main (test-input.c:69)
+==550==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==550== 
+==550== 
+==550== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==550==  Access not within mapped region at address 0x0
+==550==    at 0x400BE7: read_input (in /graderhome/work/c4prj2_input/tester)
+==550==    by 0x4019F1: main (test-input.c:69)
+==550==  If you believe this happened as a result of a stack
+==550==  overflow in your program's main thread (unlikely but
+==550==  possible), you can try to increase the size of the
+==550==  main thread stack using the --main-stacksize= flag.
+==550==  The main thread stack size used in this run was 8388608.
+==550== 
+==550== HEAP SUMMARY:
+==550==     in use at exit: 696 bytes in 5 blocks
+==550==   total heap usage: 6 allocs, 1 frees, 4,792 bytes allocated
+==550== 
+==550== LEAK SUMMARY:
+==550==    definitely lost: 0 bytes in 0 blocks
+==550==    indirectly lost: 0 bytes in 0 blocks
+==550==      possibly lost: 0 bytes in 0 blocks
+==550==    still reachable: 696 bytes in 5 blocks
+==550==         suppressed: 0 bytes in 0 blocks
+==550== Rerun with --leak-check=full to see details of leaked memory
+==550== 
+==550== For counts of detected and suppressed errors, rerun with: -v
+==550== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 
 Overall Grade: F
