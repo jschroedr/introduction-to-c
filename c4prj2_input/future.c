@@ -52,14 +52,14 @@ void add_future_card(future_cards_t * fc, size_t index, card_t * ptr) {
  */
 void future_cards_from_deck(deck_t * deck, future_cards_t * fc) {
   // note: think about a case where this function would print an error message
-  
   // draw cards from the deck and assign their values and suits to the placeholders
   for(int i = 0; i < fc->n_decks; i ++) {
     // draw card from deck
     card_t * c = deck->cards[i];
     // for each card in the deck at i, assign c
     for(int j = 0; j < fc->decks[i].n_cards; j++) {
-      fc->decks[i].cards[j] = c;
+       fc->decks[i].cards[j]->value = c->value;
+       fc->decks[i].cards[j]->suit = c->suit;
     }
   }
 }
