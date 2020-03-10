@@ -24,11 +24,13 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
     (*n_hands) ++;
     deck_t * hand = hand_from_string(line, fc);
     if(hand->n_cards < 5) {
+      printf("%d", (int)hand->n_cards);
       perror("Poker hand should have at least 5 cards");
       EXIT_FAILURE;
     }
     hands = realloc(hands, sizeof(hands) * (*n_hands));
     hands[(*n_hands) - 1] = hand;
+    printf("\n\n hand complete");
   }
   free(line);
   return hands;
@@ -37,6 +39,8 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
 void addCardFromString(const char * cardString, deck_t * hand, future_cards_t * fc);
 deck_t * hand_from_string(const char * str, future_cards_t * fc) {
   deck_t * hand = malloc(sizeof(*hand));
+  hand->n_cards = 0;
+  hand->cards = NULL;
   int strLength = strlen(str);
   int newCard = 1;  // 1 = create a new card, 0 = continue working on existing card
   char * cardString = malloc(sizeof(*cardString));
@@ -55,6 +59,8 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
     case ' ':
       assert(newCard == 0);
       // create a new card and add to the hand
+      cardString = realloc(cardString, sizeof(*cardString) * cardStringLen + 1);
+      cardString[cardStringLen] = '\0';
       addCardFromString(cardString, hand, fc);
       // remove the cardString and start anew
       free(cardString);
@@ -64,8 +70,10 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
       break;
       // by default, add the char to the string
     default:
-      cardString[cardStringLen] = str[i];
       cardStringLen ++;
+      cardString = realloc(cardString, sizeof(*cardString) * cardStringLen);
+      cardString[cardStringLen - 1] = str[i];
+      newCard = 0;
       break;
     }
   }
@@ -96,14 +104,19 @@ void addCardFromString(const char * cardString, deck_t * hand, future_cards_t * 
 	unknownValue += ((cardString[i] - '0') * toPower(10, i));
       }
      }
-    printf("%s, %d", cardString, unknownValue);
+    printf("\n\ncardString:%s, unknownValue:%d\n\n", cardString, unknownValue);
+    hand->n_cards ++;
     card_t * ptr = add_empty_card(hand);
     add_future_card(fc, unknownValue, ptr); 
   } else {
     // normal cards should have two characters
     assert(strLen == 2);
-    printf("%c %c | %s", cardString[0], cardString[1], cardString);
+    printf("%c %c | %s\n", cardString[0], cardString[1], cardString);
     card_t card = card_from_letters(cardString[0], cardString[1]);
+    print_card(card);
     add_card_to(hand, card);
+    printf("\n\n");
+    printf("n_cards: %d", (int)hand->n_cards);
+    printf("\n\n");
   }
 }
