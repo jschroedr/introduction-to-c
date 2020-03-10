@@ -46,15 +46,12 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
   char * cardString = malloc(sizeof(*cardString));
   size_t cardStringLen = 0;
   for(int i = 0; i < strLength; i++) {
+    printf("\n %c || strlen:%d, %d", str[i], i, strLength);
     char c = str[i];
     switch(c) {
       // string terminator or newline = end of input
-    case '\0':
-      return hand;
-      break;
     case '\n':
-      return hand;
-      break;
+      // fall through to the ' ' handling, create the card then exit
       // we should be on an existing card before we hit a space
     case ' ':
       assert(newCard == 0);
@@ -78,6 +75,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
     }
   }
   free(cardString);
+  print_hand(hand);
   return hand;
 }
 
@@ -107,7 +105,8 @@ void addCardFromString(const char * cardString, deck_t * hand, future_cards_t * 
     printf("\n\ncardString:%s, unknownValue:%d\n\n", cardString, unknownValue);
     hand->n_cards ++;
     card_t * ptr = add_empty_card(hand);
-    add_future_card(fc, unknownValue, ptr); 
+    add_future_card(fc, unknownValue, ptr);
+    printf("\n\nfuture n_cards: %d", (int)hand->n_cards);
   } else {
     // normal cards should have two characters
     assert(strLen == 2);
