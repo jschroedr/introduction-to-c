@@ -20,7 +20,9 @@ int main(int argc, char ** argv) {
     free(hands[i]);
   }
   free(hands);
-  free(fc->decks[0].cards);
+  for(int i = 0; i < fc->n_decks; i ++) {
+    free(fc->decks[i].cards);
+  }
   free(fc->decks);
   free(fc);
   fclose(f);
