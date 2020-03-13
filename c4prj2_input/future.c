@@ -19,9 +19,7 @@ void add_future_card(future_cards_t * fc, size_t index, card_t * ptr) {
   // reallocate the array to be large enough to handle the specified index
   // and just having empty decks for the indicies that have not had
   // add_future_card called on them yet
-  printf("index: %d\n", (int)index);
   if(index >= fc->n_decks) {
-    printf("index > n_decks\n");
     // alloc the missing indicies with empty decks
     for(int i = fc->n_decks; i <= index; i++) {
       fc->decks = realloc(fc->decks, sizeof(*fc->decks) * (i + 1));
@@ -31,7 +29,6 @@ void add_future_card(future_cards_t * fc, size_t index, card_t * ptr) {
     }
   }
   fc->decks[index].n_cards ++;
-  printf("**%d**", (int)fc->decks[index].n_cards);
   fc->decks[index].cards = realloc(fc->decks[index].cards, sizeof(fc->decks[index].cards) * fc->decks[index].n_cards);
   fc->decks[index].cards[fc->decks[index].n_cards - 1] = ptr;
   return;
