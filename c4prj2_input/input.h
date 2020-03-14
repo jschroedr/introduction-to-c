@@ -6,5 +6,5 @@
 
 deck_t * hand_from_string(const char * str, future_cards_t * fc);
 deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc);
-
+int toPower(int x, int y);
 #endif
