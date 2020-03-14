@@ -127,7 +127,10 @@ int main(int argc, char ** argv) {
   // Open the input file and read the hands in it
   FILE * f = fopen(argv[1], "r");
   size_t * n_hands = malloc(sizeof(*n_hands));
+  *n_hands = 0;
   future_cards_t * fc = malloc(sizeof(*fc));
+  fc->decks = NULL;
+  fc->n_decks = 0;
   deck_t ** hands = read_input(f, n_hands, fc);
 
   // Create a deck with the remaining cards
