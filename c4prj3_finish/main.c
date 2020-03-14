@@ -160,23 +160,26 @@ int main(int argc, char ** argv) {
       printf("And there were %d ties\n", win_array[i]);
     }
   }
-  // Print your results
-  // For each hand, you should:
-  // printf("Hand %zu won %u / %u times (%.2f%%)\n");
-  // where:
-  // %zu is the hand number (for size_t)
-  // %u is the number of wins for the hand
-  // %u is the total number of trials
-  // %.2f is the percentages that this win/trials ratio gives
-
-  // Then you should printf one more line for the ties:
-  // "And there were %u ties\n"
-  // Where %u is just a count of how many ties there were
   
   // Free any memory allocated
-
+  for(int d = 0; d < fc->n_decks; d++) {
+    free(fc->decks[d].cards);
+  }
+  free(fc->decks);
+  free(fc);
+  for(int d = 0; d < (int)(*n_hands); d++) {
+    free_deck(hands[d]);
+  }
+  free(hands);
+  free_deck(rem_deck);
+  free(n_hands);
+  free(win_array);
+  
   // Close any open files
-
+  if(fclose(f) == EOF) {
+    perror("Could not close file");
+    return EXIT_FAILURE;
+  }
   
   // Makefile should create a program called poker when we run "make"
   // USe test cases in provided-tests, along with the expected probabilities
