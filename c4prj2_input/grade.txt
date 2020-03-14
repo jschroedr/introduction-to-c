@@ -1,4 +1,4 @@
-Grading at Sat Mar 14 16:28:25 UTC 2020
+Grading at Sat Mar 14 16:30:39 UTC 2020
 Compiling cards.c -> cards.o
 Compiling deck.c -> deck.o
 Compiling input.c -> input.o
@@ -22,7 +22,7 @@ Test case passed
 Testing with input file with 
  o Many hands
  o Many unknown/future cards per hand
-Your file did not match the expected ouput
-Test case failed
+Your file matched the expected output
+Test case passed
 
-Overall Grade: B
+Overall Grade: A
