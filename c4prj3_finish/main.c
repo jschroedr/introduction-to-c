@@ -155,7 +155,7 @@ int main(int argc, char ** argv) {
   // Print your results
   for(int i = 0; i < total_hands; i ++) {
     if(i < (total_hands - 1)) {
-      printf("Hand %d won %d / %d times (%.2f%%)\n", i, win_array[i], num_trials, (float)win_array[i] / (float)num_trials);
+      printf("Hand %d won %d / %d times (%.2f%%)\n", i, win_array[i], num_trials, ((float)win_array[i] / (float)num_trials) * 100);
     } else {
       printf("And there were %d ties\n", win_array[i]);
     }
