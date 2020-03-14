@@ -1,4 +1,4 @@
-Grading at Sat Mar 14 18:53:08 UTC 2020
+Grading at Sat Mar 14 18:57:23 UTC 2020
 Running 'make clean' to do a clean build of your project
 rm -rf *.o poker *~
 Running 'make poker OTHERFLAGS=-O3' to build your project
@@ -11,51 +11,51 @@ gcc -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3   -c -o main.o main.c
 gcc -o poker -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3 cards.o deck.o eval.o future.o input.o main.o
  - Starting with some Texas Hold'em hands
 Running a simulation with 20000 draws for 2 hands...
- ** Hand 0 differed from our answer by 34.26%
- ** Hand 1 differed from our answer by 64.00%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
 Running a simulation with 25000 draws for 3 hands...
- ** Hand 0 differed from our answer by 13.88%
- ** Hand 1 differed from our answer by 66.06%
- ** Hand 2 differed from our answer by 18.70%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
 Running a simulation with 25000 draws for 3 hands...
- ** Hand 0 differed from our answer by 44.61%
- ** Hand 1 differed from our answer by 15.82%
- ** Hand 2 differed from our answer by 38.26%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
 Running a simulation with 25000 draws for 2 hands...
- ** Hand 0 differed from our answer by 65.98%
- ** Hand 1 differed from our answer by 22.91%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
 Running a simulation with 80000 draws for 4 hands...
- ** Hand 0 differed from our answer by 17.94%
- ** Hand 1 differed from our answer by 54.04%
- ** Hand 2 differed from our answer by 18.06%
- ** Hand 3 differed from our answer by 8.96%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Hand 3 was close enough to our answer
+    Test case passed!    
 Running a simulation with 30000 draws for 2 hands...
- ** Hand 0 differed from our answer by 41.26%
- ** Hand 1 differed from our answer by 57.74%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
  - Next, few Seven Card Stud hands
 Running a simulation with 30000 draws for 2 hands...
- ** Hand 0 differed from our answer by 46.42%
- ** Hand 1 differed from our answer by 52.55%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
 Running a simulation with 40000 draws for 3 hands...
- ** Hand 0 differed from our answer by 12.98%
- ** Hand 1 differed from our answer by 39.79%
- ** Hand 2 differed from our answer by 46.23%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
  - Then one from a completely made up poker variant
 Running a simulation with 100000 draws for 6 hands...
- ** Hand 0 differed from our answer by 3.88%
- ** Hand 1 differed from our answer by 3.81%
- ** Hand 2 differed from our answer by 10.36%
- ** Hand 3 differed from our answer by 7.93%
- ** Hand 4 differed from our answer by 61.66%
- ** Hand 5 differed from our answer by 11.09%
-*** Test case failed ***
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Hand 3 was close enough to our answer
+    Hand 4 was close enough to our answer
+    Hand 5 was close enough to our answer
+    Test case passed!    
 
-Overall Grade: F
+Overall Grade: A
