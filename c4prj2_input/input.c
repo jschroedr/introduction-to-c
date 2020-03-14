@@ -50,16 +50,18 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
       // fall through to the ' ' handling, create the card then exit
       // we should be on an existing card before we hit a space
     case ' ':
-      assert(newCard == 0);
-      // create a new card and add to the hand
-      cardString = realloc(cardString, sizeof(*cardString) * cardStringLen + 1);
-      cardString[cardStringLen] = '\0';
-      addCardFromString(cardString, hand, fc);
-      // remove the cardString and start anew
-      free(cardString);
-      cardString = malloc(sizeof(*cardString));
-      cardStringLen = 0;
-      newCard = 1;
+      // assert(newCard == 0); ORIGINAL
+      if(newCard == 0) {
+	// create a new card and add to the hand
+	cardString = realloc(cardString, sizeof(*cardString) * cardStringLen + 1);
+	cardString[cardStringLen] = '\0';
+	addCardFromString(cardString, hand, fc);
+	// remove the cardString and start anew
+	free(cardString);
+	cardString = malloc(sizeof(*cardString));
+	cardStringLen = 0;
+	newCard = 1;
+      }
       break;
       // by default, add the char to the string
     default:
