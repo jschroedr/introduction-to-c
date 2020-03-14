@@ -95,11 +95,17 @@ int main(int argc, char ** argv) {
 
   // Create a deck with the remaining cards
   deck_t * rem_deck = build_remaining_deck(hands, *n_hands);
-
-  // Create an array to count how many times each hand wins
-  // with one more element for if there was a tie
-  // (2 hands == 3 elements and all initialized to zero)
-
+  printf("\n%zu", rem_deck->n_cards);
+  
+  // Create an array to count how many times each hand wins (plus one for ties)
+  int total_hands = (int)(*n_hands + 1);
+  int * win_array = malloc(sizeof(*win_array) * total_hands);
+  for(int i = 0; i < total_hands; i++) {
+    win_array[i] = 0;
+  }
+  printf("\n%d", win_array[0]);
+  printf("\n total_hands: %d \n", total_hands);
+  
   // Do each Monte Carlo trial (repeat num_trials times)
 
   // Shuffle the deck of remaining cards (wrote shuffle in course 3)
