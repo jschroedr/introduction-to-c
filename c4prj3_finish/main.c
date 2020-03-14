@@ -114,9 +114,9 @@ int main(int argc, char ** argv) {
     num_trials = 10000;
   } else if (cmdCheck == 2) {
     // argument provided, use accordingly
-    num_trials = trialsFromString(argv[2]); 
-    if(num_trials == -1) {
-      perror("Could not read num_trials from stdin");
+    num_trials = atoi(argv[2]); 
+    if(num_trials == 0) {
+      perror("Could not read num_trials from stdin with atoi");
       return EXIT_FAILURE;
     }
   } else {
