@@ -90,14 +90,22 @@ void addCardFromString(const char * cardString, deck_t * hand, future_cards_t * 
   if(cardString[0] == '?') {
     // get the value to the right of ?
     int unknownValue = 0;
-    for(int i = (strLen - 1); i > 0; i --) {
-      if(i - 1 == 0) {
+    // printf("\n strlen: %d\n", strLen);
+    int iCount = 0;  // keep track of the iterations since non-standard for loop
+    strLen --;  // zero-index the size of the card string
+    // iterate such that we never get to cardString[0], which is a ?
+    for(int i = strLen; i > 0; i --) {
+      // if it is the right-most character, take it as-is with no power raising
+      if(iCount == 0) {
 	unknownValue += (cardString[i] - '0');
       } else {
-	unknownValue += ((cardString[i] - '0') * toPower(10, i));
+	// else, take it to the power of count
+	unknownValue += ((cardString[i] - '0') * toPower(10, iCount));
       }
+      iCount ++;
      }
     card_t * ptr = add_empty_card(hand);
+    // printf("\n %s, unknownValue: %d\n", cardString, unknownValue);
     add_future_card(fc, unknownValue, ptr);
   } else {
     // normal cards should have two characters
