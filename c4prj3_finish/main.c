@@ -60,6 +60,44 @@ int trialsFromString(char * str) {
 }
 
 
+int * performMonteCarloTrial(
+			     int * win_array, deck_t * deck,
+			     future_cards_t * fc, deck_t ** hands,
+			     size_t * n_hands) {
+  // shuffle the deck of remaining cards
+  shuffle(deck);
+  // assign unknown cards from the shuffled deck
+  future_cards_from_deck(deck, fc);
+  // compare_hands to figure out which hand won
+  int best_hand_index = -1;
+  int is_tie = 0;
+  for(int i = 0; i < (*n_hands); i ++) {
+    // if this is the first iteration, best_hand_index = i
+    if(best_hand_index == -1) {
+      best_hand_index = i;
+    } else {
+      int result = compare_hands(hands[i], hands[best_hand_index]);
+      if(result == 0) {
+	// tie
+	is_tie = 1;  // mark that we had a tie at best_hand_index
+      } else {
+	if(result == 1) {
+	  best_hand_index = i;
+	  is_tie = 0;  // mark that we not longer had a tie at best_hand_index
+	}
+	// else do nothing, best_hand_index is still best
+      }
+    }
+  }
+  // if we had a tie at the end of it all, then add one to the ties index
+  if(is_tie == 1) {
+    win_array[*n_hands] ++;
+  } else {
+    win_array[best_hand_index] ++;
+  }
+  return win_array;
+}
+
 
 
 int main(int argc, char ** argv) {
@@ -76,7 +114,6 @@ int main(int argc, char ** argv) {
     num_trials = 10000;
   } else if (cmdCheck == 2) {
     // argument provided, use accordingly
-    // TODO: convert times into an integer values and test
     num_trials = trialsFromString(argv[2]); 
     if(num_trials == -1) {
       perror("Could not read num_trials from stdin");
@@ -95,7 +132,7 @@ int main(int argc, char ** argv) {
 
   // Create a deck with the remaining cards
   deck_t * rem_deck = build_remaining_deck(hands, *n_hands);
-  printf("\n%zu", rem_deck->n_cards);
+  // printf("\n%zu", rem_deck->n_cards);
   
   // Create an array to count how many times each hand wins (plus one for ties)
   int total_hands = (int)(*n_hands + 1);
@@ -103,25 +140,23 @@ int main(int argc, char ** argv) {
   for(int i = 0; i < total_hands; i++) {
     win_array[i] = 0;
   }
-  printf("\n%d", win_array[0]);
-  printf("\n total_hands: %d \n", total_hands);
+  // printf("\n%d", win_array[0]);
+  // printf("\n total_hands: %d \n", total_hands);
   
   // Do each Monte Carlo trial (repeat num_trials times)
-
-  // Shuffle the deck of remaining cards (wrote shuffle in course 3)
-
-  // Assign unknown cards from the shuffled deck (future_cards_From_deck)
-
-  // compare_hands to fiture out which hand won
-  // NOTE: with more than two hands, this is much like finding the max of an array
-  // but using compare_hands instead of > (qsort?)
-
-  // Increment the win count for the winning hand
-  // (or for the ties element of the array if there was a tie)
-
-
+  for(int i = 0; i < num_trials; i ++) {
+    win_array = performMonteCarloTrial(win_array, rem_deck, fc, hands, n_hands);
+  }
+  
   // After you do all your trials, you just need to:
-
+  // Print your results
+  for(int i = 0; i < total_hands; i ++) {
+    if(i < (total_hands - 1)) {
+      printf("Hand %d won %d / %d times (%.2f%%)\n", i, win_array[i], num_trials, (float)win_array[i] / (float)num_trials);
+    } else {
+      printf("And there were %d ties\n", win_array[i]);
+    }
+  }
   // Print your results
   // For each hand, you should:
   // printf("Hand %zu won %u / %u times (%.2f%%)\n");
